@@ -1,0 +1,42 @@
+/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/build_museum.py:24: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name); m.diffuse_color=(*color,1); m.use_nodes=True
+02:37:47 | INFO: Data are loaded, start creating Blender stuff
+02:37:47 | INFO: Blender create Mesh node Mesh stump_old
+02:37:47 | INFO: glTF import finished in 0.05s
+02:37:47 | INFO: Data are loaded, start creating Blender stuff
+02:37:47 | INFO: Blender create Mesh node Mesh rock_largeA
+02:37:47 | INFO: glTF import finished in 0.05s
+02:37:47 | INFO: Data are loaded, start creating Blender stuff
+02:37:47 | INFO: Blender create Mesh node Mesh tree_palmDetailedShort
+02:37:47 | INFO: Blender create Mesh node Mesh leafs
+02:37:47 | INFO: Blender create Mesh node Mesh leafs
+02:37:47 | INFO: glTF import finished in 0.06s
+02:37:47 | INFO: Data are loaded, start creating Blender stuff
+02:37:47 | INFO: Blender create Mesh node Mesh tree_palmDetailedShort
+02:37:47 | INFO: Blender create Mesh node Mesh leafs
+02:37:47 | INFO: Blender create Mesh node Mesh leafs
+02:37:47 | INFO: glTF import finished in 0.06s
+02:37:47 | INFO: Data are loaded, start creating Blender stuff
+02:37:47 | INFO: Blender create Mesh node Mesh tree_palmDetailedShort
+02:37:47 | INFO: Blender create Mesh node Mesh leafs
+02:37:47 | INFO: Blender create Mesh node Mesh leafs
+02:37:47 | INFO: glTF import finished in 0.06s
+02:37:47 | INFO: Data are loaded, start creating Blender stuff
+02:37:47 | INFO: Blender create Mesh node Mesh tree_palmDetailedShort
+02:37:47 | INFO: Blender create Mesh node Mesh leafs
+02:37:47 | INFO: Blender create Mesh node Mesh leafs
+02:37:47 | INFO: glTF import finished in 0.06s
+/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/build_museum.py:24: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name); m.diffuse_color=(*color,1); m.use_nodes=True
+/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/build_museum.py:346: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.color=(.06,.06,.06);scene.world.use_nodes=True
+00:31.510  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/renders/01-cutaway.png'
+01:16.884  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/renders/02-hall.png'
+01:58.157  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/renders/03-deep-time.png'
+02:41.334  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/renders/04-living-systems.png'
+Info: Packed 1 file(s)
+Info: Saved as "quiet-collection-museum.blend"
+MUSEUM_BUILD_COMPLETE
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

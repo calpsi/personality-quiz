@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "status": "Blender preview and future game contract; no connected frontend",
+  "interactions": [
+    {
+      "id": "abraham",
+      "label": "Talk to Abraham",
+      "event": "companion.open",
+      "scored": false,
+      "repeatable": true
+    },
+    {
+      "id": "clock",
+      "label": "Touch the clock",
+      "event": "clock.toggle_pause",
+      "scored": false,
+      "repeatable": true
+    },
+    {
+      "id": "labels",
+      "label": "Straighten the labels",
+      "event": "labels.toggle_settle",
+      "scored": false,
+      "repeatable": true
+    },
+    {
+      "id": "meteorite",
+      "label": "Inspect the meteorite",
+      "event": "meteorite.inspect",
+      "scored": false,
+      "repeatable": true
+    },
+    {
+      "id": "drawer",
+      "label": "Open / close the drawer",
+      "event": "drawer.toggle",
+      "scored": false,
+      "repeatable": true
+    },
+    {
+      "id": "leaves",
+      "label": "Gather / release the leaves",
+      "event": "leaves.toggle_gather",
+      "scored": false,
+      "repeatable": true
+    }
+  ],
+  "companion": {
+    "available": "all_visit_stages",
+    "mode": "companion_chat",
+    "preservePendingQuestion": true,
+    "affectsScore": false,
+    "launchers": [
+      "character_mesh",
+      "persistent_portrait"
+    ],
+    "liveApiConnected": false
+  }
+}

@@ -1,0 +1,18 @@
+00:00.689  blend            | Read blend: "/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/quiet-collection-museum.blend"
+/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/illustrated_hall.py:17: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name);m.use_nodes=True;n=m.node_tree.nodes;n.clear()
+/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/illustrated_hall.py:34: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if name.startswith('Walnut'):base=(.39,.15,.065)
+/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/illustrated_hall.py:47: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  rgb=n.new('ShaderNodeShaderToRGB');lk.new(diff.outputs[0],rgb.inputs[0]);bw=n.new('ShaderNodeRGBToBW');lk.new(rgb.outputs[0],bw.inputs[0])
+00:09.745  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/renders/08-illustrated-hall-final.png'
+00:16.191  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/renders/09-illustrated-deep-time.png'
+00:23.357  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/renders/10-illustrated-earth-space.png'
+00:30.036  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/renders/11-illustrated-living-systems.png'
+00:37.115  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/renders/12-floating-title-glitch.png'
+Info: Packed 1 file(s)
+Info: Saved as "quiet-collection-illustrated-museum.blend"
+FULL_ILLUSTRATED_MUSEUM_COMPLETE
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

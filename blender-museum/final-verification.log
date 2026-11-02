@@ -1,0 +1,11 @@
+00:00.712  blend            | Read blend: "/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/quiet-collection-illustrated-museum.blend"
+SCENE_VERIFIED 16 font objects; font packed; title visibility and movement verified
+/private/tmp/verify_illustrated_final.py:21: DeprecationWarning: 'MovieStrip.frame_final_duration' is expected to be removed in Blender 6.0
+  assert clip.frame_final_duration==144
+00:01.138  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/renders/title-video-check-001.png'
+00:01.173  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/renders/title-video-check-051.png'
+00:01.201  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/renders/title-video-check-060.png'
+VIDEO_VERIFIED 144 frames at 24fps
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

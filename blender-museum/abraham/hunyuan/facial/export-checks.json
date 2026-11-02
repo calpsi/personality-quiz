@@ -1,0 +1,82 @@
+{
+  "skin_joints": 14,
+  "morph_targets": [
+    "Blink_L",
+    "Blink_R",
+    "Curious",
+    "Worried",
+    "Delighted",
+    "Mouth_Open"
+  ],
+  "clips": [
+    "Curious",
+    "Face_Blink",
+    "Face_Curious",
+    "Face_Delighted",
+    "Face_Idle",
+    "Face_Worried",
+    "Idle",
+    "Nod",
+    "Welcome"
+  ],
+  "embedded_images": 4,
+  "roundtrip_face_weights": {
+    "Face_Blink": {
+      "Blink_L": 1.0,
+      "Blink_R": 1.0,
+      "Curious": 0.0,
+      "Worried": 0.0,
+      "Delighted": 0.0,
+      "Mouth_Open": 0.0
+    },
+    "Face_Curious": {
+      "Blink_L": 0.0,
+      "Blink_R": 0.0,
+      "Curious": 1.0,
+      "Worried": 0.0,
+      "Delighted": 0.0,
+      "Mouth_Open": 0.0
+    },
+    "Face_Delighted": {
+      "Blink_L": 0.0,
+      "Blink_R": 0.0,
+      "Curious": 0.0,
+      "Worried": 0.0,
+      "Delighted": 1.0,
+      "Mouth_Open": 0.0
+    },
+    "Face_Idle": {
+      "Blink_L": 1.0,
+      "Blink_R": 1.0,
+      "Curious": 0.0,
+      "Worried": 0.0,
+      "Delighted": 0.0,
+      "Mouth_Open": 0.0
+    },
+    "Face_Worried": {
+      "Blink_L": 0.0,
+      "Blink_R": 0.0,
+      "Curious": 0.0,
+      "Worried": 1.0,
+      "Delighted": 0.0,
+      "Mouth_Open": 0.0
+    }
+  },
+  "face_interpolation": {
+    "Face_Blink": [
+      "STEP"
+    ],
+    "Face_Curious": [
+      "STEP"
+    ],
+    "Face_Delighted": [
+      "STEP"
+    ],
+    "Face_Idle": [
+      "STEP"
+    ],
+    "Face_Worried": [
+      "STEP"
+    ]
+  }
+}

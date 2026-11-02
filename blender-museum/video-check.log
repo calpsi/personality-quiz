@@ -1,0 +1,13 @@
+/private/tmp/check_museum_video.py:9: DeprecationWarning: 'MovieStrip.frame_final_duration' is expected to be removed in Blender 6.0
+  print('VIDEO_FRAMES',clip.frame_final_duration,flush=True)
+VIDEO_FRAMES 144
+/private/tmp/check_museum_video.py:10: DeprecationWarning: 'MovieStrip.frame_final_duration' is expected to be removed in Blender 6.0
+  assert clip.frame_final_duration==144
+00:00.487  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/renders/tour-check-001.png'
+00:00.511  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/renders/tour-check-048.png'
+00:00.529  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/renders/tour-check-096.png'
+00:00.545  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/renders/tour-check-140.png'
+VIDEO_DECODE_VERIFIED
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

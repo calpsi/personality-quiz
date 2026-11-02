@@ -1,0 +1,25 @@
+{
+  "bones": 14,
+  "weighted_vertices": 34897,
+  "max_weight_error": 4.470348358154297e-08,
+  "pose_checks": {
+    "Curious": {
+      "edge_stretch_p99": 1.10358513891905,
+      "max_edge_stretch": 1.65734254112485
+    },
+    "Nod": {
+      "edge_stretch_p99": 1.082159960454357,
+      "max_edge_stretch": 1.1707366817780371
+    },
+    "Welcome": {
+      "edge_stretch_p99": 1.4051482786751601,
+      "max_edge_stretch": 2.7564792690503626
+    }
+  },
+  "clips": [
+    "Idle",
+    "Curious",
+    "Nod",
+    "Welcome"
+  ]
+}

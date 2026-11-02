@@ -1,0 +1,282 @@
+/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/abraham/build_abraham.py:10: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name);m.diffuse_color=(*col,1);m.use_nodes=True
+/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/abraham/build_abraham.py:147: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  s.world=bpy.data.worlds.new('Studio world');s.world.use_nodes=True;s.world.node_tree.nodes['Background'].inputs[0].default_value=(.42,.34,.28,1);s.world.node_tree.nodes['Background'].inputs[1].default_value=.4
+00:12.705  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/abraham/renders/01-three-quarter.png'
+00:24.169  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/abraham/renders/02-front.png'
+00:34.878  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/abraham/renders/03-side.png'
+00:45.978  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/abraham/renders/04-back.png'
+Info: Saved as "abraham-character.blend"
+INFO Draco is available, use library at /Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_draco_bridge.dylib
+INFO MeshOptimizer is available, use library at /Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_meshopt_bridge.dylib
+15:38:40 | INFO: Starting glTF 2.0 export
+15:38:40 | INFO: Extracting primitive: Sphere.024
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.025
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Paw digit
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Paw digit.001
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Paw digit.002
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.036
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.037
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Paw digit.003
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Paw digit.004
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Paw digit.005
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.022
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.005
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Crown fur tuft
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Crown fur tuft.001
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Crown fur tuft.002
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.006
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.010
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.015
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.019
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.016
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.020
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.014
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.018
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Forehead curl
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.007
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.011
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.008
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.009
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.013
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.012
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.004
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Mouth warm centre
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.023
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Small surprised mouth
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.017
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.021
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Cube.004
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Cube.005
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.027
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.029
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.031
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.033
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.035
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.039
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.041
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.043
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.045
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.047
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Badge clip
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Cube.006
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Cube.007
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Cube.008
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Badge museum pediment
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Cube.009
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Cube.010
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Cube.003
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Cape gold border
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Cape gold border.001
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Cape gold front seam
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Cape gold front seam.001
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Cream collar
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Cream collar.001
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.082
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.088
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.083
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.084
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.085
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.086
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.087
+15:38:40 | INFO: Primitives created: 1
+15:38:40 | INFO: Extracting primitive: Sphere.026
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.028
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.030
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.032
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.034
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.038
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.040
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.042
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.044
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.046
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Laurel embroidered stem
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Laurel embroidered stem.001
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Laurel embroidered stem.002
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Laurel embroidered stem.003
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.001
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.002
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Olive open-front museum cape
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.048
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.049
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.050
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.051
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.052
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.053
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.054
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.055
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.056
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.057
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.058
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.059
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.060
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.061
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.062
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.063
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.064
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.065
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.066
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.067
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.068
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.069
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.070
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.071
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.072
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.073
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.074
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.075
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.076
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.077
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.078
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.079
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Ribbon tail
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Ribbon tail.001
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Cube
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Cube.002
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Satchel cross-body strap
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Cube.001
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Satchel gold stitching
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.089
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.003
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.080
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Extracting primitive: Sphere.081
+15:38:41 | INFO: Primitives created: 1
+15:38:41 | INFO: Finished glTF 2.0 export in 0.1476278305053711 s
+00:46.217  blend            | Read blend: "/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/quiet-collection-illustrated-museum.blend"
+00:50.135  render           | Saved: '/Users/phillicia/Documents/ChatGPT/personality quiz/blender-museum/abraham/renders/05-in-museum.png'
+
+Info: No new files have been packed
+Info: Saved as "quiet-collection-with-abraham.blend"
+ABRAHAM_COMPLETE 13460 evaluated triangles
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

@@ -1,0 +1,12 @@
+{
+  "scene": "quiet-collection-dreamscape.blend",
+  "operatorChecks": "all nine dialogue/interaction operators passed; toggles restored; close passed",
+  "characterHitTargets": "all character meshes tagged",
+  "paletteAndLights": "identical to original facial-rig museum",
+  "clockCase": "fixed to wall; no transform animation",
+  "drawer": "wall-adjacent cabinet; tray slides in local coordinates",
+  "liveAI": false,
+  "raycastUI": "not manually exercised; sidebar operators checked in Blender",
+  "originalCharacterRig": "ARMATURE",
+  "objectCount": 2279
+}

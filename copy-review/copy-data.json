@@ -1,0 +1,2774 @@
+[
+  {
+    "title": "The Quiet Collection game copy",
+    "note": "Editable copy master • 2 November 2026",
+    "fields": [
+      {
+        "id": "EDIT-01",
+        "label": "How to edit",
+        "text": "Edit the player-facing wording directly. Keep the IDs beside each entry so your changes can be matched back to the game. IDs, labels and status notes are editorial aids, not text shown to players.",
+        "status": "Editorial"
+      },
+      {
+        "id": "EDIT-02",
+        "label": "Status key",
+        "text": "Existing = wording already present in the design, companion prompt or museum scene. Draft = new wording proposed for review. Dynamic = a runtime template or a bounded example of AI dialogue. Braces such as {specimen_name} are placeholders.",
+        "status": "Editorial"
+      },
+      {
+        "id": "EDIT-03",
+        "label": "Scope",
+        "text": "This document covers entry, navigation, all eight questions and their reactions, the final choice, optional reflection, every result and alternative introduction, incomplete visits, saving and sharing, settings, errors, museum labels and Abraham’s dialogue. Most interface text remains planned rather than implemented.",
+        "status": "Editorial"
+      },
+      {
+        "id": "EDIT-04",
+        "label": "Questions and result meaning",
+        "text": "You can rewrite freely. If an answer’s meaning changes, flag it for a scoring review; its hidden scoring is intentionally excluded from this copy document. AI-generated wording cannot be listed exhaustively, so editable templates, fixed fallbacks and voice guidance are included.",
+        "status": "Editorial"
+      },
+      {
+        "id": "BRAND-01",
+        "label": "Museum name",
+        "text": "The Quiet Collection",
+        "status": "Existing"
+      },
+      {
+        "id": "BRAND-02",
+        "label": "Quiz title",
+        "text": "What museum specimen are you?",
+        "status": "Existing"
+      },
+      {
+        "id": "BRAND-03",
+        "label": "Floating central hall title",
+        "text": "WHAT ARE YOU?",
+        "status": "Existing"
+      },
+      {
+        "id": "BRAND-04",
+        "label": "Short description",
+        "text": "A natural history museum personality quiz.",
+        "status": "Draft"
+      }
+    ]
+  },
+  {
+    "title": "Entry and introduction",
+    "note": "",
+    "fields": [
+      {
+        "id": "ENTRY-01",
+        "label": "Opening paragraph",
+        "text": "Walk through a small natural history museum. At eight exhibits, make a choice as yourself. At the end, discover your specimen and the decisions that led us there.",
+        "status": "Existing"
+      },
+      {
+        "id": "ENTRY-02",
+        "label": "Reassurance",
+        "text": "There are no right answers, and no science knowledge is needed. You can change an answer or pass. Looking around doesn't affect your result.",
+        "status": "Existing"
+      },
+      {
+        "id": "ENTRY-03",
+        "label": "Time and purpose",
+        "text": "About 10 minutes · A playful reflection, not a psychological assessment.",
+        "status": "Existing"
+      },
+      {
+        "id": "ENTRY-04",
+        "label": "Primary button",
+        "text": "Enter the museum",
+        "status": "Existing"
+      },
+      {
+        "id": "ENTRY-05",
+        "label": "Alternative button",
+        "text": "Use the step-by-step view",
+        "status": "Existing"
+      },
+      {
+        "id": "ENTRY-06",
+        "label": "Abraham introduction",
+        "text": "Welcome to the Quiet Collection. I’m Abraham, the administrator. This is a personality quiz with a little room to wander—eight stops, then we’ll find your specimen match.",
+        "status": "Draft"
+      },
+      {
+        "id": "ENTRY-07",
+        "label": "Start conversation button",
+        "text": "Hello, Abraham",
+        "status": "Draft"
+      },
+      {
+        "id": "ENTRY-08",
+        "label": "Skip introduction button",
+        "text": "Let me look around",
+        "status": "Draft"
+      },
+      {
+        "id": "ENTRY-09",
+        "label": "Abraham directions",
+        "text": "The three galleries are just through the hall. Start wherever you like. Your ticket keeps track of the stops, which saves me following you around with a clipboard.",
+        "status": "Draft"
+      },
+      {
+        "id": "ENTRY-10",
+        "label": "Optional ticket colour prompt",
+        "text": "Choose a colour for your ticket.",
+        "status": "Draft"
+      },
+      {
+        "id": "ENTRY-11",
+        "label": "Colour help",
+        "text": "Just for the ticket. This won’t affect your result.",
+        "status": "Draft"
+      },
+      {
+        "id": "ENTRY-12",
+        "label": "Colour choices",
+        "text": "Moss green / Warm ivory / Burgundy / Midnight blue",
+        "status": "Draft"
+      },
+      {
+        "id": "ENTRY-13",
+        "label": "Skip colour button",
+        "text": "Use the museum ticket",
+        "status": "Draft"
+      }
+    ]
+  },
+  {
+    "title": "Movement and accessibility",
+    "note": "",
+    "fields": [
+      {
+        "id": "MOVE-01",
+        "label": "First movement hint",
+        "text": "Select a doorway or exhibit to move closer. Drag to look around, or use the turn buttons.",
+        "status": "Draft"
+      },
+      {
+        "id": "MOVE-02",
+        "label": "Keyboard hint",
+        "text": "Use Tab to move between controls and Enter to choose. Use Turn left and Turn right to look around.",
+        "status": "Draft"
+      },
+      {
+        "id": "MOVE-03",
+        "label": "Turn buttons",
+        "text": "Turn left / Turn right",
+        "status": "Draft"
+      },
+      {
+        "id": "MOVE-04",
+        "label": "Navigation buttons",
+        "text": "Back to the hall / Back to gallery / Open museum map / Close map",
+        "status": "Draft"
+      },
+      {
+        "id": "MOVE-05",
+        "label": "View setting",
+        "text": "Visit style",
+        "status": "Draft"
+      },
+      {
+        "id": "MOVE-06",
+        "label": "View choices",
+        "text": "Explore in 3D / Step-by-step view",
+        "status": "Draft"
+      },
+      {
+        "id": "MOVE-07",
+        "label": "View explanation",
+        "text": "Both views have the same questions and results. You can switch at any time.",
+        "status": "Draft"
+      },
+      {
+        "id": "MOVE-08",
+        "label": "Movement setting",
+        "text": "Movement between stops",
+        "status": "Draft"
+      },
+      {
+        "id": "MOVE-09",
+        "label": "Movement choices",
+        "text": "Short camera movement / Instant transitions",
+        "status": "Draft"
+      },
+      {
+        "id": "MOVE-10",
+        "label": "Title animation setting",
+        "text": "Floating title effect",
+        "status": "Draft"
+      },
+      {
+        "id": "MOVE-11",
+        "label": "Title animation choices",
+        "text": "Animated / Still",
+        "status": "Draft"
+      },
+      {
+        "id": "MOVE-12",
+        "label": "Sound setting",
+        "text": "Museum sound",
+        "status": "Draft"
+      },
+      {
+        "id": "MOVE-13",
+        "label": "Sound choices",
+        "text": "Off / On",
+        "status": "Draft"
+      },
+      {
+        "id": "MOVE-14",
+        "label": "Reading setting",
+        "text": "Text size",
+        "status": "Draft"
+      },
+      {
+        "id": "MOVE-15",
+        "label": "Text size choices",
+        "text": "Standard / Larger",
+        "status": "Draft"
+      },
+      {
+        "id": "MOVE-16",
+        "label": "Settings controls",
+        "text": "Settings / Apply / Close",
+        "status": "Draft"
+      },
+      {
+        "id": "MOVE-17",
+        "label": "3D unavailable message",
+        "text": "The 3D museum couldn’t load on this device. You can still visit every stop in the step-by-step view.",
+        "status": "Draft"
+      },
+      {
+        "id": "MOVE-18",
+        "label": "Fallback button",
+        "text": "Continue in step-by-step view",
+        "status": "Draft"
+      }
+    ]
+  },
+  {
+    "title": "Ticket map and answer controls",
+    "note": "",
+    "fields": [
+      {
+        "id": "TICKET-01",
+        "label": "Ticket heading",
+        "text": "Your visit",
+        "status": "Draft"
+      },
+      {
+        "id": "TICKET-02",
+        "label": "Answered progress",
+        "text": "{answered} of 8 stops answered",
+        "status": "Draft"
+      },
+      {
+        "id": "TICKET-03",
+        "label": "Passed progress",
+        "text": "{passed} passed",
+        "status": "Draft"
+      },
+      {
+        "id": "TICKET-04",
+        "label": "Remaining progress",
+        "text": "{remaining} still to visit",
+        "status": "Draft"
+      },
+      {
+        "id": "TICKET-05",
+        "label": "Stop statuses",
+        "text": "Not visited / Answered / Passed",
+        "status": "Draft"
+      },
+      {
+        "id": "TICKET-06",
+        "label": "Ticket actions",
+        "text": "Visit this stop / Review answer / Continue exploring / Finish my visit",
+        "status": "Draft"
+      },
+      {
+        "id": "TICKET-07",
+        "label": "Scored hotspot",
+        "text": "Quiz stop",
+        "status": "Draft"
+      },
+      {
+        "id": "TICKET-08",
+        "label": "Decorative hotspot",
+        "text": "Look closer",
+        "status": "Draft"
+      },
+      {
+        "id": "ANSWER-01",
+        "label": "Answer instruction",
+        "text": "Choose the answer closest to your reason. You don’t have to agree with every word.",
+        "status": "Draft"
+      },
+      {
+        "id": "ANSWER-02",
+        "label": "Answer controls",
+        "text": "Keep this choice / Choose another answer / Not sure / pass / Back to gallery",
+        "status": "Draft"
+      },
+      {
+        "id": "ANSWER-03",
+        "label": "Unconfirmed selection heading",
+        "text": "Your choice",
+        "status": "Draft"
+      },
+      {
+        "id": "ANSWER-04",
+        "label": "Confirmed answer message",
+        "text": "Choice kept. You can change it from your ticket.",
+        "status": "Draft"
+      },
+      {
+        "id": "ANSWER-05",
+        "label": "Pass confirmation",
+        "text": "You’ve passed this stop. You can come back to it later.",
+        "status": "Draft"
+      },
+      {
+        "id": "ANSWER-06",
+        "label": "Edit heading",
+        "text": "Change your answer",
+        "status": "Draft"
+      },
+      {
+        "id": "ANSWER-07",
+        "label": "Edit explanation",
+        "text": "Your new choice will replace the one you made before.",
+        "status": "Draft"
+      },
+      {
+        "id": "ANSWER-08",
+        "label": "Edit actions",
+        "text": "Keep this new choice / Keep my previous answer",
+        "status": "Draft"
+      },
+      {
+        "id": "ANSWER-09",
+        "label": "Nothing selected message",
+        "text": "Choose an answer, or pass this stop.",
+        "status": "Draft"
+      },
+      {
+        "id": "ANSWER-10",
+        "label": "Final stop ready",
+        "text": "You’ve answered or passed all eight stops. Return to the hall when you’re ready.",
+        "status": "Draft"
+      },
+      {
+        "id": "ANSWER-11",
+        "label": "Next-stop button",
+        "text": "Choose another stop",
+        "status": "Draft"
+      },
+      {
+        "id": "ANSWER-12",
+        "label": "Early finish heading",
+        "text": "Finish this visit?",
+        "status": "Draft"
+      },
+      {
+        "id": "ANSWER-13",
+        "label": "Early finish body",
+        "text": "You’ve answered {answered} stops and passed {passed}. There are {remaining} stops left. A shorter visit may give you a partial result.",
+        "status": "Draft"
+      },
+      {
+        "id": "ANSWER-14",
+        "label": "Early finish actions",
+        "text": "Keep exploring / Finish with these choices",
+        "status": "Draft"
+      }
+    ]
+  },
+  {
+    "title": "Gallery and display labels",
+    "note": "",
+    "fields": [
+      {
+        "id": "SIGN-01",
+        "label": "Entrance sign",
+        "text": "NATURAL HISTORY",
+        "status": "Existing"
+      },
+      {
+        "id": "SIGN-02",
+        "label": "Hall sign",
+        "text": "THE QUIET COLLECTION",
+        "status": "Existing"
+      },
+      {
+        "id": "SIGN-03",
+        "label": "West gallery sign",
+        "text": "DEEP TIME",
+        "status": "Existing"
+      },
+      {
+        "id": "SIGN-04",
+        "label": "East gallery sign",
+        "text": "EARTH & SPACE",
+        "status": "Existing"
+      },
+      {
+        "id": "SIGN-05",
+        "label": "North gallery sign",
+        "text": "LIVING SYSTEMS",
+        "status": "Existing"
+      },
+      {
+        "id": "GALLERY-01",
+        "label": "Deep Time introduction",
+        "text": "Look at what remains, what is missing, and what we choose to remember.",
+        "status": "Draft"
+      },
+      {
+        "id": "GALLERY-02",
+        "label": "Earth and Space introduction",
+        "text": "Open a drawer, compare two views, and decide what you would investigate next.",
+        "status": "Draft"
+      },
+      {
+        "id": "GALLERY-03",
+        "label": "Living Systems introduction",
+        "text": "Consider how places change and what you would bring to a shared afternoon.",
+        "status": "Draft"
+      },
+      {
+        "id": "CASE-01",
+        "label": "Central case before completion",
+        "text": "Your specimen will appear here at the end of your visit.",
+        "status": "Draft"
+      },
+      {
+        "id": "CASE-02",
+        "label": "Abraham at the central case",
+        "text": "This case is waiting for your result. There’s no need to guess what belongs in it yet.",
+        "status": "Draft"
+      },
+      {
+        "id": "CASE-03",
+        "label": "Central case actions",
+        "text": "Continue my visit / Review my ticket",
+        "status": "Draft"
+      },
+      {
+        "id": "LOOK-01",
+        "label": "Decorative display heading",
+        "text": "A closer look",
+        "status": "Draft"
+      },
+      {
+        "id": "LOOK-02",
+        "label": "Decorative display help",
+        "text": "Explore this display for as long as you like. This isn’t a quiz stop.",
+        "status": "Draft"
+      },
+      {
+        "id": "LOOK-03",
+        "label": "Replica notice",
+        "text": "Stylised museum replica",
+        "status": "Draft"
+      },
+      {
+        "id": "LOOK-04",
+        "label": "Inspection controls",
+        "text": "Rotate left / Rotate right / Zoom in / Zoom out / Reset view / Close",
+        "status": "Draft"
+      },
+      {
+        "id": "LOOK-05",
+        "label": "Fossil cast detail labels",
+        "text": "Shape / Surface / Original and restored / Identification",
+        "status": "Draft"
+      },
+      {
+        "id": "LOOK-06",
+        "label": "Two views plaque",
+        "text": "06 · Two Views",
+        "status": "Draft"
+      },
+      {
+        "id": "LOOK-07",
+        "label": "Q6 panel title",
+        "text": "Same label, different view",
+        "status": "Draft"
+      }
+    ]
+  },
+  {
+    "title": "Q1  Deep Time  The small detail",
+    "note": "The question, answer wording and evidence lines are existing. Abraham’s introduction and confirmations are drafts. Choice letters and IDs are editorial only.",
+    "fields": [
+      {
+        "id": "Q1-INTRO",
+        "label": "Abraham introduction",
+        "text": "Have a look before you choose. There’s no identification test at the end of this one.",
+        "status": "Draft"
+      },
+      {
+        "id": "Q1-LOOK",
+        "label": "Optional inspection instruction",
+        "text": "Rotate the cast or select a detail. Looking around doesn’t affect your answer.",
+        "status": "Draft"
+      },
+      {
+        "id": "q1",
+        "label": "Question",
+        "text": "You have time for one closer look before moving on. What would you rather leave knowing?",
+        "status": "Existing"
+      },
+      {
+        "id": "q1-i",
+        "label": "Choice A",
+        "text": "How they worked out what this animal was.",
+        "status": "Existing"
+      },
+      {
+        "id": "q1-i-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The comparison overlay is open.",
+        "status": "Draft"
+      },
+      {
+        "id": "q1-i-evidence",
+        "label": "Result evidence line",
+        "text": "Chose the evidence behind an identification.",
+        "status": "Existing"
+      },
+      {
+        "id": "q1-c",
+        "label": "Choice B",
+        "text": "What survived from the original, and what was restored.",
+        "status": "Existing"
+      },
+      {
+        "id": "q1-c-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The original and restored areas are marked.",
+        "status": "Draft"
+      },
+      {
+        "id": "q1-c-evidence",
+        "label": "Result evidence line",
+        "text": "Wanted to distinguish retained material from later changes.",
+        "status": "Existing"
+      },
+      {
+        "id": "q1-a",
+        "label": "Choice C",
+        "text": "What I could notice before reading the explanation.",
+        "status": "Existing"
+      },
+      {
+        "id": "q1-a-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The explanation is folded away. You can open it whenever you like.",
+        "status": "Draft"
+      },
+      {
+        "id": "q1-a-evidence",
+        "label": "Result evidence line",
+        "text": "Chose space for a first-hand impression.",
+        "status": "Existing"
+      },
+      {
+        "id": "q1-r",
+        "label": "Choice D",
+        "text": "What different people noticed when they first saw it.",
+        "status": "Existing"
+      },
+      {
+        "id": "q1-r-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The three visitor observations are now beside the cast.",
+        "status": "Draft"
+      },
+      {
+        "id": "q1-r-evidence",
+        "label": "Result evidence line",
+        "text": "Wanted multiple perspectives on the same object.",
+        "status": "Existing"
+      }
+    ]
+  },
+  {
+    "title": "Q2  Deep Time  The missing piece",
+    "note": "The question, answer wording and evidence lines are existing. Abraham’s introduction and confirmations are drafts. Choice letters and IDs are editorial only.",
+    "fields": [
+      {
+        "id": "Q2-INTRO",
+        "label": "Abraham introduction",
+        "text": "That gap is meant to be visible. The question is what we do with it.",
+        "status": "Draft"
+      },
+      {
+        "id": "Q2-LOOK",
+        "label": "Optional inspection instruction",
+        "text": "Preview a display treatment by selecting it. You can change your mind before confirming.",
+        "status": "Draft"
+      },
+      {
+        "id": "q2",
+        "label": "Question",
+        "text": "This skeleton is missing a piece. Which version would you rather encounter in the museum?",
+        "status": "Existing"
+      },
+      {
+        "id": "q2-i",
+        "label": "Choice A",
+        "text": "Show two possible reconstructions beside the gap. I want to compare them.",
+        "status": "Existing"
+      },
+      {
+        "id": "q2-i-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "Both possible reconstructions are visible.",
+        "status": "Draft"
+      },
+      {
+        "id": "q2-i-evidence",
+        "label": "Result evidence line",
+        "text": "Preferred competing explanations to a single reconstruction.",
+        "status": "Existing"
+      },
+      {
+        "id": "q2-c",
+        "label": "Choice B",
+        "text": "Leave the gap visible. I want to see exactly what remains.",
+        "status": "Existing"
+      },
+      {
+        "id": "q2-c-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The gap stays open, with the surviving material marked.",
+        "status": "Draft"
+      },
+      {
+        "id": "q2-c-evidence",
+        "label": "Result evidence line",
+        "text": "Kept absence visible rather than filling it in.",
+        "status": "Existing"
+      },
+      {
+        "id": "q2-a",
+        "label": "Choice C",
+        "text": "Add a removable reconstruction. I want to try seeing the whole animal.",
+        "status": "Existing"
+      },
+      {
+        "id": "q2-a-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The removable replica is in place.",
+        "status": "Draft"
+      },
+      {
+        "id": "q2-a-evidence",
+        "label": "Result evidence line",
+        "text": "Chose a reversible way to move forward with incomplete information.",
+        "status": "Existing"
+      },
+      {
+        "id": "q2-r",
+        "label": "Choice D",
+        "text": "Let visitors switch between versions. Different views may help different people.",
+        "status": "Existing"
+      },
+      {
+        "id": "q2-r-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The display can now switch between its different views.",
+        "status": "Draft"
+      },
+      {
+        "id": "q2-r-evidence",
+        "label": "Result evidence line",
+        "text": "Made room for different ways of understanding the exhibit.",
+        "status": "Existing"
+      }
+    ]
+  },
+  {
+    "title": "Q3  Deep Time  What gets remembered",
+    "note": "The question, answer wording and evidence lines are existing. Abraham’s introduction and confirmations are drafts. Choice letters and IDs are editorial only.",
+    "fields": [
+      {
+        "id": "Q3-INTRO",
+        "label": "Abraham introduction",
+        "text": "Most days don’t leave a fossil. This is a small exercise in deciding what stays.",
+        "status": "Draft"
+      },
+      {
+        "id": "Q3-LOOK",
+        "label": "Optional inspection instruction",
+        "text": "Select a panel to preview it in the empty space.",
+        "status": "Draft"
+      },
+      {
+        "id": "q3",
+        "label": "Question",
+        "text": "You’re making a small record of an ordinary day, to be opened years from now. What would you put at its centre?",
+        "status": "Existing"
+      },
+      {
+        "id": "q3-i",
+        "label": "Choice A",
+        "text": "The unanswered question I kept returning to.",
+        "status": "Existing"
+      },
+      {
+        "id": "q3-i-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "Your question card is clipped into the record.",
+        "status": "Draft"
+      },
+      {
+        "id": "q3-i-evidence",
+        "label": "Result evidence line",
+        "text": "Kept an unresolved question as the day's central record.",
+        "status": "Existing"
+      },
+      {
+        "id": "q3-c",
+        "label": "Choice B",
+        "text": "A small routine I might otherwise forget.",
+        "status": "Existing"
+      },
+      {
+        "id": "q3-c-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "Your routine sketch is clipped into the record.",
+        "status": "Draft"
+      },
+      {
+        "id": "q3-c-evidence",
+        "label": "Result evidence line",
+        "text": "Preserved an easily overlooked part of everyday life.",
+        "status": "Existing"
+      },
+      {
+        "id": "q3-a",
+        "label": "Choice C",
+        "text": "A decision that changed how the day went.",
+        "status": "Existing"
+      },
+      {
+        "id": "q3-a-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "Your decision sketch is clipped into the record.",
+        "status": "Draft"
+      },
+      {
+        "id": "q3-a-evidence",
+        "label": "Result evidence line",
+        "text": "Focused on a moment of making a difference.",
+        "status": "Existing"
+      },
+      {
+        "id": "q3-r",
+        "label": "Choice D",
+        "text": "An exchange with someone that stayed with me.",
+        "status": "Existing"
+      },
+      {
+        "id": "q3-r-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "Your exchange is clipped into the record.",
+        "status": "Draft"
+      },
+      {
+        "id": "q3-r-evidence",
+        "label": "Result evidence line",
+        "text": "Remembered the day through an interaction.",
+        "status": "Existing"
+      }
+    ]
+  },
+  {
+    "title": "Q4  Earth & Space  The surprise drawer",
+    "note": "The question, answer wording and evidence lines are existing. Abraham’s introduction and confirmations are drafts. Choice letters and IDs are editorial only.",
+    "fields": [
+      {
+        "id": "Q4-INTRO",
+        "label": "Abraham introduction",
+        "text": "A drawer can hold a surprise. So can an afternoon you thought you’d already planned.",
+        "status": "Draft"
+      },
+      {
+        "id": "Q4-LOOK",
+        "label": "Optional inspection instruction",
+        "text": "Open the drawer and use the magnifier if you like.",
+        "status": "Draft"
+      },
+      {
+        "id": "q4",
+        "label": "Question",
+        "text": "You set aside an afternoon for something familiar. Just as you begin, an unexpected invitation arrives. Both sound good. What is closest to your instinct?",
+        "status": "Existing"
+      },
+      {
+        "id": "q4-i",
+        "label": "Choice A",
+        "text": "Get a little more detail before deciding which interests me more.",
+        "status": "Existing"
+      },
+      {
+        "id": "q4-i-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The extra information card is open.",
+        "status": "Draft"
+      },
+      {
+        "id": "q4-i-evidence",
+        "label": "Result evidence line",
+        "text": "Sought more context before choosing.",
+        "status": "Existing"
+      },
+      {
+        "id": "q4-c",
+        "label": "Choice B",
+        "text": "Keep the afternoon I planned; suggest another day for the invitation.",
+        "status": "Existing"
+      },
+      {
+        "id": "q4-c-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The original tray stays in view.",
+        "status": "Draft"
+      },
+      {
+        "id": "q4-c-evidence",
+        "label": "Result evidence line",
+        "text": "Protected an existing intention while leaving a future opening.",
+        "status": "Existing"
+      },
+      {
+        "id": "q4-a",
+        "label": "Choice C",
+        "text": "Take the invitation. I can return to my original plan.",
+        "status": "Existing"
+      },
+      {
+        "id": "q4-a-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The second tray is open.",
+        "status": "Draft"
+      },
+      {
+        "id": "q4-a-evidence",
+        "label": "Result evidence line",
+        "text": "Accepted an opportunity while treating the original plan as recoverable.",
+        "status": "Existing"
+      },
+      {
+        "id": "q4-r",
+        "label": "Choice D",
+        "text": "See whether we can combine some of both without making it awkward.",
+        "status": "Existing"
+      },
+      {
+        "id": "q4-r-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "Both trays are now side by side.",
+        "status": "Draft"
+      },
+      {
+        "id": "q4-r-evidence",
+        "label": "Result evidence line",
+        "text": "Looked for a workable shared arrangement.",
+        "status": "Existing"
+      }
+    ]
+  },
+  {
+    "title": "Q5  Earth & Space  The next test",
+    "note": "The question, answer wording and evidence lines are existing. Abraham’s introduction and confirmations are drafts. Choice letters and IDs are editorial only.",
+    "fields": [
+      {
+        "id": "Q5-INTRO",
+        "label": "Abraham introduction",
+        "text": "There’s enough funding for one next step. Each proposal gives something and asks something in return.",
+        "status": "Draft"
+      },
+      {
+        "id": "Q5-LOOK",
+        "label": "Optional inspection instruction",
+        "text": "Rotate the replica or inspect the proposal cards. This is a fictional testing scenario.",
+        "status": "Draft"
+      },
+      {
+        "id": "q5",
+        "label": "Question",
+        "text": "An unfamiliar specimen could be studied in several ways. There is funding for one next step. Which would you back?",
+        "status": "Existing"
+      },
+      {
+        "id": "q5-i",
+        "label": "Choice A",
+        "text": "A detailed scan: more information, but it may not settle the main question.",
+        "status": "Existing"
+      },
+      {
+        "id": "q5-i-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The scan preview is open.",
+        "status": "Draft"
+      },
+      {
+        "id": "q5-i-evidence",
+        "label": "Result evidence line",
+        "text": "Accepted an incomplete answer in exchange for more evidence.",
+        "status": "Existing"
+      },
+      {
+        "id": "q5-c",
+        "label": "Choice B",
+        "text": "Better storage first: protect the specimen, though the answer will wait.",
+        "status": "Existing"
+      },
+      {
+        "id": "q5-c-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The storage cradle is in place.",
+        "status": "Draft"
+      },
+      {
+        "id": "q5-c-evidence",
+        "label": "Result evidence line",
+        "text": "Protected future options before pursuing an immediate answer.",
+        "status": "Existing"
+      },
+      {
+        "id": "q5-a",
+        "label": "Choice C",
+        "text": "A tiny sample test: a clearer answer, but it permanently uses some material.",
+        "status": "Existing"
+      },
+      {
+        "id": "q5-a-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The sample diagram is open. The display specimen stays intact.",
+        "status": "Draft"
+      },
+      {
+        "id": "q5-a-evidence",
+        "label": "Result evidence line",
+        "text": "Accepted a stated cost for a more decisive next step.",
+        "status": "Existing"
+      },
+      {
+        "id": "q5-r",
+        "label": "Choice D",
+        "text": "A joint study with another museum: shared expertise, but a slower start.",
+        "status": "Existing"
+      },
+      {
+        "id": "q5-r-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The shared-study comparison is open.",
+        "status": "Draft"
+      },
+      {
+        "id": "q5-r-evidence",
+        "label": "Result evidence line",
+        "text": "Chose shared expertise despite a coordination cost.",
+        "status": "Existing"
+      }
+    ]
+  },
+  {
+    "title": "Q6  Earth & Space  Same label, different view",
+    "note": "The question, answer wording and evidence lines are existing. Abraham’s introduction and confirmations are drafts. Choice letters and IDs are editorial only.",
+    "fields": [
+      {
+        "id": "Q6-INTRO",
+        "label": "Abraham introduction",
+        "text": "These two cards don’t agree. You don’t have to decide which person was right.",
+        "status": "Draft"
+      },
+      {
+        "id": "Q6-LOOK",
+        "label": "Optional inspection instruction",
+        "text": "Select either card or compare the specimens side by side.",
+        "status": "Draft"
+      },
+      {
+        "id": "q6",
+        "label": "Question",
+        "text": "You and someone else come away from the same experience with different impressions. What would you most want to do?",
+        "status": "Existing"
+      },
+      {
+        "id": "q6-i",
+        "label": "Choice A",
+        "text": "Compare the particular details each of us noticed.",
+        "status": "Existing"
+      },
+      {
+        "id": "q6-i-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The detail markers connect the two accounts.",
+        "status": "Draft"
+      },
+      {
+        "id": "q6-i-evidence",
+        "label": "Result evidence line",
+        "text": "Explored the observations behind different impressions.",
+        "status": "Existing"
+      },
+      {
+        "id": "q6-c",
+        "label": "Choice B",
+        "text": "Keep both accounts intact; neither needs replacing yet.",
+        "status": "Existing"
+      },
+      {
+        "id": "q6-c-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "Both accounts stay on display.",
+        "status": "Draft"
+      },
+      {
+        "id": "q6-c-evidence",
+        "label": "Result evidence line",
+        "text": "Preserved separate accounts without forcing resolution.",
+        "status": "Existing"
+      },
+      {
+        "id": "q6-a",
+        "label": "Choice C",
+        "text": "Try a different approach together and see what happens next.",
+        "status": "Existing"
+      },
+      {
+        "id": "q6-a-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "A third viewing angle is available.",
+        "status": "Draft"
+      },
+      {
+        "id": "q6-a-evidence",
+        "label": "Result evidence line",
+        "text": "Used another experience to move beyond the disagreement.",
+        "status": "Existing"
+      },
+      {
+        "id": "q6-r",
+        "label": "Choice D",
+        "text": "Find out why that impression mattered to them.",
+        "status": "Existing"
+      },
+      {
+        "id": "q6-r-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The context card is open.",
+        "status": "Draft"
+      },
+      {
+        "id": "q6-r-evidence",
+        "label": "Result evidence line",
+        "text": "Prioritised the personal significance of another perspective.",
+        "status": "Existing"
+      }
+    ]
+  },
+  {
+    "title": "Q7  Living Systems  Room to change",
+    "note": "The question, answer wording and evidence lines are existing. Abraham’s introduction and confirmations are drafts. Choice letters and IDs are editorial only.",
+    "fields": [
+      {
+        "id": "Q7-INTRO",
+        "label": "Abraham introduction",
+        "text": "A place can improve and still become less familiar. Both things can be true.",
+        "status": "Draft"
+      },
+      {
+        "id": "Q7-LOOK",
+        "label": "Optional inspection instruction",
+        "text": "Select a layout to preview it. There isn’t a correct arrangement to find.",
+        "status": "Draft"
+      },
+      {
+        "id": "q7",
+        "label": "Question",
+        "text": "A shared place you love is being changed. The proposal has real benefits, but it will feel different. What would you speak up for first?",
+        "status": "Existing"
+      },
+      {
+        "id": "q7-i",
+        "label": "Choice A",
+        "text": "A clear account of what the change is meant to improve.",
+        "status": "Existing"
+      },
+      {
+        "id": "q7-i-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The before-and-after notes are visible.",
+        "status": "Draft"
+      },
+      {
+        "id": "q7-i-evidence",
+        "label": "Result evidence line",
+        "text": "Asked for the purpose and evidence behind a change.",
+        "status": "Existing"
+      },
+      {
+        "id": "q7-c",
+        "label": "Choice B",
+        "text": "Keeping one part that makes the place feel like itself.",
+        "status": "Existing"
+      },
+      {
+        "id": "q7-c-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The feature you would keep is highlighted.",
+        "status": "Draft"
+      },
+      {
+        "id": "q7-c-evidence",
+        "label": "Result evidence line",
+        "text": "Protected a specific source of continuity.",
+        "status": "Existing"
+      },
+      {
+        "id": "q7-a",
+        "label": "Choice C",
+        "text": "A trial period so we can experience it before deciding.",
+        "status": "Existing"
+      },
+      {
+        "id": "q7-a-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The trial layout is in place.",
+        "status": "Draft"
+      },
+      {
+        "id": "q7-a-evidence",
+        "label": "Result evidence line",
+        "text": "Favoured a practical, reversible trial.",
+        "status": "Existing"
+      },
+      {
+        "id": "q7-r",
+        "label": "Choice D",
+        "text": "A way for the people who use it to shape the proposal.",
+        "status": "Existing"
+      },
+      {
+        "id": "q7-r-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The participation markers are on the proposal.",
+        "status": "Draft"
+      },
+      {
+        "id": "q7-r-evidence",
+        "label": "Result evidence line",
+        "text": "Prioritised participation by the people affected.",
+        "status": "Existing"
+      }
+    ]
+  },
+  {
+    "title": "Q8  Living Systems  The shared field kit",
+    "note": "The question, answer wording and evidence lines are existing. Abraham’s introduction and confirmations are drafts. Choice letters and IDs are editorial only.",
+    "fields": [
+      {
+        "id": "Q8-INTRO",
+        "label": "Abraham introduction",
+        "text": "The essentials are already packed. There’s room for one thing you’d particularly like to bring.",
+        "status": "Draft"
+      },
+      {
+        "id": "Q8-LOOK",
+        "label": "Optional inspection instruction",
+        "text": "Select an item to preview it in the kit. The basics are already covered.",
+        "status": "Draft"
+      },
+      {
+        "id": "q8",
+        "label": "Question",
+        "text": "A small group has an afternoon to explore somewhere unfamiliar. The basics are covered. What extra would you most want to bring?",
+        "status": "Existing"
+      },
+      {
+        "id": "q8-i",
+        "label": "Choice A",
+        "text": "A field guide, so we can make sense of what we find.",
+        "status": "Existing"
+      },
+      {
+        "id": "q8-i-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The field guide is in the kit.",
+        "status": "Draft"
+      },
+      {
+        "id": "q8-i-evidence",
+        "label": "Result evidence line",
+        "text": "Brought a resource for interpreting discoveries together.",
+        "status": "Existing"
+      },
+      {
+        "id": "q8-c",
+        "label": "Choice B",
+        "text": "A notebook, so details don't disappear when the day ends.",
+        "status": "Existing"
+      },
+      {
+        "id": "q8-c-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The notebook is in the kit.",
+        "status": "Draft"
+      },
+      {
+        "id": "q8-c-evidence",
+        "label": "Result evidence line",
+        "text": "Made room to retain details beyond the moment.",
+        "status": "Existing"
+      },
+      {
+        "id": "q8-a",
+        "label": "Choice C",
+        "text": "A map with a few optional detours marked.",
+        "status": "Existing"
+      },
+      {
+        "id": "q8-a-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The folded map is in the kit.",
+        "status": "Draft"
+      },
+      {
+        "id": "q8-a-evidence",
+        "label": "Result evidence line",
+        "text": "Kept room for self-directed exploration within a usable plan.",
+        "status": "Existing"
+      },
+      {
+        "id": "q8-r",
+        "label": "Choice D",
+        "text": "A shared camera, so everyone can add what caught their eye.",
+        "status": "Existing"
+      },
+      {
+        "id": "q8-r-confirm",
+        "label": "Confirmation after keeping this choice",
+        "text": "The shared camera is in the kit.",
+        "status": "Draft"
+      },
+      {
+        "id": "q8-r-evidence",
+        "label": "Result evidence line",
+        "text": "Chose a shared record that others could shape.",
+        "status": "Existing"
+      }
+    ]
+  },
+  {
+    "title": "Text inside the interactive displays",
+    "note": "These are draft display strings. They describe the fictional interactive exhibits, not documented provenance or visitor testimony.",
+    "fields": [
+      {
+        "id": "Q1-DETAIL-01",
+        "label": "Identification overlay",
+        "text": "Compare the visible features before reading the identification.",
+        "status": "Draft"
+      },
+      {
+        "id": "Q1-DETAIL-02",
+        "label": "Restoration labels",
+        "text": "Original material / Restoration",
+        "status": "Draft"
+      },
+      {
+        "id": "Q1-DETAIL-03",
+        "label": "Folded explanation controls",
+        "text": "Hide explanation / Show explanation",
+        "status": "Draft"
+      },
+      {
+        "id": "Q1-DETAIL-04",
+        "label": "Illustrative observation one",
+        "text": "I noticed the curve before the texture.",
+        "status": "Draft"
+      },
+      {
+        "id": "Q1-DETAIL-05",
+        "label": "Illustrative observation two",
+        "text": "The edge caught my eye first.",
+        "status": "Draft"
+      },
+      {
+        "id": "Q1-DETAIL-06",
+        "label": "Illustrative observation three",
+        "text": "I wanted to know how much of it was complete.",
+        "status": "Draft"
+      },
+      {
+        "id": "Q2-PREVIEW",
+        "label": "Skeleton display labels",
+        "text": "Possible reconstruction A / Possible reconstruction B / Surviving material / Removable replica / Switch view",
+        "status": "Draft"
+      },
+      {
+        "id": "Q3-PANELS",
+        "label": "Memory panel labels",
+        "text": "A question / A routine / A decision / An exchange",
+        "status": "Draft"
+      },
+      {
+        "id": "Q4-PREVIEW",
+        "label": "Drawer labels",
+        "text": "Original plan / Unexpected invitation / A little more detail / Some of both",
+        "status": "Draft"
+      },
+      {
+        "id": "Q5-PREVIEW",
+        "label": "Testing proposal labels",
+        "text": "Detailed scan / Improved storage / Tiny sample test / Joint study",
+        "status": "Draft"
+      },
+      {
+        "id": "Q6-CARDS",
+        "label": "Illustrative interpretation cards",
+        "text": "One impression: the similarities stood out. / Another impression: the differences stood out.",
+        "status": "Draft"
+      },
+      {
+        "id": "Q6-PREVIEW",
+        "label": "Comparison controls",
+        "text": "Compare details / Keep both accounts / Try another view / Read the context",
+        "status": "Draft"
+      },
+      {
+        "id": "Q7-PREVIEW",
+        "label": "Habitat labels",
+        "text": "Before / Proposed change / Keep this feature / Trial layout / Visitor suggestions",
+        "status": "Draft"
+      },
+      {
+        "id": "Q8-PREVIEW",
+        "label": "Field kit labels",
+        "text": "Field guide / Notebook / Map with optional detours / Shared camera",
+        "status": "Draft"
+      }
+    ]
+  },
+  {
+    "title": "The final choice and reflection",
+    "note": "",
+    "fields": [
+      {
+        "id": "FINAL-01",
+        "label": "Abraham before the final choice",
+        "text": "That’s the end of the gallery stops. Before we look at your specimen, there’s one last choice.",
+        "status": "Draft"
+      },
+      {
+        "id": "q9",
+        "label": "Final question",
+        "text": "Before your exhibit is revealed, which would you most want this visit to have given you?",
+        "status": "Existing"
+      },
+      {
+        "id": "q9-i",
+        "label": "Final choice option",
+        "text": "A better understanding of something I hadn't quite grasped.",
+        "status": "Existing"
+      },
+      {
+        "id": "q9-c",
+        "label": "Final choice option",
+        "text": "Something worth remembering and coming back to.",
+        "status": "Existing"
+      },
+      {
+        "id": "q9-a",
+        "label": "Final choice option",
+        "text": "A new possibility I want to try for myself.",
+        "status": "Existing"
+      },
+      {
+        "id": "q9-r",
+        "label": "Final choice option",
+        "text": "Something I want to share or talk through with someone.",
+        "status": "Existing"
+      },
+      {
+        "id": "q9-none",
+        "label": "Final choice option",
+        "text": "No preference / I'm not sure.",
+        "status": "Existing"
+      },
+      {
+        "id": "FINAL-02",
+        "label": "Continue button",
+        "text": "Continue",
+        "status": "Draft"
+      },
+      {
+        "id": "REFLECT-01",
+        "label": "Recap heading",
+        "text": "A few choices from your visit",
+        "status": "Draft"
+      },
+      {
+        "id": "REFLECT-02",
+        "label": "Recap template",
+        "text": "{stop_title}\nYou chose: “{exact_answer_text}”",
+        "status": "Draft"
+      },
+      {
+        "id": "REFLECT-03",
+        "label": "Optional reflection question",
+        "text": "Was there a choice that didn't quite capture your reason? You can tell us here.",
+        "status": "Existing"
+      },
+      {
+        "id": "REFLECT-04",
+        "label": "Text field placeholder",
+        "text": "What would you like Abraham to understand about that choice?",
+        "status": "Draft"
+      },
+      {
+        "id": "REFLECT-05",
+        "label": "Text field help",
+        "text": "Optional · Up to 200 characters. This can clarify your result wording, but won’t change which specimen is selected.",
+        "status": "Draft"
+      },
+      {
+        "id": "REFLECT-06",
+        "label": "Privacy note",
+        "text": "Leave out anything you wouldn’t want included in your result. Your words won’t appear on the share card.",
+        "status": "Draft"
+      },
+      {
+        "id": "REFLECT-07",
+        "label": "Character counter",
+        "text": "{count} / 200",
+        "status": "Draft"
+      },
+      {
+        "id": "REFLECT-08",
+        "label": "Actions",
+        "text": "Send reflection / Skip",
+        "status": "Draft"
+      },
+      {
+        "id": "REFLECT-09",
+        "label": "Input too long",
+        "text": "Please keep your reflection to 200 characters or fewer.",
+        "status": "Draft"
+      }
+    ]
+  },
+  {
+    "title": "Abraham during the reflection",
+    "note": "AI replies are variable. These editable examples show the intended tone; the application uses fixed fallbacks when generation is unavailable.",
+    "fields": [
+      {
+        "id": "AI-REFLECT-01",
+        "label": "Acknowledgement for a specific clarification",
+        "text": "You were leaving room to change your mind, rather than trying to keep everything the same. I’ll keep that distinction in the wording.",
+        "status": "Dynamic"
+      },
+      {
+        "id": "AI-REFLECT-02",
+        "label": "Acknowledgement when no option felt exact",
+        "text": "The choices didn’t quite fit your reason. We can leave that uncertainty in the description instead of filling it in for you.",
+        "status": "Dynamic"
+      },
+      {
+        "id": "AI-REFLECT-03",
+        "label": "Acknowledgement of uncertainty",
+        "text": "That’s all right. You don’t need a tidier explanation to continue.",
+        "status": "Dynamic"
+      },
+      {
+        "id": "AI-REFLECT-04",
+        "label": "Acknowledgement of a different motive",
+        "text": "I understand—that was the option you chose, but the reason was different. The recorded choice stays the same; the description can be more careful about what it means.",
+        "status": "Dynamic"
+      },
+      {
+        "id": "AI-REFLECT-05",
+        "label": "Skip response",
+        "text": "Of course. We can keep going.",
+        "status": "Existing"
+      },
+      {
+        "id": "AI-REFLECT-06",
+        "label": "Vague or unrelated response",
+        "text": "Thanks. Your exhibit will be based on the choices you made.",
+        "status": "Existing"
+      },
+      {
+        "id": "AI-REFLECT-07",
+        "label": "Technical fallback",
+        "text": "I’ll use the notes we already have. Your visit can carry on.",
+        "status": "Existing"
+      },
+      {
+        "id": "AI-REFLECT-08",
+        "label": "Abraham before reveal",
+        "text": "Your choices are ready to look at together. Let’s see what they point towards.",
+        "status": "Draft"
+      },
+      {
+        "id": "AI-REFLECT-09",
+        "label": "Reveal button",
+        "text": "See my specimen",
+        "status": "Draft"
+      },
+      {
+        "id": "AI-REFLECT-10",
+        "label": "No compulsory wait",
+        "text": "The result should appear without a scripted waiting message. If personalised copy is unavailable, use the authored result immediately.",
+        "status": "Editorial"
+      }
+    ]
+  },
+  {
+    "title": "Result screen and evidence",
+    "note": "",
+    "fields": [
+      {
+        "id": "RESULT-01",
+        "label": "Result heading",
+        "text": "Your specimen",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-02",
+        "label": "Specimen title placeholder",
+        "text": "{specimen_name}",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-03",
+        "label": "Catalogue line",
+        "text": "Visit catalogue · {catalogue_code}",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-04",
+        "label": "Abraham reveal line",
+        "text": "Your match is {specimen_name_with_article}.",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-05",
+        "label": "Profile context",
+        "text": "A reflection on the choices you made during this visit.",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-06",
+        "label": "Intro slot",
+        "text": "{balanced_or_leading_introduction}",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-07",
+        "label": "Pattern slot",
+        "text": "{personalised_pattern_or_authored_summary}",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-08",
+        "label": "Evidence heading",
+        "text": "Choices behind this exhibit",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-09",
+        "label": "Evidence template",
+        "text": "{stop_title}\nYou chose: “{exact_answer_text}”\n{evidence_sentence}",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-10",
+        "label": "Strengths heading",
+        "text": "What this approach makes easier",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-11",
+        "label": "Tension heading",
+        "text": "Where it can get awkward",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-12",
+        "label": "Complement heading",
+        "text": "A useful counterweight",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-13",
+        "label": "Friction heading",
+        "text": "Where approaches may rub against each other",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-14",
+        "label": "Closing heading",
+        "text": "One question to take with you",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-15",
+        "label": "Factual label toggle",
+        "text": "About the specimen",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-16",
+        "label": "Label clarification",
+        "text": "The specimen is a creative comparison. Its natural history isn’t evidence about your personality.",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-17",
+        "label": "Action buttons",
+        "text": "Save result card / Share result / Review answers / Keep exploring / Start again",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-18",
+        "label": "Evidence assembly",
+        "text": "Use three different answered stops. Copy the selected answer and its matching evidence line from the question pages. Include a fourth, contrasting choice when it helps. Never fill these slots with invented choices.",
+        "status": "Editorial"
+      },
+      {
+        "id": "RESULT-19",
+        "label": "Contrary evidence template",
+        "text": "At {stop_title}, you also chose “{exact_answer_text}”. This result describes a pattern, not every choice you made.",
+        "status": "Dynamic"
+      },
+      {
+        "id": "RESULT-20",
+        "label": "Close result template",
+        "text": "{third_priority_plain_phrase} also appeared in your choices, so this is a close match rather than a clear separation.",
+        "status": "Dynamic"
+      }
+    ]
+  },
+  {
+    "title": "Ammonite fossil",
+    "note": "All introductions and result outline lines are existing. The linking paragraph, short label and share sentence are drafts. Use only the introduction that applies.",
+    "fields": [
+      {
+        "id": "VISIT-IC-TITLE",
+        "label": "Result name",
+        "text": "Ammonite fossil",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IC-CODE",
+        "label": "Fictional visit catalogue code",
+        "text": "VISIT-IC",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IC-BALANCED-INTRO",
+        "label": "Standard introduction",
+        "text": "You tended to look for the explanation while keeping sight of what was already there.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IC-I-LEADING",
+        "label": "Alternative introduction when understanding leads",
+        "text": "Understanding came first; keeping the original context helped you get there.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IC-C-LEADING",
+        "label": "Alternative introduction when preserving context leads",
+        "text": "You kept hold of context, and wanted enough understanding to preserve it thoughtfully.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IC-STRENGTHS",
+        "label": "Strengths",
+        "text": "retaining useful context; checking the basis of an explanation.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IC-TENSION",
+        "label": "Tension",
+        "text": "you may keep investigating or preserving something after you have enough to move on.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IC-COMPLEMENT",
+        "label": "Complement",
+        "text": "a small, reversible experiment can give your careful thinking somewhere to go.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IC-FRICTION",
+        "label": "Friction",
+        "text": "rapid changes without an explanation may be harder to accept than the change itself.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IC-CLOSING",
+        "label": "Closing",
+        "text": "What would count as enough information to take the next step?",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IC-PATTERN",
+        "label": "Authored linking paragraph",
+        "text": "In this visit, understanding and keeping useful context often appeared together. Your specimen is a way of holding those two concerns in view. It doesn’t mean you have to keep every detail or wait for a complete explanation before acting.",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-IC-LABEL",
+        "label": "Short museum label",
+        "text": "A stylised ammonite fossil display, shown partly exposed in its surrounding stone. This is an illustrative replica; no specific collection provenance is claimed.",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-IC-SHARE",
+        "label": "Share card sentence",
+        "text": "You tended to look for the explanation while keeping sight of what was already there.",
+        "status": "Draft"
+      }
+    ]
+  },
+  {
+    "title": "Cut meteorite",
+    "note": "All introductions and result outline lines are existing. The linking paragraph, short label and share sentence are drafts. Use only the introduction that applies.",
+    "fields": [
+      {
+        "id": "VISIT-IA-TITLE",
+        "label": "Result name",
+        "text": "Cut meteorite",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IA-CODE",
+        "label": "Fictional visit catalogue code",
+        "text": "VISIT-IA",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IA-BALANCED-INTRO",
+        "label": "Standard introduction",
+        "text": "You wanted to understand things by getting a closer look and trying something with what you learned.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IA-I-LEADING",
+        "label": "Alternative introduction when understanding leads",
+        "text": "You wanted a sound explanation, with room to test it rather than leave it on the label.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IA-A-LEADING",
+        "label": "Alternative introduction when taking action leads",
+        "text": "You preferred to move things forward, using new information to choose your next move.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IA-STRENGTHS",
+        "label": "Strengths",
+        "text": "questioning assumptions; turning curiosity into a next step.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IA-TENSION",
+        "label": "Tension",
+        "text": "the next question or experiment may pull you away before the current one is settled.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IA-COMPLEMENT",
+        "label": "Complement",
+        "text": "someone who records decisions and follows through can help discoveries accumulate.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IA-FRICTION",
+        "label": "Friction",
+        "text": "rules that block both explanation and experimentation may frustrate you.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IA-CLOSING",
+        "label": "Closing",
+        "text": "Which possibility would you actually stay with long enough to learn from?",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IA-PATTERN",
+        "label": "Authored linking paragraph",
+        "text": "In this visit, finding out and doing something with the answer often belonged together. The match reflects that connection. It leaves room for the moments when you preferred to pause, preserve something or hear another view.",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-IA-LABEL",
+        "label": "Short museum label",
+        "text": "A stylised cut meteorite display with an exterior and an exposed interior. This is an illustrative replica; no specific collection provenance is claimed.",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-IA-SHARE",
+        "label": "Share card sentence",
+        "text": "You wanted to understand things by getting a closer look and trying something with what you learned.",
+        "status": "Draft"
+      }
+    ]
+  },
+  {
+    "title": "Lichen on a branch",
+    "note": "All introductions and result outline lines are existing. The linking paragraph, short label and share sentence are drafts. Use only the introduction that applies.",
+    "fields": [
+      {
+        "id": "VISIT-IR-TITLE",
+        "label": "Result name",
+        "text": "Lichen on a branch",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IR-CODE",
+        "label": "Fictional visit catalogue code",
+        "text": "VISIT-IR",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IR-BALANCED-INTRO",
+        "label": "Standard introduction",
+        "text": "You often wanted to understand a thing through the perspectives and connections around it.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IR-I-LEADING",
+        "label": "Alternative introduction when understanding leads",
+        "text": "You sought a fuller explanation, and other perspectives were part of the evidence.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IR-R-LEADING",
+        "label": "Alternative introduction when shared participation leads",
+        "text": "Understanding other perspectives mattered, even when it complicated your first impression.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IR-STRENGTHS",
+        "label": "Strengths",
+        "text": "comparing perspectives; making explanations easier to share.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IR-TENSION",
+        "label": "Tension",
+        "text": "you may make room for so many interpretations that your own becomes difficult to state.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IR-COMPLEMENT",
+        "label": "Complement",
+        "text": "a clear personal position can give the conversation something concrete to work with.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IR-FRICTION",
+        "label": "Friction",
+        "text": "being pushed to agree before the different views have been heard.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IR-CLOSING",
+        "label": "Closing",
+        "text": "After hearing everyone else, what is your own best reading?",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-IR-PATTERN",
+        "label": "Authored linking paragraph",
+        "text": "In this visit, explanation often included someone else’s perspective. This match brings together the wish to understand and the wish to make that understanding shareable. It doesn’t tell us how outgoing you are.",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-IR-LABEL",
+        "label": "Short museum label",
+        "text": "A stylised branch with lichen, shown with a magnified detail. This is an illustrative replica; no specific collection provenance is claimed.",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-IR-SHARE",
+        "label": "Share card sentence",
+        "text": "You often wanted to understand a thing through the perspectives and connections around it.",
+        "status": "Draft"
+      }
+    ]
+  },
+  {
+    "title": "Quartz cluster",
+    "note": "All introductions and result outline lines are existing. The linking paragraph, short label and share sentence are drafts. Use only the introduction that applies.",
+    "fields": [
+      {
+        "id": "VISIT-CA-TITLE",
+        "label": "Result name",
+        "text": "Quartz cluster",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CA-CODE",
+        "label": "Fictional visit catalogue code",
+        "text": "VISIT-CA",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CA-BALANCED-INTRO",
+        "label": "Standard introduction",
+        "text": "You wanted room to make a change without losing everything useful underneath it.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CA-C-LEADING",
+        "label": "Alternative introduction when preserving context leads",
+        "text": "Keeping a dependable base mattered; changes felt worthwhile when they could build on it.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CA-A-LEADING",
+        "label": "Alternative introduction when taking action leads",
+        "text": "You wanted to act, while keeping a way to revise or return.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CA-STRENGTHS",
+        "label": "Strengths",
+        "text": "workable continuity; reversible, practical changes.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CA-TENSION",
+        "label": "Tension",
+        "text": "you may prefer changes you can control and postpone ones that require a less tidy transition.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CA-COMPLEMENT",
+        "label": "Complement",
+        "text": "an outside question can reveal which familiar constraints are still necessary.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CA-FRICTION",
+        "label": "Friction",
+        "text": "being asked to choose between total preservation and starting from nothing.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CA-CLOSING",
+        "label": "Closing",
+        "text": "Which part really needs to stay, and which part is simply familiar?",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CA-PATTERN",
+        "label": "Authored linking paragraph",
+        "text": "In this visit, making changes often went alongside keeping something useful in place. The match reflects that combination. It doesn’t mean every change must be reversible, or that everything familiar needs protecting.",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-CA-LABEL",
+        "label": "Short museum label",
+        "text": "A stylised cluster of quartz crystals on a rough base. This is an illustrative replica; no specific collection provenance is claimed.",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-CA-SHARE",
+        "label": "Share card sentence",
+        "text": "You wanted room to make a change without losing everything useful underneath it.",
+        "status": "Draft"
+      }
+    ]
+  },
+  {
+    "title": "Branching coral skeleton",
+    "note": "All introductions and result outline lines are existing. The linking paragraph, short label and share sentence are drafts. Use only the introduction that applies.",
+    "fields": [
+      {
+        "id": "VISIT-CR-TITLE",
+        "label": "Result name",
+        "text": "Branching coral skeleton",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CR-CODE",
+        "label": "Fictional visit catalogue code",
+        "text": "VISIT-CR",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CR-BALANCED-INTRO",
+        "label": "Standard introduction",
+        "text": "You returned to what lets people keep sharing something that matters.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CR-C-LEADING",
+        "label": "Alternative introduction when preserving context leads",
+        "text": "You protected continuity, especially where other people relied on it.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CR-R-LEADING",
+        "label": "Alternative introduction when shared participation leads",
+        "text": "You made room for others while trying to keep something dependable between you.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CR-STRENGTHS",
+        "label": "Strengths",
+        "text": "remembering shared context; maintaining things others can rely on.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CR-TENSION",
+        "label": "Tension",
+        "text": "keeping a shared arrangement going can turn into work you never agreed to carry alone.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CR-COMPLEMENT",
+        "label": "Complement",
+        "text": "clear boundaries can protect the continuity you care about.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CR-FRICTION",
+        "label": "Friction",
+        "text": "changes that treat existing commitments as disposable.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CR-CLOSING",
+        "label": "Closing",
+        "text": "What are you willing to maintain—and what needs to be shared?",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-CR-PATTERN",
+        "label": "Authored linking paragraph",
+        "text": "In this visit, what lasted and what people shared often mattered together. This match reflects attention to both. It doesn’t make you responsible for maintaining every arrangement or meeting every expectation.",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-CR-LABEL",
+        "label": "Short museum label",
+        "text": "A stylised branching coral skeleton display. This is an illustrative replica; no specific collection provenance is claimed.",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-CR-SHARE",
+        "label": "Share card sentence",
+        "text": "You returned to what lets people keep sharing something that matters.",
+        "status": "Draft"
+      }
+    ]
+  },
+  {
+    "title": "Winged maple fruit",
+    "note": "All introductions and result outline lines are existing. The linking paragraph, short label and share sentence are drafts. Use only the introduction that applies.",
+    "fields": [
+      {
+        "id": "VISIT-AR-TITLE",
+        "label": "Result name",
+        "text": "Winged maple fruit",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-AR-CODE",
+        "label": "Fictional visit catalogue code",
+        "text": "VISIT-AR",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-AR-BALANCED-INTRO",
+        "label": "Standard introduction",
+        "text": "You looked for ways to move forward that left other people room to participate.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-AR-A-LEADING",
+        "label": "Alternative introduction when taking action leads",
+        "text": "You wanted a next step, and preferred one others could help shape.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-AR-R-LEADING",
+        "label": "Alternative introduction when shared participation leads",
+        "text": "Participation mattered, but you also wanted it to lead somewhere.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-AR-STRENGTHS",
+        "label": "Strengths",
+        "text": "opening possibilities; inviting others into action.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-AR-TENSION",
+        "label": "Tension",
+        "text": "accommodating everyone while keeping things moving may leave your own preference unclear.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-AR-COMPLEMENT",
+        "label": "Complement",
+        "text": "a clearly stated constraint can make a shared plan easier to finish.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-AR-FRICTION",
+        "label": "Friction",
+        "text": "plans that are either rigidly imposed or discussed without ever becoming a decision.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-AR-CLOSING",
+        "label": "Closing",
+        "text": "What would you choose if you didn't first have to make it work for everyone?",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-AR-PATTERN",
+        "label": "Authored linking paragraph",
+        "text": "In this visit, a next step often mattered alongside room for other people to take part. This match brings those concerns together. It doesn’t mean you must include everyone in every decision.",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-AR-LABEL",
+        "label": "Short museum label",
+        "text": "A stylised botanical display of paired winged maple fruits. This is an illustrative replica; no specific collection provenance is claimed.",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-AR-SHARE",
+        "label": "Share card sentence",
+        "text": "You looked for ways to move forward that left other people room to participate.",
+        "status": "Draft"
+      }
+    ]
+  },
+  {
+    "title": "Mixed result",
+    "note": "",
+    "fields": [
+      {
+        "id": "VISIT-MX-TITLE",
+        "label": "Result title",
+        "text": "Comparative study tray",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-MX-CODE",
+        "label": "Fictional visit catalogue code",
+        "text": "VISIT-MX",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-MX-INTRO",
+        "label": "Standard opening",
+        "text": "Your choices didn't settle into one clear specimen. Different situations brought different priorities forward.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-MX-CONTEXT",
+        "label": "Explanation",
+        "text": "This could reflect context, overlapping priorities, or simply options that weren't quite right for you.",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-MX-LEAD",
+        "label": "Alternative opening when one concern clearly leads",
+        "text": "Your visit repeatedly favoured {leading_concern}, but didn't settle on one clear second priority.",
+        "status": "Dynamic"
+      },
+      {
+        "id": "VISIT-MX-LEAD-VALUES",
+        "label": "Allowed leading concern wording",
+        "text": "understanding / continuity / room to act / shared participation",
+        "status": "Existing"
+      },
+      {
+        "id": "VISIT-MX-EVIDENCE",
+        "label": "Evidence section",
+        "text": "Three choices to look back at\n{three_real_choice_entries}",
+        "status": "Dynamic"
+      },
+      {
+        "id": "VISIT-MX-STRENGTH",
+        "label": "What the record can show",
+        "text": "The useful part is in the choices themselves. You can compare what mattered in each situation without forcing them into one description.",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-MX-TENSION",
+        "label": "Limitation",
+        "text": "This visit doesn’t give us a clear single match. The options may also have missed some of your reasons.",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-MX-CLOSING",
+        "label": "Closing question",
+        "text": "Which choice feels most like you, and which was mostly about the situation?",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-MX-ABRAHAM",
+        "label": "Abraham ending",
+        "text": "I’ve kept the objects together in a study tray. We don’t need to make the label more certain than the visit was.",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-MX-ACTIONS",
+        "label": "Actions",
+        "text": "Review choices / Keep this result / Start again",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-MX-LABEL",
+        "label": "Museum label",
+        "text": "A comparative study tray containing several small display objects.",
+        "status": "Draft"
+      },
+      {
+        "id": "VISIT-MX-SHARE",
+        "label": "Share sentence",
+        "text": "My visit brought different priorities forward, so I left with a study tray rather than one specimen.",
+        "status": "Draft"
+      }
+    ]
+  },
+  {
+    "title": "Short visits and incomplete results",
+    "note": "",
+    "fields": [
+      {
+        "id": "PARTIAL-TITLE",
+        "label": "Three or four answered stops",
+        "text": "A partial collection",
+        "status": "Draft"
+      },
+      {
+        "id": "PARTIAL-CODE",
+        "label": "Catalogue line",
+        "text": "Visit catalogue · VISIT-PARTIAL",
+        "status": "Draft"
+      },
+      {
+        "id": "PARTIAL-INTRO",
+        "label": "Opening",
+        "text": "A short visit gives us a sketch, rather than a clear specimen.",
+        "status": "Existing"
+      },
+      {
+        "id": "PARTIAL-BODY",
+        "label": "Explanation",
+        "text": "You’ve answered {answered} of the eight stops. Here are three choices from the visit so far. There isn’t a named specimen match yet.",
+        "status": "Draft"
+      },
+      {
+        "id": "PARTIAL-EVIDENCE",
+        "label": "Evidence template",
+        "text": "{three_real_choice_entries}",
+        "status": "Draft"
+      },
+      {
+        "id": "PARTIAL-ABRAHAM",
+        "label": "Abraham response",
+        "text": "There’s enough here to keep a small record, but I’d rather leave the specimen label open for now.",
+        "status": "Draft"
+      },
+      {
+        "id": "PARTIAL-ACTIONS",
+        "label": "Actions",
+        "text": "Resume my visit / Keep this card",
+        "status": "Draft"
+      },
+      {
+        "id": "PARTIAL-SHARE",
+        "label": "Share sentence",
+        "text": "A short visit to the Quiet Collection. My specimen is still an open question.",
+        "status": "Draft"
+      },
+      {
+        "id": "POSTCARD-TITLE",
+        "label": "Zero to two answered stops",
+        "text": "A visitor postcard",
+        "status": "Draft"
+      },
+      {
+        "id": "POSTCARD-CODE",
+        "label": "Catalogue line",
+        "text": "Visit catalogue · VISIT-POSTCARD",
+        "status": "Draft"
+      },
+      {
+        "id": "POSTCARD-INTRO",
+        "label": "Opening",
+        "text": "There aren't enough choices here to make a personal match.",
+        "status": "Existing"
+      },
+      {
+        "id": "POSTCARD-BODY",
+        "label": "Explanation",
+        "text": "You can return to the galleries, or choose a souvenir image without assigning it a personality meaning.",
+        "status": "Draft"
+      },
+      {
+        "id": "POSTCARD-ABRAHAM",
+        "label": "Abraham response",
+        "text": "You’re welcome to keep looking around. A visit doesn’t have to end with a specimen label.",
+        "status": "Draft"
+      },
+      {
+        "id": "POSTCARD-ACTIONS",
+        "label": "Actions",
+        "text": "Resume my visit / Choose a souvenir",
+        "status": "Draft"
+      },
+      {
+        "id": "POSTCARD-SHARE",
+        "label": "Share sentence",
+        "text": "A souvenir from the Quiet Collection.",
+        "status": "Draft"
+      },
+      {
+        "id": "SOUVENIR-01",
+        "label": "Souvenir heading",
+        "text": "Choose a favourite display",
+        "status": "Draft"
+      },
+      {
+        "id": "SOUVENIR-02",
+        "label": "Souvenir helper",
+        "text": "This is a souvenir image, not your personality result.",
+        "status": "Draft"
+      },
+      {
+        "id": "SOUVENIR-03",
+        "label": "Souvenir choices",
+        "text": "Fossil cast / Skeleton display / Mineral drawer / Meteorite / Habitat display / Field kit",
+        "status": "Draft"
+      },
+      {
+        "id": "SOUVENIR-04",
+        "label": "Souvenir actions",
+        "text": "Keep this souvenir / Back to my visit",
+        "status": "Draft"
+      }
+    ]
+  },
+  {
+    "title": "Feedback saving and sharing",
+    "note": "",
+    "fields": [
+      {
+        "id": "FEEDBACK-01",
+        "label": "Fit question",
+        "text": "Does this fit?",
+        "status": "Existing"
+      },
+      {
+        "id": "FEEDBACK-02",
+        "label": "Fit options",
+        "text": "Yes / Partly / Not really",
+        "status": "Existing"
+      },
+      {
+        "id": "FEEDBACK-03",
+        "label": "Yes response",
+        "text": "I’m glad some of it feels familiar. You can keep the card or look back at the choices behind it.",
+        "status": "Draft"
+      },
+      {
+        "id": "FEEDBACK-04",
+        "label": "Partly response",
+        "text": "Then it’s worth keeping the parts that fit and questioning the rest. You can review your choices without starting over.",
+        "status": "Draft"
+      },
+      {
+        "id": "FEEDBACK-05",
+        "label": "Not really response",
+        "text": "That’s useful to notice. You don’t have to accept the description. You can review the answers or leave the result as it is.",
+        "status": "Draft"
+      },
+      {
+        "id": "FEEDBACK-06",
+        "label": "Feedback clarification",
+        "text": "Your response here won’t change your specimen automatically.",
+        "status": "Draft"
+      },
+      {
+        "id": "SAVE-01",
+        "label": "Save preview heading",
+        "text": "Your result card",
+        "status": "Draft"
+      },
+      {
+        "id": "SAVE-02",
+        "label": "Card contents",
+        "text": "{specimen_name}\n{share_sentence}\nWhat museum specimen are you?",
+        "status": "Draft"
+      },
+      {
+        "id": "SAVE-03",
+        "label": "Save privacy note",
+        "text": "This card includes the specimen, its short description and the quiz title. It doesn’t include your answers or reflection.",
+        "status": "Draft"
+      },
+      {
+        "id": "SAVE-04",
+        "label": "Save actions",
+        "text": "Save image / Back to result",
+        "status": "Draft"
+      },
+      {
+        "id": "SAVE-05",
+        "label": "Download initiated message",
+        "text": "Your card is ready. Follow your device’s save prompt.",
+        "status": "Draft"
+      },
+      {
+        "id": "SHARE-01",
+        "label": "Share caption",
+        "text": "I visited the Quiet Collection. My specimen is {specimen_name}.",
+        "status": "Draft"
+      },
+      {
+        "id": "SHARE-02",
+        "label": "Mixed share caption",
+        "text": "I visited the Quiet Collection and came away with a comparative study tray.",
+        "status": "Draft"
+      },
+      {
+        "id": "SHARE-03",
+        "label": "Partial share caption",
+        "text": "A short visit to the Quiet Collection. There’s more to explore.",
+        "status": "Draft"
+      },
+      {
+        "id": "SHARE-04",
+        "label": "Share cancelled message",
+        "text": "Nothing was shared.",
+        "status": "Draft"
+      },
+      {
+        "id": "SHARE-05",
+        "label": "Share unavailable message",
+        "text": "Sharing isn’t available here. You can save the card instead.",
+        "status": "Draft"
+      },
+      {
+        "id": "SAVE-06",
+        "label": "Save failure",
+        "text": "The card couldn’t be saved. Your result is still here.",
+        "status": "Draft"
+      },
+      {
+        "id": "SAVE-07",
+        "label": "Save retry actions",
+        "text": "Try saving again / Back to result",
+        "status": "Draft"
+      }
+    ]
+  },
+  {
+    "title": "Return restart and technical states",
+    "note": "These messages describe intended behaviour and should be connected only to features that are actually implemented.",
+    "fields": [
+      {
+        "id": "RETURN-01",
+        "label": "Saved session found",
+        "text": "Continue your visit?",
+        "status": "Draft"
+      },
+      {
+        "id": "RETURN-02",
+        "label": "Saved session detail",
+        "text": "This device has a visit with {answered} answers and {passed} passed stops.",
+        "status": "Draft"
+      },
+      {
+        "id": "RETURN-03",
+        "label": "Return actions",
+        "text": "Continue this visit / Start a new visit",
+        "status": "Draft"
+      },
+      {
+        "id": "RETURN-04",
+        "label": "No saved session",
+        "text": "There isn’t a saved visit on this device.",
+        "status": "Draft"
+      },
+      {
+        "id": "RESTART-01",
+        "label": "Restart title",
+        "text": "Start a new visit?",
+        "status": "Draft"
+      },
+      {
+        "id": "RESTART-02",
+        "label": "Restart explanation",
+        "text": "This will clear the answers, reflection, preferences and result from this visit. Any card you already saved to your device will stay there.",
+        "status": "Draft"
+      },
+      {
+        "id": "RESTART-03",
+        "label": "Restart actions",
+        "text": "Keep this visit / Start again",
+        "status": "Draft"
+      },
+      {
+        "id": "RESET-01",
+        "label": "Reset complete",
+        "text": "Your new visit is ready.",
+        "status": "Draft"
+      },
+      {
+        "id": "LOAD-01",
+        "label": "Initial loading",
+        "text": "Opening the museum…",
+        "status": "Draft"
+      },
+      {
+        "id": "LOAD-02",
+        "label": "Gallery loading",
+        "text": "Opening {gallery_name}…",
+        "status": "Draft"
+      },
+      {
+        "id": "LOAD-03",
+        "label": "Loading failure",
+        "text": "This part of the museum couldn’t load.",
+        "status": "Draft"
+      },
+      {
+        "id": "LOAD-04",
+        "label": "Recovery actions",
+        "text": "Try again / Use step-by-step view",
+        "status": "Draft"
+      },
+      {
+        "id": "LOAD-05",
+        "label": "Display asset unavailable",
+        "text": "The display image couldn’t load. You can still answer the question below.",
+        "status": "Draft"
+      },
+      {
+        "id": "LOAD-06",
+        "label": "Lost local storage",
+        "text": "This browser can’t keep your visit between sessions. You can continue here and save a result card before leaving.",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-ERROR-01",
+        "label": "Missing evidence",
+        "text": "We couldn’t recover enough choices to show this result. Please review your ticket.",
+        "status": "Draft"
+      },
+      {
+        "id": "RESULT-ERROR-02",
+        "label": "Recovery actions",
+        "text": "Review my ticket / Start again",
+        "status": "Draft"
+      },
+      {
+        "id": "OFFLINE-01",
+        "label": "Offline notice",
+        "text": "You’re offline. Any parts of the visit already loaded can still be used; personalised dialogue may be unavailable.",
+        "status": "Draft"
+      },
+      {
+        "id": "OFFLINE-02",
+        "label": "Offline fallback explanation",
+        "text": "Your specimen is based on your choices. Abraham can use the museum’s written result descriptions instead.",
+        "status": "Draft"
+      },
+      {
+        "id": "EXIT-01",
+        "label": "Exit prompt when progress cannot be retained",
+        "text": "Leave this visit? Your current answers may be lost.",
+        "status": "Draft"
+      },
+      {
+        "id": "EXIT-02",
+        "label": "Exit actions",
+        "text": "Stay in the museum / Leave",
+        "status": "Draft"
+      }
+    ]
+  },
+  {
+    "title": "Abraham help and optional lines",
+    "note": "",
+    "fields": [
+      {
+        "id": "AB-HELP-01",
+        "label": "How the quiz works",
+        "text": "Choose the answer closest to you at each stop. Only those deliberate choices count. You can change them, or pass if none fits.",
+        "status": "Draft"
+      },
+      {
+        "id": "AB-HELP-02",
+        "label": "Where to go",
+        "text": "Any gallery you like. Deep Time is to the left, Earth & Space to the right, and Living Systems is straight ahead.",
+        "status": "Draft"
+      },
+      {
+        "id": "AB-HELP-03",
+        "label": "No right answers",
+        "text": "You don’t need natural-history knowledge for this. The labels are there to look at, not to catch you out.",
+        "status": "Draft"
+      },
+      {
+        "id": "AB-HELP-04",
+        "label": "Does wandering count",
+        "text": "No. The route you take and the time you spend looking around don’t affect your result.",
+        "status": "Draft"
+      },
+      {
+        "id": "AB-HELP-05",
+        "label": "Can I change my mind",
+        "text": "Yes. Open your ticket and choose the stop you want to revisit. The new answer replaces the old one.",
+        "status": "Draft"
+      },
+      {
+        "id": "AB-HELP-06",
+        "label": "Can I skip",
+        "text": "Of course. Passing leaves that stop unanswered. If the visit is too short for a specimen match, you can still keep a card.",
+        "status": "Draft"
+      },
+      {
+        "id": "AB-HELP-07",
+        "label": "Is the result scientific",
+        "text": "It’s a playful comparison based on this visit, not a psychological assessment or a permanent description of you.",
+        "status": "Draft"
+      },
+      {
+        "id": "AB-HELP-08",
+        "label": "Unknown museum fact",
+        "text": "I don’t have a reliable label for that detail. I’d rather leave it open than give you a tidy answer that might be wrong.",
+        "status": "Draft"
+      },
+      {
+        "id": "AB-AMBIENT-01",
+        "label": "At the desk",
+        "text": "I’ve checked the labels twice. That usually means I’ll notice the crooked one as soon as someone arrives.",
+        "status": "Draft"
+      },
+      {
+        "id": "AB-AMBIENT-02",
+        "label": "Near the bench",
+        "text": "You can sit with a question for a moment. The museum isn’t timing you.",
+        "status": "Draft"
+      },
+      {
+        "id": "AB-AMBIENT-03",
+        "label": "Leaving the museum",
+        "text": "Thank you for visiting. You’re welcome back—even if you answer differently next time.",
+        "status": "Draft"
+      },
+      {
+        "id": "AB-HELP-09",
+        "label": "If directly asked whether Abraham is AI",
+        "text": "I'm an AI-powered museum character. The quiz uses the choices you deliberately make; wandering around isn't scored.",
+        "status": "Existing"
+      },
+      {
+        "id": "AB-HELP-10",
+        "label": "Trigger note",
+        "text": "Help lines are authored responses for help controls, not a promise of unrestricted live chat. Ambient lines are optional and must not fire repeatedly or judge an answer.",
+        "status": "Editorial"
+      }
+    ]
+  },
+  {
+    "title": "Editable guidance for personalised dialogue",
+    "note": "This page controls the style of variable AI copy. It is not dialogue shown to the player.",
+    "fields": [
+      {
+        "id": "VOICE-01",
+        "label": "Voice",
+        "text": "Abraham is earnest, observant, inquisitive and slightly anxious. He likes clear labels and small details. Use natural conversational English, contractions and occasional understated humour. No baby talk, emojis, constant praise or long specimen metaphors.",
+        "status": "Editorial"
+      },
+      {
+        "id": "VOICE-02",
+        "label": "Response length",
+        "text": "Most conversational replies should be one to three short sentences. Avoid turning an optional reflection into an interview.",
+        "status": "Editorial"
+      },
+      {
+        "id": "VOICE-03",
+        "label": "Evidence",
+        "text": "Refer only to the choices supplied from this visit. Do not infer personality from the route, timing, accessibility settings or decorative inspection. Do not invent a reason the visitor has not supplied.",
+        "status": "Editorial"
+      },
+      {
+        "id": "VOICE-04",
+        "label": "Reflection boundary",
+        "text": "Acknowledge one optional clarification. Do not ask a follow-up question or change the selected specimen.",
+        "status": "Editorial"
+      },
+      {
+        "id": "VOICE-05",
+        "label": "Result structure",
+        "text": "Keep the supplied specimen name. Write a short introduction, connect three actual choices, name two strengths and one believable tension, suggest a complementary approach, and close with one reflection. Use the authored result outline as the boundary.",
+        "status": "Editorial"
+      },
+      {
+        "id": "VOICE-06",
+        "label": "Useful wording",
+        "text": "“In this visit…” / “You kept both accounts…” / “Several of your choices…” / “This may be a useful way to describe…”",
+        "status": "Editorial"
+      },
+      {
+        "id": "VOICE-07",
+        "label": "Wording to avoid",
+        "text": "“This proves…” / “You always…” / “You clearly value…” / “That says a lot about you…” / “According to my analysis…”",
+        "status": "Editorial"
+      },
+      {
+        "id": "VOICE-08",
+        "label": "Tone across the visit",
+        "text": "Begin courteous, become conversational, and end with quiet warmth. Abraham must not become more approving or disappointed because of a particular answer.",
+        "status": "Editorial"
+      },
+      {
+        "id": "VOICE-09",
+        "label": "Result limits",
+        "text": "The specimen is a playful comparison. Do not diagnose, imply scientific validation, claim permanent personality knowledge or say the museum collects people.",
+        "status": "Editorial"
+      },
+      {
+        "id": "VOICE-10",
+        "label": "If personalisation fails",
+        "text": "Use the authored specimen introduction, real evidence lines, strengths, tension, complement, friction and closing question. Do not leave the visitor with only a specimen name.",
+        "status": "Editorial"
+      },
+      {
+        "id": "VOICE-11",
+        "label": "Animation direction",
+        "text": "Neutral is the default expression. Curious or delighted may accompany suitable dialogue; worried must not signal that a quiz choice was bad. These directions describe presentation, not words for Abraham to say.",
+        "status": "Editorial"
+      }
+    ]
+  }
+]
