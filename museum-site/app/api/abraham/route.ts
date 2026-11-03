@@ -2,14 +2,33 @@ import {respond,validBody} from '@/lib/abraham.mjs';
 import {getChatGPTUser} from '@/app/chatgpt-auth';
 export const dynamic='force-dynamic';
 const windows=new Map<string,{count:number,reset:number}>();
+const previewOrigin='https://preview.p5js.org';
+function corsHeaders(){
+  return {'Access-Control-Allow-Origin':previewOrigin,'Vary':'Origin'};
+}
+export function OPTIONS(request:Request){
+  if(request.headers.get('origin')!==previewOrigin)return new Response(null,{status:403});
+  return new Response(null,{status:204,headers:{...corsHeaders(),'Access-Control-Allow-Methods':'POST','Access-Control-Allow-Headers':'Content-Type, X-Museum-Pass'}});
+}
 export async function POST(request:Request){
+  if(request.headers.get('origin')===previewOrigin){
+    const headers=corsHeaders();
+    const pass=process.env.MUSEUM_TEST_PASS;
+    if(!pass||request.headers.get('x-museum-pass')!==pass)return Response.json({error:'A museum testing pass is required.'},{status:401,headers});
+    const response=await conversation(request,'p5-test');
+    for(const [name,value] of Object.entries(headers))response.headers.set(name,value);
+    return response;
+  }
   const origin=request.headers.get('origin');
   if(origin && origin!==new URL(request.url).origin)return Response.json({error:'This conversation belongs to the museum.'},{status:403});
   // Private Sites provides the authenticated visitor identity. No anonymous paid endpoint.
   const user=await getChatGPTUser();
   const isLocal=['localhost','127.0.0.1'].includes(new URL(request.url).hostname);
   if(!user&&!isLocal)return Response.json({error:'Please sign in to talk to Abraham.'},{status:401});
-  const id=user?.userId||'local';const now=Date.now();
+  return conversation(request,user?.userId||'local');
+}
+async function conversation(request:Request,id:string){
+  const now=Date.now();
   for(const [key,value] of windows)if(value.reset<now)windows.delete(key);
   const window=windows.get(id)||{count:0,reset:now+60000};
   if(window.count>=8)return Response.json({error:'Give Abraham a moment, then try again.'},{status:429,headers:{'Retry-After':'60'}});
