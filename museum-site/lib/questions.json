@@ -3,45 +3,45 @@
     "id": "q1",
     "number": 1,
     "gallery": "Deep Time",
-    "title": "The small detail",
-    "prompt": "You have time for one closer look before moving on. What would you rather leave knowing?",
-    "intro": "Come and have a look at this one. You can turn it round, too.",
+    "title": "A free afternoon",
+    "prompt": "You have a completely free afternoon with no obligations. Which plan sounds best?",
+    "intro": "A free afternoon! Those are rare. What would you do with one?",
     "choices": [
       {
         "id": "q1-i",
-        "text": "How they worked out what this animal was.",
+        "text": "A beginner workshop where someone explains how everything works as you go.",
         "score": {
           "I": 2,
           "C": 1
         },
-        "evidence": "Chose the evidence behind an identification."
+        "evidence": "Preferred to understand a new activity while learning it."
       },
       {
         "id": "q1-c",
-        "text": "What survived from the original, and what was restored.",
+        "text": "Going back to a place I already like and noticing something I missed before.",
         "score": {
           "C": 2,
           "A": 1
         },
-        "evidence": "Wanted to distinguish retained material from later changes."
+        "evidence": "Returned to something familiar to find more within it."
       },
       {
         "id": "q1-a",
-        "text": "What I could notice before reading the explanation.",
+        "text": "A drop-in activity where I can experiment without committing to the whole day.",
         "score": {
           "A": 2,
           "R": 1
         },
-        "evidence": "Chose space for a first-hand impression."
+        "evidence": "Chose a low-pressure way to experiment independently."
       },
       {
         "id": "q1-r",
-        "text": "What different people noticed when they first saw it.",
+        "text": "Joining friends for something none of us has tried before.",
         "score": {
           "R": 2,
           "I": 1
         },
-        "evidence": "Wanted multiple perspectives on the same object."
+        "evidence": "Preferred discovering something new alongside other people."
       }
     ]
   },
@@ -49,45 +49,45 @@
     "id": "q2",
     "number": 2,
     "gallery": "Deep Time",
-    "title": "The missing piece",
-    "prompt": "This skeleton is missing a piece. Which version would you rather encounter in the museum?",
-    "intro": "There’s a bit missing from this one. We’ve checked under the cabinet.",
+    "title": "The uncertain plan",
+    "prompt": "You’re planning a day out, but one important detail is still uncertain. What do you do?",
+    "intro": "The plan has a little gap in it. Plans do that sometimes.",
     "choices": [
       {
         "id": "q2-i",
-        "text": "Show two possible reconstructions beside the gap. I want to compare them.",
+        "text": "Compare the two most likely versions before choosing between them.",
         "score": {
           "I": 2,
           "A": 1
         },
-        "evidence": "Preferred competing explanations to a single reconstruction."
+        "evidence": "Compared the likely possibilities before committing."
       },
       {
         "id": "q2-c",
-        "text": "Leave the gap visible. I want to see exactly what remains.",
+        "text": "Keep the confirmed parts of the plan and leave that time open for now.",
         "score": {
           "C": 2,
           "R": 1
         },
-        "evidence": "Kept absence visible rather than filling it in."
+        "evidence": "Protected what was already settled without forcing the missing detail."
       },
       {
         "id": "q2-a",
-        "text": "Add a removable reconstruction. I want to try seeing the whole animal.",
+        "text": "Choose an easy backup plan that we can change later if needed.",
         "score": {
           "A": 2,
           "C": 1
         },
-        "evidence": "Chose a reversible way to move forward with incomplete information."
+        "evidence": "Moved forward with a practical, reversible backup."
       },
       {
         "id": "q2-r",
-        "text": "Let visitors switch between versions. Different views may help different people.",
+        "text": "Ask everyone going which option they would enjoy most.",
         "score": {
           "R": 2,
           "I": 1
         },
-        "evidence": "Made room for different ways of understanding the exhibit."
+        "evidence": "Made the uncertain part of the plan a shared decision."
       }
     ]
   },
@@ -95,22 +95,22 @@
     "id": "q3",
     "number": 3,
     "gallery": "Deep Time",
-    "title": "What gets remembered",
-    "prompt": "You’re making a small record of an ordinary day, to be opened years from now. What would you put at its centre?",
-    "intro": "These are things people left behind. Footprints, mostly. What would you leave to remember a day by?",
+    "title": "What you keep",
+    "prompt": "At the end of an ordinary week, you save one small thing to remember it by. What do you choose?",
+    "intro": "These are things people left behind. Footprints, mostly. What would you leave to remember a week by?",
     "choices": [
       {
         "id": "q3-i",
-        "text": "The unanswered question I kept returning to.",
+        "text": "A question I kept thinking about, even though I never answered it.",
         "score": {
           "I": 2,
           "C": 1
         },
-        "evidence": "Kept an unresolved question as the day's central record."
+        "evidence": "Kept an unresolved question as the week’s central memory."
       },
       {
         "id": "q3-c",
-        "text": "A small routine I might otherwise forget.",
+        "text": "A tiny routine or detail that I might otherwise forget.",
         "score": {
           "C": 2,
           "I": 1
@@ -119,7 +119,7 @@
       },
       {
         "id": "q3-a",
-        "text": "A decision that changed how the day went.",
+        "text": "A decision I made that changed how the week went.",
         "score": {
           "A": 2,
           "R": 1
@@ -128,12 +128,12 @@
       },
       {
         "id": "q3-r",
-        "text": "An exchange with someone that stayed with me.",
+        "text": "A conversation or message from someone that stayed with me.",
         "score": {
           "R": 2,
           "A": 1
         },
-        "evidence": "Remembered the day through an interaction."
+        "evidence": "Remembered the week through an interaction."
       }
     ]
   },
@@ -141,13 +141,13 @@
     "id": "q4",
     "number": 4,
     "gallery": "Earth & Space",
-    "title": "The surprise drawer",
-    "prompt": "You set aside an afternoon for something familiar. Just as you begin, an unexpected invitation arrives. Both sound good. What do you do?",
-    "intro": "Go on, open it. I think this is the right drawer.",
+    "title": "A last-minute invitation",
+    "prompt": "You’ve planned a quiet afternoon for yourself. A friend suddenly invites you somewhere you’d probably enjoy. What do you do?",
+    "intro": "Oh! A last-minute invitation. Those make the day wobble a little.",
     "choices": [
       {
         "id": "q4-i",
-        "text": "Get a little more detail before deciding which interests me more.",
+        "text": "Ask for a few more details before deciding which plan sounds better.",
         "score": {
           "I": 2,
           "A": 1
@@ -156,7 +156,7 @@
       },
       {
         "id": "q4-c",
-        "text": "Keep the afternoon I planned; suggest another day for the invitation.",
+        "text": "Keep the afternoon I planned and suggest meeting another day.",
         "score": {
           "C": 2,
           "R": 1
@@ -165,7 +165,7 @@
       },
       {
         "id": "q4-a",
-        "text": "Take the invitation. I can return to my original plan.",
+        "text": "Go with my friend. I can return to my original plan later.",
         "score": {
           "A": 2,
           "C": 1
@@ -174,7 +174,7 @@
       },
       {
         "id": "q4-r",
-        "text": "See whether we can combine some of both without making it awkward.",
+        "text": "See whether we can meet for part of it so I still get some time to myself.",
         "score": {
           "R": 2,
           "I": 1
@@ -187,45 +187,45 @@
     "id": "q5",
     "number": 5,
     "gallery": "Earth & Space",
-    "title": "The next test",
-    "prompt": "An unfamiliar specimen could be studied in several ways. There is funding for one next step. Which would you back?",
-    "intro": "We’ve got enough money to try one of these. Just one, though. Have a look and see what you think.",
+    "title": "When something goes wrong",
+    "prompt": "Your phone or laptop suddenly starts behaving strangely. What do you do first?",
+    "intro": "It was working a moment ago. They’re rather dramatic, these little machines.",
     "choices": [
       {
         "id": "q5-i",
-        "text": "A detailed scan: more information, but it may not settle the main question.",
+        "text": "Look up the symptoms and work out what probably caused the problem.",
         "score": {
           "I": 2,
           "C": 1
         },
-        "evidence": "Accepted an incomplete answer in exchange for more evidence."
+        "evidence": "Looked for an explanation before attempting a fix."
       },
       {
         "id": "q5-c",
-        "text": "Better storage first: protect the specimen, though the answer will wait.",
+        "text": "Back up anything important before changing or restarting anything.",
         "score": {
           "C": 2,
           "A": 1
         },
-        "evidence": "Protected future options before pursuing an immediate answer."
+        "evidence": "Protected important information before trying to solve the problem."
       },
       {
         "id": "q5-a",
-        "text": "A tiny sample test: a clearer answer, but it permanently uses some material.",
+        "text": "Try the quickest reversible fix and see what happens.",
         "score": {
           "A": 2,
           "R": 1
         },
-        "evidence": "Accepted a stated cost for a more decisive next step."
+        "evidence": "Tested a practical fix that could easily be undone."
       },
       {
         "id": "q5-r",
-        "text": "A joint study with another museum: shared expertise, but a slower start.",
+        "text": "Ask a friend who’s good with technology to look at it with me.",
         "score": {
           "R": 2,
           "I": 1
         },
-        "evidence": "Chose shared expertise despite a coordination cost."
+        "evidence": "Brought another person into solving the problem."
       }
     ]
   },
@@ -233,13 +233,13 @@
     "id": "q6",
     "number": 6,
     "gallery": "Earth & Space",
-    "title": "Same label, different view",
-    "prompt": "You and someone else come away from the same experience with different impressions. What would you most want to do?",
-    "intro": "Same display, two different descriptions. Hmm. Have a look at both.",
+    "title": "Same film, different view",
+    "prompt": "You and a friend watch the same film. You love it; they don’t. What do you do next?",
+    "intro": "Same film, two completely different reviews. That happens a lot here.",
     "choices": [
       {
         "id": "q6-i",
-        "text": "Compare the particular details each of us noticed.",
+        "text": "Compare the scenes and details that each of us noticed most.",
         "score": {
           "I": 2,
           "R": 1
@@ -248,7 +248,7 @@
       },
       {
         "id": "q6-c",
-        "text": "Keep both accounts intact; neither needs replacing yet.",
+        "text": "Leave it there. We can keep our different opinions without settling it.",
         "score": {
           "C": 2,
           "I": 1
@@ -257,7 +257,7 @@
       },
       {
         "id": "q6-a",
-        "text": "Try a different approach together and see what happens next.",
+        "text": "Choose another film together and see whether our opinions line up next time.",
         "score": {
           "A": 2,
           "C": 1
@@ -266,7 +266,7 @@
       },
       {
         "id": "q6-r",
-        "text": "Find out why that impression mattered to them.",
+        "text": "Ask what made the film land so differently for them.",
         "score": {
           "R": 2,
           "A": 1
@@ -279,13 +279,13 @@
     "id": "q7",
     "number": 7,
     "gallery": "Living Systems",
-    "title": "Room to change",
-    "prompt": "A place you love is being changed. The proposal has real benefits, but it will feel different. What would you speak up for first?",
-    "intro": "Here’s the old layout, and here’s the new one. Take a look. What do you think?",
+    "title": "A familiar place changes",
+    "prompt": "A café, club or community space you love is getting a major redesign. What would you speak up for first?",
+    "intro": "Here’s the old layout, and here’s the new one. They moved nearly everything.",
     "choices": [
       {
         "id": "q7-i",
-        "text": "A clear account of what the change is meant to improve.",
+        "text": "Explain what problem the redesign is meant to solve.",
         "score": {
           "I": 2,
           "A": 1
@@ -294,7 +294,7 @@
       },
       {
         "id": "q7-c",
-        "text": "Keeping one part that makes the place feel like itself.",
+        "text": "Keep one familiar feature that makes the place feel like itself.",
         "score": {
           "C": 2,
           "R": 1
@@ -303,7 +303,7 @@
       },
       {
         "id": "q7-a",
-        "text": "A trial period so we can experience it before deciding.",
+        "text": "Try the new layout for a while before making it permanent.",
         "score": {
           "A": 2,
           "C": 1
@@ -312,7 +312,7 @@
       },
       {
         "id": "q7-r",
-        "text": "A way for the people who use it to shape the proposal.",
+        "text": "Let the regulars and staff help shape the redesign.",
         "score": {
           "R": 2,
           "I": 1
@@ -325,13 +325,13 @@
     "id": "q8",
     "number": 8,
     "gallery": "Living Systems",
-    "title": "The shared field kit",
-    "prompt": "A small group has an afternoon to explore somewhere unfamiliar. The basics are covered. What extra would you most want to bring?",
+    "title": "One extra thing",
+    "prompt": "You’re taking a day trip somewhere new with friends. The basics are packed. What extra do you bring?",
     "intro": "Everything we need is packed! There’s a little space left. Anything you’d like to bring?",
     "choices": [
       {
         "id": "q8-i",
-        "text": "A field guide, so we can make sense of what we find.",
+        "text": "A guide or saved list, so we can understand what we find.",
         "score": {
           "I": 2,
           "R": 1
@@ -340,7 +340,7 @@
       },
       {
         "id": "q8-c",
-        "text": "A notebook, so details don't disappear when the day ends.",
+        "text": "A notebook, so the little details don’t disappear when the day ends.",
         "score": {
           "C": 2,
           "I": 1
@@ -349,7 +349,7 @@
       },
       {
         "id": "q8-a",
-        "text": "A map with a few optional detours marked.",
+        "text": "A map with a few optional detours marked, in case something catches my eye.",
         "score": {
           "A": 2,
           "C": 1

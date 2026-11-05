@@ -31,71 +31,375 @@ window.MUSEUM_QUIZ = {
     MX: {name: 'Classification pending'}
   },
   questions: [
-    question('q1', 1, 'Deep Time', 'The small detail',
-      'You have time for one closer look before moving on. What would you rather leave knowing?',
-      'Come and have a look at this one. You can turn it round, too.', [
-        choice('q1-i', 'How they worked out what this animal was.', {I:2,C:1}, 'Chose the evidence behind an identification.'),
-        choice('q1-c', 'What survived from the original, and what was restored.', {C:2,A:1}, 'Wanted to distinguish retained material from later changes.'),
-        choice('q1-a', 'What I could notice before reading the explanation.', {A:2,R:1}, 'Chose space for a first-hand impression.'),
-        choice('q1-r', 'What different people noticed when they first saw it.', {R:2,I:1}, 'Wanted multiple perspectives on the same object.')
-      ]),
-    question('q2', 2, 'Deep Time', 'The missing piece',
-      'This skeleton is missing a piece. Which version would you rather encounter in the museum?',
-      'There\u2019s a bit missing from this one. We\u2019ve checked under the cabinet.', [
-        choice('q2-i', 'Show two possible reconstructions beside the gap. I want to compare them.', {I:2,A:1}, 'Preferred competing explanations to a single reconstruction.'),
-        choice('q2-c', 'Leave the gap visible. I want to see exactly what remains.', {C:2,R:1}, 'Kept absence visible rather than filling it in.'),
-        choice('q2-a', 'Add a removable reconstruction. I want to try seeing the whole animal.', {A:2,C:1}, 'Chose a reversible way to move forward with incomplete information.'),
-        choice('q2-r', 'Let visitors switch between versions. Different views may help different people.', {R:2,I:1}, 'Made room for different ways of understanding the exhibit.')
-      ]),
-    question('q3', 3, 'Deep Time', 'What gets remembered',
-      'You\u2019re making a small record of an ordinary day, to be opened years from now. What would you put at its centre?',
-      'These are things people left behind. Footprints, mostly. What would you leave to remember a day by?', [
-        choice('q3-i', 'The unanswered question I kept returning to.', {I:2,C:1}, 'Kept an unresolved question as the day\'s central record.'),
-        choice('q3-c', 'A small routine I might otherwise forget.', {C:2,I:1}, 'Preserved an easily overlooked part of everyday life.'),
-        choice('q3-a', 'A decision that changed how the day went.', {A:2,R:1}, 'Focused on a moment of making a difference.'),
-        choice('q3-r', 'An exchange with someone that stayed with me.', {R:2,A:1}, 'Remembered the day through an interaction.')
-      ]),
-    question('q4', 4, 'Earth & Space', 'The surprise drawer',
-      'You set aside an afternoon for something familiar. Just as you begin, an unexpected invitation arrives. Both sound good. What do you do?',
-      'Go on, open it. I think this is the right drawer.', [
-        choice('q4-i', 'Get a little more detail before deciding which interests me more.', {I:2,A:1}, 'Sought more context before choosing.'),
-        choice('q4-c', 'Keep the afternoon I planned; suggest another day for the invitation.', {C:2,R:1}, 'Protected an existing intention while leaving a future opening.'),
-        choice('q4-a', 'Take the invitation. I can return to my original plan.', {A:2,C:1}, 'Accepted an opportunity while treating the original plan as recoverable.'),
-        choice('q4-r', 'See whether we can combine some of both without making it awkward.', {R:2,I:1}, 'Looked for a workable shared arrangement.')
-      ]),
-    question('q5', 5, 'Earth & Space', 'The next test',
-      'An unfamiliar specimen could be studied in several ways. There is funding for one next step. Which would you back?',
-      'We\u2019ve got enough money to try one of these. Just one, though. Have a look and see what you think.', [
-        choice('q5-i', 'A detailed scan: more information, but it may not settle the main question.', {I:2,C:1}, 'Accepted an incomplete answer in exchange for more evidence.'),
-        choice('q5-c', 'Better storage first: protect the specimen, though the answer will wait.', {C:2,A:1}, 'Protected future options before pursuing an immediate answer.'),
-        choice('q5-a', 'A tiny sample test: a clearer answer, but it permanently uses some material.', {A:2,R:1}, 'Accepted a stated cost for a more decisive next step.'),
-        choice('q5-r', 'A joint study with another museum: shared expertise, but a slower start.', {R:2,I:1}, 'Chose shared expertise despite a coordination cost.')
-      ]),
-    question('q6', 6, 'Earth & Space', 'Same label, different view',
-      'You and someone else come away from the same experience with different impressions. What would you most want to do?',
-      'Same display, two different descriptions. Hmm. Have a look at both.', [
-        choice('q6-i', 'Compare the particular details each of us noticed.', {I:2,R:1}, 'Explored the observations behind different impressions.'),
-        choice('q6-c', 'Keep both accounts intact; neither needs replacing yet.', {C:2,I:1}, 'Preserved separate accounts without forcing resolution.'),
-        choice('q6-a', 'Try a different approach together and see what happens next.', {A:2,C:1}, 'Used another experience to move beyond the disagreement.'),
-        choice('q6-r', 'Find out why that impression mattered to them.', {R:2,A:1}, 'Prioritised the personal significance of another perspective.')
-      ]),
-    question('q7', 7, 'Living Systems', 'Room to change',
-      'A place you love is being changed. The proposal has real benefits, but it will feel different. What would you speak up for first?',
-      'Here\u2019s the old layout, and here\u2019s the new one. Take a look. What do you think?', [
-        choice('q7-i', 'A clear account of what the change is meant to improve.', {I:2,A:1}, 'Asked for the purpose and evidence behind a change.'),
-        choice('q7-c', 'Keeping one part that makes the place feel like itself.', {C:2,R:1}, 'Protected a specific source of continuity.'),
-        choice('q7-a', 'A trial period so we can experience it before deciding.', {A:2,C:1}, 'Favoured a practical, reversible trial.'),
-        choice('q7-r', 'A way for the people who use it to shape the proposal.', {R:2,I:1}, 'Prioritised participation by the people affected.')
-      ]),
-    question('q8', 8, 'Living Systems', 'The shared field kit',
-      'A small group has an afternoon to explore somewhere unfamiliar. The basics are covered. What extra would you most want to bring?',
-      'Everything we need is packed! There\u2019s a little space left. Anything you\u2019d like to bring?', [
-        choice('q8-i', 'A field guide, so we can make sense of what we find.', {I:2,R:1}, 'Brought a resource for interpreting discoveries together.'),
-        choice('q8-c', 'A notebook, so details don\'t disappear when the day ends.', {C:2,I:1}, 'Made room to retain details beyond the moment.'),
-        choice('q8-a', 'A map with a few optional detours marked.', {A:2,C:1}, 'Kept room for self-directed exploration within a usable plan.'),
-        choice('q8-r', 'A shared camera, so everyone can add what caught their eye.', {R:2,A:1}, 'Chose a shared record that others could shape.')
-      ])
-  ]
+  {
+    "id": "q1",
+    "number": 1,
+    "gallery": "Deep Time",
+    "title": "A free afternoon",
+    "prompt": "You have a completely free afternoon with no obligations. Which plan sounds best?",
+    "intro": "A free afternoon! Those are rare. What would you do with one?",
+    "choices": [
+      {
+        "id": "q1-i",
+        "text": "A beginner workshop where someone explains how everything works as you go.",
+        "score": {
+          "I": 2,
+          "C": 1
+        },
+        "evidence": "Preferred to understand a new activity while learning it."
+      },
+      {
+        "id": "q1-c",
+        "text": "Going back to a place I already like and noticing something I missed before.",
+        "score": {
+          "C": 2,
+          "A": 1
+        },
+        "evidence": "Returned to something familiar to find more within it."
+      },
+      {
+        "id": "q1-a",
+        "text": "A drop-in activity where I can experiment without committing to the whole day.",
+        "score": {
+          "A": 2,
+          "R": 1
+        },
+        "evidence": "Chose a low-pressure way to experiment independently."
+      },
+      {
+        "id": "q1-r",
+        "text": "Joining friends for something none of us has tried before.",
+        "score": {
+          "R": 2,
+          "I": 1
+        },
+        "evidence": "Preferred discovering something new alongside other people."
+      }
+    ]
+  },
+  {
+    "id": "q2",
+    "number": 2,
+    "gallery": "Deep Time",
+    "title": "The uncertain plan",
+    "prompt": "You’re planning a day out, but one important detail is still uncertain. What do you do?",
+    "intro": "The plan has a little gap in it. Plans do that sometimes.",
+    "choices": [
+      {
+        "id": "q2-i",
+        "text": "Compare the two most likely versions before choosing between them.",
+        "score": {
+          "I": 2,
+          "A": 1
+        },
+        "evidence": "Compared the likely possibilities before committing."
+      },
+      {
+        "id": "q2-c",
+        "text": "Keep the confirmed parts of the plan and leave that time open for now.",
+        "score": {
+          "C": 2,
+          "R": 1
+        },
+        "evidence": "Protected what was already settled without forcing the missing detail."
+      },
+      {
+        "id": "q2-a",
+        "text": "Choose an easy backup plan that we can change later if needed.",
+        "score": {
+          "A": 2,
+          "C": 1
+        },
+        "evidence": "Moved forward with a practical, reversible backup."
+      },
+      {
+        "id": "q2-r",
+        "text": "Ask everyone going which option they would enjoy most.",
+        "score": {
+          "R": 2,
+          "I": 1
+        },
+        "evidence": "Made the uncertain part of the plan a shared decision."
+      }
+    ]
+  },
+  {
+    "id": "q3",
+    "number": 3,
+    "gallery": "Deep Time",
+    "title": "What you keep",
+    "prompt": "At the end of an ordinary week, you save one small thing to remember it by. What do you choose?",
+    "intro": "These are things people left behind. Footprints, mostly. What would you leave to remember a week by?",
+    "choices": [
+      {
+        "id": "q3-i",
+        "text": "A question I kept thinking about, even though I never answered it.",
+        "score": {
+          "I": 2,
+          "C": 1
+        },
+        "evidence": "Kept an unresolved question as the week’s central memory."
+      },
+      {
+        "id": "q3-c",
+        "text": "A tiny routine or detail that I might otherwise forget.",
+        "score": {
+          "C": 2,
+          "I": 1
+        },
+        "evidence": "Preserved an easily overlooked part of everyday life."
+      },
+      {
+        "id": "q3-a",
+        "text": "A decision I made that changed how the week went.",
+        "score": {
+          "A": 2,
+          "R": 1
+        },
+        "evidence": "Focused on a moment of making a difference."
+      },
+      {
+        "id": "q3-r",
+        "text": "A conversation or message from someone that stayed with me.",
+        "score": {
+          "R": 2,
+          "A": 1
+        },
+        "evidence": "Remembered the week through an interaction."
+      }
+    ]
+  },
+  {
+    "id": "q4",
+    "number": 4,
+    "gallery": "Earth & Space",
+    "title": "A last-minute invitation",
+    "prompt": "You’ve planned a quiet afternoon for yourself. A friend suddenly invites you somewhere you’d probably enjoy. What do you do?",
+    "intro": "Oh! A last-minute invitation. Those make the day wobble a little.",
+    "choices": [
+      {
+        "id": "q4-i",
+        "text": "Ask for a few more details before deciding which plan sounds better.",
+        "score": {
+          "I": 2,
+          "A": 1
+        },
+        "evidence": "Sought more context before choosing."
+      },
+      {
+        "id": "q4-c",
+        "text": "Keep the afternoon I planned and suggest meeting another day.",
+        "score": {
+          "C": 2,
+          "R": 1
+        },
+        "evidence": "Protected an existing intention while leaving a future opening."
+      },
+      {
+        "id": "q4-a",
+        "text": "Go with my friend. I can return to my original plan later.",
+        "score": {
+          "A": 2,
+          "C": 1
+        },
+        "evidence": "Accepted an opportunity while treating the original plan as recoverable."
+      },
+      {
+        "id": "q4-r",
+        "text": "See whether we can meet for part of it so I still get some time to myself.",
+        "score": {
+          "R": 2,
+          "I": 1
+        },
+        "evidence": "Looked for a workable shared arrangement."
+      }
+    ]
+  },
+  {
+    "id": "q5",
+    "number": 5,
+    "gallery": "Earth & Space",
+    "title": "When something goes wrong",
+    "prompt": "Your phone or laptop suddenly starts behaving strangely. What do you do first?",
+    "intro": "It was working a moment ago. They’re rather dramatic, these little machines.",
+    "choices": [
+      {
+        "id": "q5-i",
+        "text": "Look up the symptoms and work out what probably caused the problem.",
+        "score": {
+          "I": 2,
+          "C": 1
+        },
+        "evidence": "Looked for an explanation before attempting a fix."
+      },
+      {
+        "id": "q5-c",
+        "text": "Back up anything important before changing or restarting anything.",
+        "score": {
+          "C": 2,
+          "A": 1
+        },
+        "evidence": "Protected important information before trying to solve the problem."
+      },
+      {
+        "id": "q5-a",
+        "text": "Try the quickest reversible fix and see what happens.",
+        "score": {
+          "A": 2,
+          "R": 1
+        },
+        "evidence": "Tested a practical fix that could easily be undone."
+      },
+      {
+        "id": "q5-r",
+        "text": "Ask a friend who’s good with technology to look at it with me.",
+        "score": {
+          "R": 2,
+          "I": 1
+        },
+        "evidence": "Brought another person into solving the problem."
+      }
+    ]
+  },
+  {
+    "id": "q6",
+    "number": 6,
+    "gallery": "Earth & Space",
+    "title": "Same film, different view",
+    "prompt": "You and a friend watch the same film. You love it; they don’t. What do you do next?",
+    "intro": "Same film, two completely different reviews. That happens a lot here.",
+    "choices": [
+      {
+        "id": "q6-i",
+        "text": "Compare the scenes and details that each of us noticed most.",
+        "score": {
+          "I": 2,
+          "R": 1
+        },
+        "evidence": "Explored the observations behind different impressions."
+      },
+      {
+        "id": "q6-c",
+        "text": "Leave it there. We can keep our different opinions without settling it.",
+        "score": {
+          "C": 2,
+          "I": 1
+        },
+        "evidence": "Preserved separate accounts without forcing resolution."
+      },
+      {
+        "id": "q6-a",
+        "text": "Choose another film together and see whether our opinions line up next time.",
+        "score": {
+          "A": 2,
+          "C": 1
+        },
+        "evidence": "Used another experience to move beyond the disagreement."
+      },
+      {
+        "id": "q6-r",
+        "text": "Ask what made the film land so differently for them.",
+        "score": {
+          "R": 2,
+          "A": 1
+        },
+        "evidence": "Prioritised the personal significance of another perspective."
+      }
+    ]
+  },
+  {
+    "id": "q7",
+    "number": 7,
+    "gallery": "Living Systems",
+    "title": "A familiar place changes",
+    "prompt": "A café, club or community space you love is getting a major redesign. What would you speak up for first?",
+    "intro": "Here’s the old layout, and here’s the new one. They moved nearly everything.",
+    "choices": [
+      {
+        "id": "q7-i",
+        "text": "Explain what problem the redesign is meant to solve.",
+        "score": {
+          "I": 2,
+          "A": 1
+        },
+        "evidence": "Asked for the purpose and evidence behind a change."
+      },
+      {
+        "id": "q7-c",
+        "text": "Keep one familiar feature that makes the place feel like itself.",
+        "score": {
+          "C": 2,
+          "R": 1
+        },
+        "evidence": "Protected a specific source of continuity."
+      },
+      {
+        "id": "q7-a",
+        "text": "Try the new layout for a while before making it permanent.",
+        "score": {
+          "A": 2,
+          "C": 1
+        },
+        "evidence": "Favoured a practical, reversible trial."
+      },
+      {
+        "id": "q7-r",
+        "text": "Let the regulars and staff help shape the redesign.",
+        "score": {
+          "R": 2,
+          "I": 1
+        },
+        "evidence": "Prioritised participation by the people affected."
+      }
+    ]
+  },
+  {
+    "id": "q8",
+    "number": 8,
+    "gallery": "Living Systems",
+    "title": "One extra thing",
+    "prompt": "You’re taking a day trip somewhere new with friends. The basics are packed. What extra do you bring?",
+    "intro": "Everything we need is packed! There’s a little space left. Anything you’d like to bring?",
+    "choices": [
+      {
+        "id": "q8-i",
+        "text": "A guide or saved list, so we can understand what we find.",
+        "score": {
+          "I": 2,
+          "R": 1
+        },
+        "evidence": "Brought a resource for interpreting discoveries together."
+      },
+      {
+        "id": "q8-c",
+        "text": "A notebook, so the little details don’t disappear when the day ends.",
+        "score": {
+          "C": 2,
+          "I": 1
+        },
+        "evidence": "Made room to retain details beyond the moment."
+      },
+      {
+        "id": "q8-a",
+        "text": "A map with a few optional detours marked, in case something catches my eye.",
+        "score": {
+          "A": 2,
+          "C": 1
+        },
+        "evidence": "Kept room for self-directed exploration within a usable plan."
+      },
+      {
+        "id": "q8-r",
+        "text": "A shared camera, so everyone can add what caught their eye.",
+        "score": {
+          "R": 2,
+          "A": 1
+        },
+        "evidence": "Chose a shared record that others could shape."
+      }
+    ]
+  }
+]
 };
 
 // Turn the selected answer IDs into point totals and the final exhibit type.
