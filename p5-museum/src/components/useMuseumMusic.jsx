@@ -8,6 +8,7 @@ export function useMuseumMusic() {
   const player = useRef(null);
   const prefs = useRef(defaults);
   const [settings, setSettings] = useState(defaults);
+  const [playback, setPlayback] = useState('idle');
 
   useEffect(() => {
     try {
@@ -19,30 +20,37 @@ export function useMuseumMusic() {
     } catch {}
     return () => {
       if (!player.current) return;
-      player.current.audio.pause();
-      player.current.context?.close().catch(() => {});
+      player.current.pause();
       player.current = null;
     };
   }, []);
 
-  function start() {
-    if (prefs.current.muted || !prefs.current.volume) return;
+  async function start() {
+    if (prefs.current.muted || !prefs.current.volume) return false;
     if (!player.current) {
-      const audio = new Audio('assets/sergequadrado-moment-14023.mp3');
+      const audio = new Audio();
+      audio.crossOrigin = 'anonymous';
+      audio.preload = 'auto';
       audio.loop = true;
-      const AudioEngine = window.AudioContext || window.webkitAudioContext;
-      const context = AudioEngine ? new AudioEngine() : null;
-      const gain = context?.createGain();
-      if (gain) {
-        context.createMediaElementSource(audio).connect(gain);
-        gain.connect(context.destination);
-        gain.gain.value = prefs.current.volume / 100;
-      } else audio.volume = prefs.current.volume / 100;
-      player.current = {audio, context, gain};
+      audio.playsInline = true;
+      audio.volume = prefs.current.volume / 100;
+      audio.src = window.MUSEUM_MUSIC_URL || 'assets/sergequadrado-moment-14023.mp3';
+      audio.addEventListener('playing', () => setPlayback('playing'));
+      audio.addEventListener('pause', () => setPlayback('paused'));
+      audio.addEventListener('error', () => setPlayback('unavailable'));
+      player.current = audio;
     }
-    const {audio, context} = player.current;
-    context?.resume().catch(() => {});
-    if (audio.paused) audio.play().catch(() => {});
+    const audio = player.current;
+    audio.muted = prefs.current.muted;
+    audio.volume = prefs.current.volume / 100;
+    try {
+      if (audio.paused) await audio.play();
+      setPlayback('playing');
+      return true;
+    } catch {
+      setPlayback('blocked');
+      return false;
+    }
   }
 
   function change(patch, duringVisit) {
@@ -52,11 +60,14 @@ export function useMuseumMusic() {
     try { localStorage.setItem(storageKey, JSON.stringify(next)); } catch {}
     const current = player.current;
     if (current) {
-      current.audio.muted = next.muted;
-      if (current.gain) current.gain.gain.setTargetAtTime(next.volume / 100, current.context.currentTime, .025);
-      else current.audio.volume = next.volume / 100;
+      current.muted = next.muted;
+      current.volume = next.volume / 100;
+      if (next.muted || !next.volume) {
+        current.pause();
+        setPlayback('paused');
+      }
     }
     if (duringVisit) start();
   }
-  return {settings, change, start};
+  return {settings, change, start, playback};
 }

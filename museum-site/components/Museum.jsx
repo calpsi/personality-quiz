@@ -9,23 +9,17 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {createPatrol} from '../lib/abraham-walk.mjs';
 import {DRACOLoader} from 'three/addons/loaders/DRACOLoader.js';
-import {deviceLookQuaternion,requestDeviceLook,supportsDeviceLook} from '../lib/device-look.mjs';
+import {deviceLookQuaternion} from '../lib/device-look.mjs';
 
 const views={hall:[[0,2.05,4.4],[0,1.65,-.7]],'Deep Time':[[-5.5,2.1,3.8],[-9,1.6,-1.4]],'Earth & Space':[[5.4,2.05,3.5],[9,1.5,-1.9]],'Living Systems':[[0,1.9,-5.8],[0,1.6,-10]],q1:[[-8.1,1.95,4.3],[-10.1,1.65,2.8]],q2:[[-7,2.1,.6],[-9,1.5,-1.8]],q3:[[-8.5,2,1],[-8.5,2.1,-4.65]],q4:[[8,1.9,4.6],[10,1.4,2.8]],q5:[[8,2,1.2],[10,1.7,-1.4]],q6:[[5.3,1.9,-.2],[6.1,1.55,-3.4]],q7:[[-1.9,1.9,-6.8],[-1.9,1.5,-9.8]],q8:[[2,1.9,-6.8],[2,1.2,-9.5]]};
 
 import {specimen} from '../lib/result-specimens.mjs';
-export default function Museum({view='hall',resultCode=null,reduced=false,onInteract=()=>{},discoveries=[],reception=false,speaking=false,talking=false,choice=null}){
+export default function Museum({view='hall',resultCode=null,reduced=false,onInteract=()=>{},discoveries=[],reception=false,speaking=false,talking=false,choice=null,motionAvailable=false,motionEnabled=false,motionDenied=false}){
  const talkingRef=useRef(talking);talkingRef.current=talking;
  const thought=useRef(null),speech=useRef(speaking);speech.current=speaking;
  const host=useRef(null),control=useRef(null),callback=useRef(onInteract);callback.current=onInteract;
- const [motionAvailable,setMotionAvailable]=useState(false),[motionEnabled,setMotionEnabled]=useState(false),[motionDenied,setMotionDenied]=useState(false);
  const [thoughtText,setThoughtText]=useState('Now, where did I put my pencil?');
- useEffect(()=>{setMotionAvailable(supportsDeviceLook(window)&&window.matchMedia('(pointer: coarse)').matches);},[]);
  useEffect(()=>{control.current?.setMotion?.(motionEnabled);},[motionEnabled]);
- const toggleMotion=async()=>{
-  if(motionEnabled){setMotionEnabled(false);return;}
-  const allowed=await requestDeviceLook(window);setMotionDenied(!allowed);if(allowed)setMotionEnabled(true);
- };
  useEffect(()=>{if(resultCode||reception)return;const lines=['I hope the stars stay in the drawer.','Was that label always over there?','One stamp, two stamps… oh, a pencil!','The clock seems quite pleased today.','I should dust that. When it comes down.'];let last=-1;const id=setInterval(()=>{let next=Math.floor(Math.random()*lines.length);if(next===last)next=(next+1)%lines.length;last=next;setThoughtText(lines[next]);},11000);return()=>clearInterval(id);},[resultCode,reception]);
  const [status,setStatus]=useState('Opening the museum…');
  useEffect(()=>{
@@ -41,8 +35,18 @@ export default function Museum({view='hall',resultCode=null,reduced=false,onInte
   if(!resultCode)scene.fog=new THREE.FogExp2('#30271f',.018);
   for(const p of [[0,3,0],[-9,3,-1],[9,3,-1],[0,3,-10]]){const l=new THREE.PointLight(0xffcf84,17,8,1.5);l.position.set(...p);scene.add(l);}
   if(!resultCode&&!reception){
-   const stops=[[-10.1,2.3,2.8],[-9,2.9,-1.8],[-8.5,2.9,-4.3],[10,2.3,2.8],[10,2.6,-1.4],[6.1,2.5,-3.4],[-1.9,2.4,-9.8],[2,2,-9.5]];
-   stops.forEach((p,i)=>{const canvas=document.createElement('canvas');canvas.width=128;canvas.height=128;const ctx=canvas.getContext('2d');ctx.fillStyle='#e3c995';ctx.beginPath();ctx.arc(64,64,44,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#68563a';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='#39402b';ctx.font='46px Georgia';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(String(i+1).padStart(2,'0'),64,65);const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;const marker=new THREE.Sprite(new THREE.SpriteMaterial({map:texture,depthTest:true}));marker.position.set(...p);marker.scale.set(.55,.55,1);marker.userData.interaction_id='q'+(i+1);scene.add(marker);});
+   const stops=[
+    {badge:[-10.1,3.1,3.05],hit:[-10.1,1.55,2.8],size:[2.7,2.8,2.5]},
+    {badge:[-9,3.35,-1.55],hit:[-9,1.55,-1.8],size:[2.8,2.9,2.5]},
+    {badge:[-8.5,3.3,-4.05],hit:[-8.5,1.55,-4.3],size:[2.8,2.9,2.5]},
+    {badge:[10,3.1,3.05],hit:[10,1.55,2.8],size:[2.7,2.8,2.5]},
+    {badge:[10,3.25,-1.15],hit:[10,1.55,-1.4],size:[2.8,2.9,2.5]},
+    {badge:[6.1,3.2,-3.15],hit:[6.1,1.55,-3.4],size:[2.8,2.8,2.5]},
+    {badge:[-1.9,3.05,-9.55],hit:[-1.9,1.5,-9.8],size:[2.6,2.7,2.3]},
+    {badge:[2,3.05,-9.25],hit:[2,1.5,-9.5],size:[2.6,2.7,2.3]}
+   ];
+   const hitMaterial=new THREE.MeshBasicMaterial({transparent:true,opacity:0,depthWrite:false,side:THREE.DoubleSide});
+   stops.forEach(({badge,hit,size},i)=>{const id='q'+(i+1);const canvas=document.createElement('canvas');canvas.width=128;canvas.height=128;const ctx=canvas.getContext('2d');ctx.fillStyle='#f1ddb0';ctx.beginPath();ctx.arc(64,64,47,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#68563a';ctx.lineWidth=4;ctx.stroke();ctx.fillStyle='#39402b';ctx.font='bold 43px Georgia';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(String(i+1).padStart(2,'0'),64,65);const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;const marker=new THREE.Sprite(new THREE.SpriteMaterial({map:texture,depthTest:true,depthWrite:false,transparent:true}));marker.position.set(...badge);marker.scale.set(.68,.68,1);marker.renderOrder=50;marker.userData.interaction_id=id;scene.add(marker);const target=new THREE.Mesh(new THREE.BoxGeometry(...size),hitMaterial);target.position.set(...hit);target.userData.interaction_id=id;target.name='Tap target '+id;scene.add(target);});
   }
   if(!resultCode){
    // Milky panels are built separately from the merged architecture export.
@@ -63,7 +67,7 @@ export default function Museum({view='hall',resultCode=null,reduced=false,onInte
    camera.position.set(0,.22,4.5);targetPos.copy(camera.position);targetLook.set(0,0,0);setStatus('');}
   else{
    const v=reception?[[-1.6,1.55,7.85],[-1.6,1.10,6.1]]:(views[view]||views.hall);camera.position.set(...v[0]);look.set(...v[1]);targetPos.copy(camera.position);targetLook.copy(look);
-   loader.load('/assets/museum.glb',g=>{if(disposed)return;model=g.scene;scene.add(model);model.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;o.frustumCulled=true;const mats=Array.isArray(o.material)?o.material:[o.material];for(const m of mats){if(m.opacity<.1)o.visible=false;}}if(o.name.includes('Web_Dream')||o.name.includes('Web Dream'))moving.push({object:o,position:o.position.clone(),rotation:o.rotation.clone()});});setStatus('');},undefined,()=>{if(!disposed)setStatus('The display could not load. You can still use the gallery buttons below.');});
+   loader.load('/assets/museum.glb',g=>{if(disposed)return;model=g.scene;scene.add(model);model.traverse(o=>{const objectName=o.name.toLowerCase();if(o.isMesh){o.castShadow=true;o.receiveShadow=true;o.frustumCulled=true;const mats=Array.isArray(o.material)?o.material:[o.material];for(const m of mats){if(m.opacity<.1)o.visible=false;}}if(!o.userData.interaction_id){if(/floating accession card|misplaced label|hovering annotation/.test(objectName))o.userData.interaction_id='labels';else if(/airborne leaf/.test(objectName))o.userData.interaction_id='leaves';else if(/hovering meteorite|suspended fragment/.test(objectName))o.userData.interaction_id='meteorite';}if(o.name.includes('Web_Dream')||o.name.includes('Web Dream'))moving.push({object:o,position:o.position.clone(),rotation:o.rotation.clone()});});setStatus('');},undefined,()=>{if(!disposed)setStatus('The display could not load. You can still use the gallery buttons below.');});
    loader.load('/assets/abraham.glb',g=>{if(disposed)return;hamster=g.scene;const box=new THREE.Box3().setFromObject(hamster);const size=box.getSize(new THREE.Vector3());const center=box.getCenter(new THREE.Vector3());const scale=1.2/size.y;hamster.scale.setScalar(scale);hamster.position.set(2.15-center.x*scale,.12-box.min.y*scale,.75-center.z*scale);if(reception)hamster.position.set(-1.6-center.x*scale,.42-box.min.y*scale,6.1-center.z*scale);hamster.rotation.y=reception?0:.22;hamster.traverse(o=>{o.userData.interaction_id='abraham';if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}});scene.add(hamster);mixer=new THREE.AnimationMixer(hamster);patrol=createPatrol(hamster);for(const name of ['Face_Idle']){const clip=g.animations.find(c=>c.name===name);if(clip)mixer.clipAction(clip).play();}},undefined,()=>{});
   }
   const resize=()=>{const w=el.clientWidth,h=el.clientHeight;renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();};resize();const ro=new ResizeObserver(resize);ro.observe(el);
@@ -101,13 +105,13 @@ export default function Museum({view='hall',resultCode=null,reduced=false,onInte
   const endLook=()=>{lookDrag=null;};
   renderer.domElement.addEventListener('pointerup',endLook);
   renderer.domElement.addEventListener('pointercancel',endLook);
-  const pointerUp=e=>{pointers.delete(e.pointerId);if(down&&!multi&&Math.hypot(e.clientX-down.x,e.clientY-down.y)<6){const rect=renderer.domElement.getBoundingClientRect();raycaster.setFromCamera(new THREE.Vector2((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1),camera);const hit=raycaster.intersectObjects(scene.children,true).find(h=>h.object.visible&&h.object.userData.interaction_id);if(hit)callback.current(hit.object.userData.interaction_id);}down=null;};
+  const pointerUp=e=>{pointers.delete(e.pointerId);if(down&&!multi&&Math.hypot(e.clientX-down.x,e.clientY-down.y)<6){const rect=renderer.domElement.getBoundingClientRect();raycaster.setFromCamera(new THREE.Vector2((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1),camera);const hits=raycaster.intersectObjects(scene.children,true),hit=hits.find(h=>h.object.visible&&h.object.userData.interaction_id);if(hit){const blocked=hits.some(h=>{if(h.distance>=hit.distance-.04||!h.object.visible||h.object.userData.interaction_id)return false;const mats=Array.isArray(h.object.material)?h.object.material:[h.object.material];return mats.some(m=>m&&m.opacity>.15);});if(!blocked)callback.current(hit.object.userData.interaction_id);}}down=null;};
   const cancel=e=>{pointers.delete(e.pointerId);down=null;};
   renderer.domElement.addEventListener('pointerdown',pointerDown);renderer.domElement.addEventListener('pointerup',pointerUp);renderer.domElement.addEventListener('pointercancel',cancel);
   const setView=v=>{const vv=views[v]||views.hall;camera.position.set(...vv[0]);orbit.target.set(...vv[1]);orbit.update();lastCamera.copy(camera.position);motion.baseSensor=null;motion.baseCamera=null;};
   const move=(x,z)=>{const forward=orbit.target.clone().sub(camera.position);forward.y=0;forward.normalize();const right=new THREE.Vector3().crossVectors(forward,camera.up).normalize();const offset=right.multiplyScalar(x).addScaledVector(forward,z);const destination=constrainMove(camera.position,camera.position.clone().add(offset));const actual=destination.clone().sub(camera.position);camera.position.copy(destination);orbit.target.add(actual);orbit.update();};
   const lastCamera=camera.position.clone();
-  const clock=new THREE.Clock();let time=0;let conversationCamera=null;control.current={setView,move,zoom(factor){camera.position.sub(orbit.target).multiplyScalar(factor).add(orbit.target);orbit.update();},setMotion(active){motion.active=active;motion.current=null;motion.baseSensor=null;motion.baseCamera=null;motion.rebase=false;},events:discoveries};
+  const clock=new THREE.Clock();let time=0;let conversationCamera=null;control.current={setView,move,zoom(factor){camera.position.sub(orbit.target).multiplyScalar(factor).add(orbit.target);orbit.update();},setMotion(active){motion.active=active;motion.current=null;motion.baseSensor=null;motion.baseCamera=null;motion.rebase=false;},recenterMotion(){motion.baseSensor=motion.current?.clone()||null;motion.baseCamera=camera.quaternion.clone();motion.rebase=!motion.current;},events:discoveries};
   control.current.setMotion(motionEnabled);
   const tick=()=>{frame=requestAnimationFrame(tick);if(document.hidden)return;const dt=Math.min(clock.getDelta(),.05);if(!reduced){time+=dt;mixer?.update(dt);}if(!reception)patrol?.update(dt,reduced,talkingRef.current?camera.position:null);orbit.enabled=!reception&&!talkingRef.current;if(talkingRef.current&&hamster){
     if(motion.active)motion.rebase=true;
@@ -140,5 +144,5 @@ export default function Museum({view='hall',resultCode=null,reduced=false,onInte
  },[resultCode,reduced,reception]);
  useEffect(()=>{if(!resultCode&&!reception)control.current?.setView(view);},[view,resultCode,reception]);
  useEffect(()=>{if(control.current)control.current.events=discoveries;},[discoveries]);
- return <div className={'museum-canvas '+(resultCode?'specimen-canvas':'')}><div className="webgl-host" ref={host} role="region" aria-label={resultCode?'Your specimen, gently floating above its plinth':'Interactive 3D natural history museum. Orbit, pan and zoom freely; gallery buttons are optional shortcuts.'}/>{!resultCode&&!reception&&<Joystick onMove={(x,z)=>control.current?.move(x,z)}/>}{motionAvailable&&!resultCode&&!reception&&<button className={'motion-look '+(motionEnabled?'active':'')} onClick={toggleMotion} aria-pressed={motionEnabled} aria-label={motionEnabled?'Turn off motion look':'Use phone motion to look around'}><span aria-hidden="true">◎</span><small>{motionEnabled?'TILT ON':'TILT'}</small></button>}{motionDenied&&<span className="motion-denied" role="status">Motion access is off</span>}{!resultCode&&!reception&&<div ref={thought} className="hamster-thought" style={{display:'none'}}>{thoughtText}<i/><b/></div>}{choice&&<div className="exhibit-preview"><span>DISPLAY NOTE</span><p>{choice}</p></div>}{status&&<div className="load-state" role="status">{status}</div>}</div>;
+ return <div className={'museum-canvas '+(resultCode?'specimen-canvas':'')}><div className="webgl-host" ref={host} role="region" aria-label={resultCode?'Your specimen, gently floating above its plinth':'Interactive 3D natural history museum. Tap an exhibit or its placard to inspect it; drag, move and zoom freely.'}/>{!resultCode&&!reception&&<Joystick onMove={(x,z)=>control.current?.move(x,z)}/>}{motionAvailable&&motionEnabled&&!resultCode&&!reception&&<button className="motion-look active" onClick={()=>control.current?.recenterMotion?.()} aria-label="Re-center phone view"><span aria-hidden="true">◎</span><small>RECENTER</small></button>}{motionDenied&&<span className="motion-denied" role="status">Motion access is off</span>}{!resultCode&&!reception&&<div ref={thought} className="hamster-thought" style={{display:'none'}}>{thoughtText}<i/><b/></div>}{choice&&<div className="exhibit-preview"><span>DISPLAY NOTE</span><p>{choice}</p></div>}{status&&<div className="load-state" role="status">{status}</div>}</div>;
 }

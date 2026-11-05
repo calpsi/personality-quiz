@@ -576,11 +576,11 @@ function mountMuseumSketch(host, initialise) {
 
   const style = document.createElement('link');
   style.rel = 'stylesheet';
-  style.href = 'https://personality-quiz-abraham.vercel.app/p5-runtime.css?v=20261105-2';
+  style.href = 'https://personality-quiz-abraham.vercel.app/p5-runtime.css?v=20261106-1';
   document.head.appendChild(style);
 
   const script = document.createElement('script');
-  script.src = 'https://personality-quiz-abraham.vercel.app/p5-runtime.js?v=20261105-2';
+  script.src = 'https://personality-quiz-abraham.vercel.app/p5-runtime.js?v=20261106-1';
   script.onload = () => host.removeAttribute('aria-busy');
   script.onerror = () => {
     host.textContent = 'The museum could not open.';
