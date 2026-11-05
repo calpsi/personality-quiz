@@ -34,7 +34,10 @@ export function useMuseumMusic() {
       audio.playsInline = true;
       audio.setAttribute('playsinline', '');
       audio.volume = prefs.current.volume / 100;
-      audio.src = window.MUSEUM_MUSIC_URL || 'assets/sergequadrado-moment-14023.mp3';
+      const requested=window.MUSEUM_MUSIC_URL||'';
+      audio.src=!requested||requested.includes('cdn.jsdelivr.net/gh/calpsi/personality-quiz')
+        ?'https://personality-quiz-abraham.vercel.app/assets/sergequadrado-moment-14023.mp3'
+        :requested;
       audio.addEventListener('playing', () => setPlayback('playing'));
       audio.addEventListener('pause', () => setPlayback('paused'));
       audio.addEventListener('error', () => setPlayback('unavailable'));

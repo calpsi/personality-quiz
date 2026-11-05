@@ -9,6 +9,7 @@ const question = (id, number, gallery, title, prompt, intro, choices) =>
   ({id, number, gallery, title, prompt, intro, choices});
 
 window.MUSEUM_QUIZ = {
+  version: 2,
   dimensions: ['I', 'C', 'A', 'R'],
   pairs: ['IC', 'IA', 'IR', 'CA', 'CR', 'AR'],
   concerns: {

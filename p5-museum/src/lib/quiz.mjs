@@ -1,6 +1,9 @@
 import defaultQuestions from './questions.json' with { type: 'json' };
 import copy from './copy.json' with { type: 'json' };
-const editorQuiz = globalThis.MUSEUM_QUIZ;
+// Older published editor wrappers are deliberately ignored so a newly
+// deployed runtime can ship corrected questions without rewriting the user's
+// saved API key. Versioned wrappers remain editable in the p5 editor.
+const editorQuiz = globalThis.MUSEUM_QUIZ?.version===2?globalThis.MUSEUM_QUIZ:null;
 const questions = editorQuiz?.questions || defaultQuestions;
 export { questions, copy };
 export const dimensions = ['I','C','A','R'];

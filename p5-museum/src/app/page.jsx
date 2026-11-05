@@ -46,8 +46,9 @@ export default function Home(){
   if (window.askAbrahamDirect) return window.askAbrahamDirect({mode,message,visit});
   const browserKey=window.ABRAHAM_API_KEY?.trim();
   const pass=browserKey?'':await window.museumTestPass?.();
-  if (!window.MUSEUM_CHAT_ENDPOINT || (window.museumTestPass && !browserKey&&!pass)) return {source:'authored',text:mode==='chat'?fallbackChat(message):fallbackRemark(visit)};
-  const response=await fetch(window.MUSEUM_CHAT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',...(browserKey?{'X-Abraham-Key':browserKey}:pass?{'X-Museum-Pass':pass}:{})},body:JSON.stringify({mode,message,visit}),signal:AbortSignal.timeout(22000)});
+  const endpoint=window.MUSEUM_CHAT_ENDPOINT||'https://personality-quiz-abraham.vercel.app/api/abraham';
+  if (window.museumTestPass && !browserKey&&!pass) return {source:'authored',text:mode==='chat'?fallbackChat(message):fallbackRemark(visit)};
+  const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json',...(browserKey?{'X-Abraham-Key':browserKey}:pass?{'X-Museum-Pass':pass}:{})},body:JSON.stringify({mode,message,visit}),signal:AbortSignal.timeout(22000)});
   if(response.status===401 && pass){try{sessionStorage.removeItem('museum-test-pass');}catch{} throw Error('That testing pass didn’t work. Try again.');}
   const data=await response.json();if(!response.ok)throw Error(data.error||'Abraham needs a moment. Please try again.');return data;
  }
