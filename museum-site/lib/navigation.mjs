@@ -6,6 +6,16 @@ export function walkable(x,z){
  if(Math.abs(z+5)<.45&&Math.abs(x)>1.05)return false;
  if(Math.abs(z-5)<.45&&Math.abs(x)>1.05)return false;
  if(Math.abs(x)<1.65&&z>-2.35&&z<1.35)return false;
+ // Keep the visitor's eye point outside the display furniture. This also
+ // stops pinch-zoom from sliding the camera through a specimen or placard.
+ if(x < -8.35 && z > -4.35 && z < 4.35)return false;
+ if(x > 8.35 && z > -3.25 && z < 4.35)return false;
+ // The two Living Systems cases sit either side of the centre aisle. Keep
+ // their glass/plinth footprints solid while leaving Abraham a route between
+ // them instead of treating the whole back gallery as one long obstacle.
+ if(Math.hypot(x+1.9,z+9.8) < 1.15)return false;
+ if(Math.hypot(x-2,z+9.5) < 1.15)return false;
+ if(Math.hypot(x-6.1,z+3.4) < 1.45)return false;
  return true;
 }
 export function constrainMove(from,to){

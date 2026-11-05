@@ -11,11 +11,11 @@ export function createPatrol(character){
  function waypoint(target){const k=`${target.x.toFixed(2)},${target.z.toFixed(2)}`;if(pathKey!==k){path=routeTo(character.position,target);pathKey=k;}while(path.length&&Math.hypot(path[0][0]-character.position.x,path[0][1]-character.position.z)<.06)path.shift();return path.length?new THREE.Vector3(path[0][0],baseY,path[0][1]):character.position.clone();}
  function rest(){for(const b of Object.values(bones))b.bone.quaternion.copy(b.rest);character.position.y=baseY;}
  return {bones:Object.keys(bones),update(dt,reduced=false,visitor=null){
-  if(visitor&&!conversationTarget){returnPoint=character.position.clone();const direction=character.position.clone().sub(visitor);direction.y=0;if(direction.lengthSq()<.001)direction.set(0,0,-1);conversationTarget=visitor.clone().add(direction.normalize().multiplyScalar(1.8));conversationTarget.y=baseY;}
+  if(visitor&&!conversationTarget){returnPoint=character.position.clone();const direction=character.position.clone().sub(visitor);direction.y=0;if(direction.lengthSq()<.001)direction.set(0,0,-1);conversationTarget=visitor.clone().add(direction.normalize().multiplyScalar(2.35));conversationTarget.y=baseY;}
   if(!visitor)conversationTarget=null;
   const destination=visitor?conversationTarget:returnPoint;
   if(destination){
-   const delta=waypoint(destination).sub(character.position);delta.y=0;const distance=delta.length();const step=Math.min(distance,dt*.95);
+   const delta=waypoint(destination).sub(character.position);delta.y=0;const distance=delta.length();const step=Math.min(distance,dt*1.45);
    if(distance>.04&&!reduced){character.position.addScaledVector(delta.normalize(),step);phase+=step*20;const swing=Math.sin(phase)*.23;pose('leg.L',swing);pose('leg.R',-swing);pose('foot.L',-.4*swing);pose('foot.R',.4*swing);character.position.y=baseY+Math.abs(Math.sin(phase))*.012;}
    else{rest();if(!visitor){returnPoint=null;pathKey=null;}}
    const facing=visitor&&distance<.08?visitor.clone().sub(character.position):delta;

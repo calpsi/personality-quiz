@@ -29,16 +29,17 @@ export function useMuseumMusic() {
     if (prefs.current.muted || !prefs.current.volume) return false;
     if (!player.current) {
       const audio = new Audio();
-      audio.crossOrigin = 'anonymous';
       audio.preload = 'auto';
       audio.loop = true;
       audio.playsInline = true;
+      audio.setAttribute('playsinline', '');
       audio.volume = prefs.current.volume / 100;
       audio.src = window.MUSEUM_MUSIC_URL || 'assets/sergequadrado-moment-14023.mp3';
       audio.addEventListener('playing', () => setPlayback('playing'));
       audio.addEventListener('pause', () => setPlayback('paused'));
       audio.addEventListener('error', () => setPlayback('unavailable'));
       player.current = audio;
+      audio.load();
     }
     const audio = player.current;
     audio.muted = prefs.current.muted;

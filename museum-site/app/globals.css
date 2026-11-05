@@ -39,6 +39,8 @@
 .screen-museum .question-panel .leave-display{display:block;width:100%;margin-top:8px;padding:12px 14px;border:1px solid #7d805f66;border-radius:14px;background:#f7efd6b8;color:#46503b;font-weight:700;text-decoration:none;text-align:center;opacity:1}
 .screen-museum .question-panel .section-meta .text-button{color:#4a523c;font-weight:700;text-decoration-color:#6f7755}
 .screen-museum .question-panel{scrollbar-color:#717956 #eee4ca;scroll-padding-top:18px}
+.screen-museum .game-toolbar,.screen-museum .location-chip,.screen-museum .navigation-tools,.screen-museum .exhibit-preview,.screen-museum .question-panel{-webkit-user-select:none;user-select:none}
+.screen-museum input,.screen-museum textarea{-webkit-user-select:text;user-select:text}
 .screen-museum .location-chip{color:#fff4d8;opacity:1;text-shadow:0 2px 4px #0c0d09,0 0 14px #0c0d09}
 .motion-look{width:58px;height:58px}.motion-look>span{font-size:22px}.motion-look small{font-size:6px;letter-spacing:.05em;max-width:48px}
 .music-settings{border:1px solid #b9a477;padding:15px 16px 12px;margin:0 0 14px;border-radius:12px;background:#e6dac090}.music-settings legend{padding:0 8px;font:22px MuseumSerif,serif}.music-settings>label:first-of-type{display:flex;justify-content:space-between}.music-settings input[type=range]{width:100%;accent-color:var(--olive)}.sound-retry{width:100%;min-height:44px;margin:10px 0 4px;border:1px solid #747b58;border-radius:12px;background:#46513a;color:#f5e9ca;font:18px MuseumSerif,serif}.playback-state{display:block;color:#6d664f;font:10px Arial,sans-serif;line-height:1.45;margin-top:7px}

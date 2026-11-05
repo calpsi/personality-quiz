@@ -1,6 +1,6 @@
 // Owner setup: a key saved here is visible to anyone who opens the sketch.
 window.ABRAHAM_API_KEY = "";
-window.MUSEUM_MUSIC_URL = "https://cdn.jsdelivr.net/gh/calpsi/personality-quiz@main/museum-site/public/assets/sergequadrado-moment-14023.mp3";
+window.MUSEUM_MUSIC_URL = "https://personality-quiz-abraham.vercel.app/assets/sergequadrado-moment-14023.mp3";
 
 // ---------------------------------------------------------------------------
 // QUIZ CONTENT + SCORING

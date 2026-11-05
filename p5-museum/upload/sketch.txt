@@ -1,6 +1,6 @@
 // Owner setup: a key saved here is visible to anyone who opens the sketch.
 window.ABRAHAM_API_KEY = "";
-window.MUSEUM_MUSIC_URL = "https://cdn.jsdelivr.net/gh/calpsi/personality-quiz@main/museum-site/public/assets/sergequadrado-moment-14023.mp3";
+window.MUSEUM_MUSIC_URL = "https://personality-quiz-abraham.vercel.app/assets/sergequadrado-moment-14023.mp3";
 
 // ---------------------------------------------------------------------------
 // QUIZ CONTENT + SCORING
@@ -567,6 +567,10 @@ function mountMuseumSketch(host, initialise) {
   return () => {disposeScene?.();sketch.remove();};
 }
 
+// Live Abraham replies are proxied through the museum server. The p5 key is
+// sent only with the conversation request and is never written to logs.
+window.MUSEUM_CHAT_ENDPOINT = 'https://personality-quiz-abraham.vercel.app/api/abraham';
+
 // The editable quiz and p5 scene helpers stay in this file. The large
 // React/Three renderer is loaded separately so p5's parser does not choke.
 (function openMuseum() {
@@ -576,11 +580,11 @@ function mountMuseumSketch(host, initialise) {
 
   const style = document.createElement('link');
   style.rel = 'stylesheet';
-  style.href = 'https://personality-quiz-abraham.vercel.app/p5-runtime.css?v=20261106-1';
+  style.href = 'https://personality-quiz-abraham.vercel.app/p5-runtime.css?v=20261106-2';
   document.head.appendChild(style);
 
   const script = document.createElement('script');
-  script.src = 'https://personality-quiz-abraham.vercel.app/p5-runtime.js?v=20261106-1';
+  script.src = 'https://personality-quiz-abraham.vercel.app/p5-runtime.js?v=20261106-2';
   script.onload = () => host.removeAttribute('aria-busy');
   script.onerror = () => {
     host.textContent = 'The museum could not open.';

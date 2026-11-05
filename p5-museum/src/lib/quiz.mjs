@@ -50,7 +50,7 @@ export function fallbackChat(message) {
   if(/where|lost/.test(s))return copy['AB-HELP-02'];
   if(/how|quiz|appraisal/.test(s))return copy['AB-HELP-01'];
   if(/\bai\b|robot/.test(s))return copy['AB-HELP-09'];
-  return "Oh! My connection's gone a bit quiet. Your words are still on your ticket. Shall we have another look around?";
+  return "Oh! Sorry, I got distracted by a label moving again. What were you asking?";
 }
 export function newVisit(){return {version:1,name:'',answers:{},finalChoice:'none',reflection:'',discoveries:[],messages:[],finished:false,seed:Math.floor(Math.random()*2147483647)};}
 export function restoreVisit(raw){

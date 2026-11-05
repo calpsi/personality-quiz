@@ -51,6 +51,10 @@ editable = safe_source.split('// p5-safe app loader:', 2).first.rstrip
 loader = <<~JAVASCRIPT
 
 
+  // Live Abraham replies are proxied through the museum server. The p5 key is
+  // sent only with the conversation request and is never written to logs.
+  window.MUSEUM_CHAT_ENDPOINT = '#{RUNTIME_ROOT}api/abraham';
+
   // The editable quiz and p5 scene helpers stay in this file. The large
   // React/Three renderer is loaded separately so p5's parser does not choke.
   (function openMuseum() {
@@ -60,11 +64,11 @@ loader = <<~JAVASCRIPT
 
     const style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = '#{RUNTIME_ROOT}p5-runtime.css?v=20261106-1';
+    style.href = '#{RUNTIME_ROOT}p5-runtime.css?v=20261106-2';
     document.head.appendChild(style);
 
     const script = document.createElement('script');
-    script.src = '#{RUNTIME_ROOT}p5-runtime.js?v=20261106-1';
+    script.src = '#{RUNTIME_ROOT}p5-runtime.js?v=20261106-2';
     script.onload = () => host.removeAttribute('aria-busy');
     script.onerror = () => {
       host.textContent = 'The museum could not open.';

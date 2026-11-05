@@ -11,7 +11,7 @@ import {createPatrol} from '../lib/abraham-walk.mjs';
 import {DRACOLoader} from 'three/addons/loaders/DRACOLoader.js';
 import {deviceLookQuaternion} from '../lib/device-look.mjs';
 
-const views={hall:[[0,2.05,4.4],[0,1.65,-.7]],'Deep Time':[[-5.5,2.1,3.8],[-9,1.6,-1.4]],'Earth & Space':[[5.4,2.05,3.5],[9,1.5,-1.9]],'Living Systems':[[0,1.9,-5.8],[0,1.6,-10]],q1:[[-8.1,1.95,4.3],[-10.1,1.65,2.8]],q2:[[-7,2.1,.6],[-9,1.5,-1.8]],q3:[[-8.5,2,1],[-8.5,2.1,-4.65]],q4:[[8,1.9,4.6],[10,1.4,2.8]],q5:[[8,2,1.2],[10,1.7,-1.4]],q6:[[5.3,1.9,-.2],[6.1,1.55,-3.4]],q7:[[-1.9,1.9,-6.8],[-1.9,1.5,-9.8]],q8:[[2,1.9,-6.8],[2,1.2,-9.5]]};
+const views={hall:[[0,2.05,4.4],[0,1.65,-.7]],'Deep Time':[[-5.5,2.1,3.8],[-9,1.6,-1.4]],'Earth & Space':[[5.4,2.05,3.5],[9,1.5,-1.9]],'Living Systems':[[0,1.9,-5.8],[0,1.6,-10]],q1:[[-8.1,1.95,4.3],[-10.1,1.65,2.8]],q2:[[-7,2.1,.6],[-9,1.5,-1.8]],q3:[[-8,2,1],[-8.5,2.1,-4.65]],q4:[[8,1.9,4.6],[10,1.4,2.8]],q5:[[8,2,1.2],[10,1.7,-1.4]],q6:[[5.3,1.9,-.2],[6.1,1.55,-3.4]],q7:[[-1.9,1.9,-6.8],[-1.9,1.5,-9.8]],q8:[[2,1.9,-6.8],[2,1.2,-9.5]]};
 
 import {specimen} from '../lib/result-specimens.mjs';
 export default function Museum({view='hall',resultCode=null,reduced=false,onInteract=()=>{},discoveries=[],reception=false,speaking=false,talking=false,choice=null,motionAvailable=false,motionEnabled=false,motionDenied=false}){
@@ -86,7 +86,7 @@ export default function Museum({view='hall',resultCode=null,reduced=false,onInte
   const resize=()=>{const w=el.clientWidth,h=el.clientHeight;renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();};resize();
   const orbit=new OrbitControls(camera,canvas);
   orbit.enabled=!reception;orbit.target.copy(resultCode?new THREE.Vector3():look);orbit.enableDamping=false;orbit.dampingFactor=.09;
-  orbit.minDistance=resultCode?1.5:.3;orbit.maxDistance=resultCode?7:32;orbit.maxPolarAngle=Math.PI*.49;orbit.minPolarAngle=.08;
+  orbit.minDistance=resultCode?1.5:1.25;orbit.maxDistance=resultCode?7:14;orbit.maxPolarAngle=Math.PI*.49;orbit.minPolarAngle=.08;
   orbit.screenSpacePanning=false;orbit.zoomToCursor=false;orbit.panSpeed=.8;orbit.rotateSpeed=.65;
   orbit.enableRotate=!!resultCode;
   if(!resultCode){orbit.minPolarAngle=.2;orbit.maxPolarAngle=Math.PI-.2;}
@@ -130,9 +130,9 @@ export default function Museum({view='hall',resultCode=null,reduced=false,onInte
     if(motion.active)motion.rebase=true;
     if(!conversationCamera)conversationCamera={position:camera.position.clone(),target:orbit.target.clone()};
     const blend=reduced?1:1-Math.exp(-dt*4);
-    camera.position.y=THREE.MathUtils.lerp(camera.position.y,1.05,blend);
-    // Look below his face to place him in the clear upper part of the frame.
-    const framing=new THREE.Vector3(hamster.position.x,.25,hamster.position.z);
+    camera.position.y=THREE.MathUtils.lerp(camera.position.y,1.12,blend);
+    // Keep his whole body above the dialogue instead of tracking his feet.
+    const framing=new THREE.Vector3(hamster.position.x,.7,hamster.position.z);
     orbit.target.lerp(framing,blend);
    }else if(conversationCamera){camera.position.copy(conversationCamera.position);orbit.target.copy(conversationCamera.target);conversationCamera=null;}
    if(motion.active&&motion.current&&!talkingRef.current){
