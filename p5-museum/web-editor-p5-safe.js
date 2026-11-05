@@ -35,45 +35,45 @@ window.MUSEUM_QUIZ = {
     "id": "q1",
     "number": 1,
     "gallery": "Deep Time",
-    "title": "A free afternoon",
-    "prompt": "You have a completely free afternoon with no obligations. Which plan sounds best?",
-    "intro": "A free afternoon! Those are rare. What would you do with one?",
+    "title": "The small fossil",
+    "prompt": "This fossil cast has a tiny feature that changes how it is understood. You have time to open one part of the display. Which would you choose?",
+    "intro": "It’s a very small fossil, but the label has rather a lot to say. Which part would you open?",
     "choices": [
       {
         "id": "q1-i",
-        "text": "A beginner workshop where someone explains how everything works as you go.",
+        "text": "How the curators worked out what kind of animal it was.",
         "score": {
           "I": 2,
           "C": 1
         },
-        "evidence": "Preferred to understand a new activity while learning it."
+        "evidence": "Chose the evidence behind the fossil’s identification."
       },
       {
         "id": "q1-c",
-        "text": "Going back to a place I already like and noticing something I missed before.",
+        "text": "Which parts are original fossil, and which were restored.",
         "score": {
           "C": 2,
           "A": 1
         },
-        "evidence": "Returned to something familiar to find more within it."
+        "evidence": "Wanted to distinguish surviving material from later restoration."
       },
       {
         "id": "q1-a",
-        "text": "A drop-in activity where I can experiment without committing to the whole day.",
+        "text": "A chance to study it without the label, then reveal the explanation.",
         "score": {
           "A": 2,
           "R": 1
         },
-        "evidence": "Chose a low-pressure way to experiment independently."
+        "evidence": "Chose space for a first-hand impression before reading the answer."
       },
       {
         "id": "q1-r",
-        "text": "Joining friends for something none of us has tried before.",
+        "text": "What different visitors noticed when they first saw it.",
         "score": {
           "R": 2,
           "I": 1
         },
-        "evidence": "Preferred discovering something new alongside other people."
+        "evidence": "Wanted several perspectives on the same fossil."
       }
     ]
   },
@@ -81,45 +81,45 @@ window.MUSEUM_QUIZ = {
     "id": "q2",
     "number": 2,
     "gallery": "Deep Time",
-    "title": "The uncertain plan",
-    "prompt": "You’re planning a day out, but one important detail is still uncertain. What do you do?",
-    "intro": "The plan has a little gap in it. Plans do that sometimes.",
+    "title": "The missing piece",
+    "prompt": "This skeleton is missing one piece. Which version would you rather encounter in the museum?",
+    "intro": "There’s a gap just there. We know something belonged in it, but not quite what.",
     "choices": [
       {
         "id": "q2-i",
-        "text": "Compare the two most likely versions before choosing between them.",
+        "text": "Show two possible reconstructions beside the gap so I can compare them.",
         "score": {
           "I": 2,
           "A": 1
         },
-        "evidence": "Compared the likely possibilities before committing."
+        "evidence": "Preferred competing explanations to a single reconstruction."
       },
       {
         "id": "q2-c",
-        "text": "Keep the confirmed parts of the plan and leave that time open for now.",
+        "text": "Leave the gap visible so I can see exactly what remains.",
         "score": {
           "C": 2,
           "R": 1
         },
-        "evidence": "Protected what was already settled without forcing the missing detail."
+        "evidence": "Kept an absence visible rather than filling it in."
       },
       {
         "id": "q2-a",
-        "text": "Choose an easy backup plan that we can change later if needed.",
+        "text": "Add a clearly marked, removable replica so I can picture the whole animal.",
         "score": {
           "A": 2,
           "C": 1
         },
-        "evidence": "Moved forward with a practical, reversible backup."
+        "evidence": "Chose a reversible way to move forward with incomplete information."
       },
       {
         "id": "q2-r",
-        "text": "Ask everyone going which option they would enjoy most.",
+        "text": "Let visitors switch between the possible versions themselves.",
         "score": {
           "R": 2,
           "I": 1
         },
-        "evidence": "Made the uncertain part of the plan a shared decision."
+        "evidence": "Made room for different ways of understanding the skeleton."
       }
     ]
   },
@@ -127,22 +127,22 @@ window.MUSEUM_QUIZ = {
     "id": "q3",
     "number": 3,
     "gallery": "Deep Time",
-    "title": "What you keep",
-    "prompt": "At the end of an ordinary week, you save one small thing to remember it by. What do you choose?",
-    "intro": "These are things people left behind. Footprints, mostly. What would you leave to remember a week by?",
+    "title": "A trace of an ordinary day",
+    "prompt": "This trace-fossil wall has one empty archive slot. If you added a small record of an ordinary day, what would you put at its centre?",
+    "intro": "Most days don’t leave fossils. We could keep one small trace of yours, though.",
     "choices": [
       {
         "id": "q3-i",
-        "text": "A question I kept thinking about, even though I never answered it.",
+        "text": "An unanswered question I kept returning to.",
         "score": {
           "I": 2,
           "C": 1
         },
-        "evidence": "Kept an unresolved question as the week’s central memory."
+        "evidence": "Kept an unresolved question as the day’s central record."
       },
       {
         "id": "q3-c",
-        "text": "A tiny routine or detail that I might otherwise forget.",
+        "text": "A small routine I might otherwise forget.",
         "score": {
           "C": 2,
           "I": 1
@@ -151,7 +151,7 @@ window.MUSEUM_QUIZ = {
       },
       {
         "id": "q3-a",
-        "text": "A decision I made that changed how the week went.",
+        "text": "A decision that changed how the day went.",
         "score": {
           "A": 2,
           "R": 1
@@ -160,12 +160,12 @@ window.MUSEUM_QUIZ = {
       },
       {
         "id": "q3-r",
-        "text": "A conversation or message from someone that stayed with me.",
+        "text": "An exchange with someone that stayed with me.",
         "score": {
           "R": 2,
           "A": 1
         },
-        "evidence": "Remembered the week through an interaction."
+        "evidence": "Remembered the day through an interaction."
       }
     ]
   },
@@ -173,13 +173,13 @@ window.MUSEUM_QUIZ = {
     "id": "q4",
     "number": 4,
     "gallery": "Earth & Space",
-    "title": "A last-minute invitation",
-    "prompt": "You’ve planned a quiet afternoon for yourself. A friend suddenly invites you somewhere you’d probably enjoy. What do you do?",
-    "intro": "Oh! A last-minute invitation. Those make the day wobble a little.",
+    "title": "The surprise drawer",
+    "prompt": "A mineral drawer opens to two trays: one familiar sample and one unexpected find. You only have time for one arrangement. What is closest to your instinct?",
+    "intro": "The second tray wasn’t on my list. It does look interesting, doesn’t it?",
     "choices": [
       {
         "id": "q4-i",
-        "text": "Ask for a few more details before deciding which plan sounds better.",
+        "text": "Read a little more about both samples before choosing which to examine.",
         "score": {
           "I": 2,
           "A": 1
@@ -188,7 +188,7 @@ window.MUSEUM_QUIZ = {
       },
       {
         "id": "q4-c",
-        "text": "Keep the afternoon I planned and suggest meeting another day.",
+        "text": "Stay with the familiar sample and give it the closer look I planned.",
         "score": {
           "C": 2,
           "R": 1
@@ -197,7 +197,7 @@ window.MUSEUM_QUIZ = {
       },
       {
         "id": "q4-a",
-        "text": "Go with my friend. I can return to my original plan later.",
+        "text": "Switch to the unexpected sample; I can return to the familiar one later.",
         "score": {
           "A": 2,
           "C": 1
@@ -206,12 +206,12 @@ window.MUSEUM_QUIZ = {
       },
       {
         "id": "q4-r",
-        "text": "See whether we can meet for part of it so I still get some time to myself.",
+        "text": "Place both trays side by side and compare them with someone.",
         "score": {
           "R": 2,
           "I": 1
         },
-        "evidence": "Looked for a workable shared arrangement."
+        "evidence": "Looked for a shared comparison that kept both options in view."
       }
     ]
   },
@@ -219,45 +219,45 @@ window.MUSEUM_QUIZ = {
     "id": "q5",
     "number": 5,
     "gallery": "Earth & Space",
-    "title": "When something goes wrong",
-    "prompt": "Your phone or laptop suddenly starts behaving strangely. What do you do first?",
-    "intro": "It was working a moment ago. They’re rather dramatic, these little machines.",
+    "title": "The next test",
+    "prompt": "If you were helping the museum choose one next step for this unfamiliar meteorite, which would you back?",
+    "intro": "One meteorite, one bit of funding, and four sensible forms. I’m glad it isn’t my decision.",
     "choices": [
       {
         "id": "q5-i",
-        "text": "Look up the symptoms and work out what probably caused the problem.",
+        "text": "A detailed scan: more information, though it may not settle the main question.",
         "score": {
           "I": 2,
           "C": 1
         },
-        "evidence": "Looked for an explanation before attempting a fix."
+        "evidence": "Accepted an incomplete answer in exchange for more evidence."
       },
       {
         "id": "q5-c",
-        "text": "Back up anything important before changing or restarting anything.",
+        "text": "Better storage first: protect the meteorite, though the answer will wait.",
         "score": {
           "C": 2,
           "A": 1
         },
-        "evidence": "Protected important information before trying to solve the problem."
+        "evidence": "Protected future options before pursuing an immediate answer."
       },
       {
         "id": "q5-a",
-        "text": "Try the quickest reversible fix and see what happens.",
+        "text": "A tiny sample test: a clearer answer, but it permanently uses some material.",
         "score": {
           "A": 2,
           "R": 1
         },
-        "evidence": "Tested a practical fix that could easily be undone."
+        "evidence": "Accepted a stated cost for a more decisive next step."
       },
       {
         "id": "q5-r",
-        "text": "Ask a friend who’s good with technology to look at it with me.",
+        "text": "A joint study with another museum: shared expertise, but a slower start.",
         "score": {
           "R": 2,
           "I": 1
         },
-        "evidence": "Brought another person into solving the problem."
+        "evidence": "Chose shared expertise despite a coordination cost."
       }
     ]
   },
@@ -265,13 +265,13 @@ window.MUSEUM_QUIZ = {
     "id": "q6",
     "number": 6,
     "gallery": "Earth & Space",
-    "title": "Same film, different view",
-    "prompt": "You and a friend watch the same film. You love it; they don’t. What do you do next?",
-    "intro": "Same film, two completely different reviews. That happens a lot here.",
+    "title": "Same samples, different view",
+    "prompt": "You and another visitor study the same two mineral samples but leave very different notes. What would you want to do next?",
+    "intro": "Same samples, two different labels. Neither one looks obviously wrong to me.",
     "choices": [
       {
         "id": "q6-i",
-        "text": "Compare the scenes and details that each of us noticed most.",
+        "text": "Compare the particular details each of us noticed.",
         "score": {
           "I": 2,
           "R": 1
@@ -280,7 +280,7 @@ window.MUSEUM_QUIZ = {
       },
       {
         "id": "q6-c",
-        "text": "Leave it there. We can keep our different opinions without settling it.",
+        "text": "Keep both accounts intact; neither needs replacing yet.",
         "score": {
           "C": 2,
           "I": 1
@@ -289,7 +289,7 @@ window.MUSEUM_QUIZ = {
       },
       {
         "id": "q6-a",
-        "text": "Choose another film together and see whether our opinions line up next time.",
+        "text": "Try a different viewing angle together and see what changes.",
         "score": {
           "A": 2,
           "C": 1
@@ -298,7 +298,7 @@ window.MUSEUM_QUIZ = {
       },
       {
         "id": "q6-r",
-        "text": "Ask what made the film land so differently for them.",
+        "text": "Ask why that impression of the samples mattered to them.",
         "score": {
           "R": 2,
           "A": 1
@@ -311,13 +311,13 @@ window.MUSEUM_QUIZ = {
     "id": "q7",
     "number": 7,
     "gallery": "Living Systems",
-    "title": "A familiar place changes",
-    "prompt": "A café, club or community space you love is getting a major redesign. What would you speak up for first?",
-    "intro": "Here’s the old layout, and here’s the new one. They moved nearly everything.",
+    "title": "Room to change",
+    "prompt": "This miniature habitat is being redesigned. The proposal has real benefits, but it will feel different. What would you speak up for first?",
+    "intro": "Here’s the old habitat, and here’s the proposal. They moved nearly everything.",
     "choices": [
       {
         "id": "q7-i",
-        "text": "Explain what problem the redesign is meant to solve.",
+        "text": "A clear account of what the habitat change is meant to improve.",
         "score": {
           "I": 2,
           "A": 1
@@ -326,7 +326,7 @@ window.MUSEUM_QUIZ = {
       },
       {
         "id": "q7-c",
-        "text": "Keep one familiar feature that makes the place feel like itself.",
+        "text": "Keep one feature that makes the habitat feel like itself.",
         "score": {
           "C": 2,
           "R": 1
@@ -335,7 +335,7 @@ window.MUSEUM_QUIZ = {
       },
       {
         "id": "q7-a",
-        "text": "Try the new layout for a while before making it permanent.",
+        "text": "Use a trial layout before making the redesign permanent.",
         "score": {
           "A": 2,
           "C": 1
@@ -344,7 +344,7 @@ window.MUSEUM_QUIZ = {
       },
       {
         "id": "q7-r",
-        "text": "Let the regulars and staff help shape the redesign.",
+        "text": "Let the keepers and regular visitors help shape the proposal.",
         "score": {
           "R": 2,
           "I": 1
@@ -357,13 +357,13 @@ window.MUSEUM_QUIZ = {
     "id": "q8",
     "number": 8,
     "gallery": "Living Systems",
-    "title": "One extra thing",
-    "prompt": "You’re taking a day trip somewhere new with friends. The basics are packed. What extra do you bring?",
-    "intro": "Everything we need is packed! There’s a little space left. Anything you’d like to bring?",
+    "title": "The shared field kit",
+    "prompt": "A small group is taking this field kit somewhere unfamiliar. The basics are packed, with room for one extra item. What would you add?",
+    "intro": "The sensible things are packed. There’s just enough room for one interesting thing.",
     "choices": [
       {
         "id": "q8-i",
-        "text": "A guide or saved list, so we can understand what we find.",
+        "text": "A field guide, so we can make sense of what we find.",
         "score": {
           "I": 2,
           "R": 1
@@ -372,7 +372,7 @@ window.MUSEUM_QUIZ = {
       },
       {
         "id": "q8-c",
-        "text": "A notebook, so the little details don’t disappear when the day ends.",
+        "text": "A notebook, so details don’t disappear when the day ends.",
         "score": {
           "C": 2,
           "I": 1
@@ -381,7 +381,7 @@ window.MUSEUM_QUIZ = {
       },
       {
         "id": "q8-a",
-        "text": "A map with a few optional detours marked, in case something catches my eye.",
+        "text": "A map with a few optional detours marked.",
         "score": {
           "A": 2,
           "C": 1

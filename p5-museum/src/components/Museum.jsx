@@ -10,6 +10,7 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {createPatrol} from '../lib/abraham-walk.mjs';
 import {DRACOLoader} from 'three/addons/loaders/DRACOLoader.js';
 import {deviceLookQuaternion} from '../lib/device-look.mjs';
+import {bonusHitTargets} from '../lib/bonus-interactions.mjs';
 
 const views={hall:[[0,2.05,4.4],[0,1.65,-.7]],'Deep Time':[[-5.5,2.1,3.8],[-9,1.6,-1.4]],'Earth & Space':[[5.4,2.05,3.5],[9,1.5,-1.9]],'Living Systems':[[0,1.9,-5.8],[0,1.6,-10]],q1:[[-8.1,1.95,4.3],[-10.1,1.65,2.8]],q2:[[-7,2.1,.6],[-9,1.5,-1.8]],q3:[[-8,2,1],[-8.5,2.1,-4.65]],q4:[[8,1.9,4.6],[10,1.4,2.8]],q5:[[8,2,1.2],[10,1.7,-1.4]],q6:[[5.3,1.9,-.2],[6.1,1.55,-3.4]],q7:[[-1.9,1.9,-6.8],[-1.9,1.5,-9.8]],q8:[[2,1.9,-6.8],[2,1.2,-9.5]]};
 
@@ -60,6 +61,7 @@ export default function Museum({view='hall',resultCode=null,reduced=false,onInte
    ];
    const hitMaterial=new THREE.MeshBasicMaterial({transparent:true,opacity:0,depthWrite:false,side:THREE.DoubleSide});
    stops.forEach(({badge,hit,size},i)=>{const id='q'+(i+1);const canvas=document.createElement('canvas');canvas.width=128;canvas.height=128;const ctx=canvas.getContext('2d');ctx.fillStyle='#f1ddb0';ctx.beginPath();ctx.arc(64,64,47,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#68563a';ctx.lineWidth=4;ctx.stroke();ctx.fillStyle='#39402b';ctx.font='bold 43px Georgia';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(String(i+1).padStart(2,'0'),64,65);const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;const marker=new THREE.Sprite(new THREE.SpriteMaterial({map:texture,depthTest:true,depthWrite:false,transparent:true}));marker.position.set(...badge);marker.scale.set(.68,.68,1);marker.renderOrder=50;marker.userData.interaction_id=id;scene.add(marker);const target=new THREE.Mesh(new THREE.BoxGeometry(...size),hitMaterial);target.position.set(...hit);target.userData.interaction_id=id;target.name='Tap target '+id;scene.add(target);});
+   bonusHitTargets.forEach(({id,position,size})=>{const target=new THREE.Mesh(new THREE.BoxGeometry(...size),hitMaterial);target.position.set(...position);target.userData.interaction_id=id;target.userData.priority_interaction=true;target.name='Tap target bonus '+id;scene.add(target);});
   }
   if(!resultCode){
    // Milky panels are built separately from the merged architecture export.
@@ -103,7 +105,7 @@ export default function Museum({view='hall',resultCode=null,reduced=false,onInte
   window.addEventListener('deviceorientation',readOrientation,true);
   const raycaster=new THREE.Raycaster();let down=null;const pointers=new Set();let multi=false;
   let lookDrag=null;
-  const pointerDown=e=>{pointers.add(e.pointerId);if(pointers.size>1){multi=true;lookDrag=null;}else{multi=false;down={x:e.clientX,y:e.clientY};if(!resultCode&&!reception&&!talkingRef.current&&!motion.active&&e.button===0)lookDrag={x:e.clientX,y:e.clientY};}canvas.focus({preventScroll:true});};
+  const pointerDown=e=>{pointers.add(e.pointerId);if(pointers.size>1){multi=true;lookDrag=null;}else{multi=false;down={x:e.clientX,y:e.clientY,pointerType:e.pointerType};if(!resultCode&&!reception&&!talkingRef.current&&!motion.active&&e.button===0)lookDrag={x:e.clientX,y:e.clientY};}canvas.focus({preventScroll:true});};
   const pointerMove=e=>{
    if(!lookDrag||multi||talkingRef.current)return;
    const dx=e.clientX-lookDrag.x,dy=e.clientY-lookDrag.y;lookDrag={x:e.clientX,y:e.clientY};
@@ -118,7 +120,7 @@ export default function Museum({view='hall',resultCode=null,reduced=false,onInte
   const endLook=()=>{lookDrag=null;};
   canvas.addEventListener('pointerup',endLook);
   canvas.addEventListener('pointercancel',endLook);
-  const pointerUp=e=>{pointers.delete(e.pointerId);if(down&&!multi&&Math.hypot(e.clientX-down.x,e.clientY-down.y)<6){const rect=canvas.getBoundingClientRect();raycaster.setFromCamera(new THREE.Vector2((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1),camera);const hits=raycaster.intersectObjects(scene.children,true),hit=hits.find(h=>h.object.visible&&h.object.userData.interaction_id);if(hit){const blocked=hits.some(h=>{if(h.distance>=hit.distance-.04||!h.object.visible||h.object.userData.interaction_id)return false;const mats=Array.isArray(h.object.material)?h.object.material:[h.object.material];return mats.some(m=>m&&m.opacity>.15);});if(!blocked)callback.current(hit.object.userData.interaction_id);}}down=null;};
+  const pointerUp=e=>{pointers.delete(e.pointerId);const tapDistance=down?.pointerType==='touch'?18:7;if(down&&!multi&&Math.hypot(e.clientX-down.x,e.clientY-down.y)<tapDistance){const rect=canvas.getBoundingClientRect();raycaster.setFromCamera(new THREE.Vector2((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1),camera);const hits=raycaster.intersectObjects(scene.children,true),hit=hits.find(h=>h.object.visible&&h.object.userData.interaction_id);if(hit){const blocked=hits.some(h=>{if(h.distance>=hit.distance-.04||!h.object.visible||h.object.userData.interaction_id)return false;const mats=Array.isArray(h.object.material)?h.object.material:[h.object.material];return mats.some(m=>m&&m.opacity>.15);});if(!blocked||hit.object.userData.priority_interaction)callback.current(hit.object.userData.interaction_id);}}down=null;};
   const cancel=e=>{pointers.delete(e.pointerId);down=null;};
   canvas.addEventListener('pointerdown',pointerDown);canvas.addEventListener('pointerup',pointerUp);canvas.addEventListener('pointercancel',cancel);
   const setView=v=>{const vv=views[v]||views.hall;camera.position.set(...vv[0]);orbit.target.set(...vv[1]);orbit.update();lastCamera.copy(camera.position);motion.baseSensor=null;motion.baseCamera=null;};

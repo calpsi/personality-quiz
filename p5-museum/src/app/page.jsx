@@ -30,17 +30,18 @@ export default function Home(){
  useEffect(()=>{if(!ready||screen==='entry')return;try{localStorage.setItem(STORE,JSON.stringify(visit));}catch{setNotice(copy['LOAD-06']);}},[visit,ready,screen]);
  useEffect(()=>{if(!notice)return;const timer=setTimeout(()=>setNotice(''),3200);return()=>clearTimeout(timer);},[notice]);
  useEffect(()=>{if(!chat)return;const close=e=>{if(e.key==='Escape')setChat(false);};window.addEventListener('keydown',close);return()=>window.removeEventListener('keydown',close);},[chat]);
- useEffect(()=>{setMotionAvailable(supportsDeviceLook(window)&&window.matchMedia('(pointer: coarse)').matches);},[]);
+ useEffect(()=>{setMotionAvailable(supportsDeviceLook(window));},[]);
  useEffect(()=>{questionPanel.current?.scrollTo({top:0,behavior:'instant'});},[stop?.id]);
  const setPhoneLook=async enabled=>{if(!enabled){setMotionEnabled(false);return;}motionAttempted.current=true;const allowed=await requestDeviceLook(window);setMotionDenied(!allowed);setMotionEnabled(allowed);};
- const firstInteraction=()=>{music.start();if(!motionAttempted.current&&motionAvailable){motionAttempted.current=true;setPhoneLook(true);}};
+ const firstInteraction=()=>{music.start();};
+ const requestMotionOnEntry=()=>{const available=supportsDeviceLook(window);setMotionAvailable(available);if(available&&!motionAttempted.current)void setPhoneLook(true);};
  const update=patch=>setVisit(v=>({...v,...patch}));
  const go=(s)=>{setScreen(s);window.scrollTo({top:0,behavior:'instant'});};
  const openStop=id=>{const q=questions.find(q=>q.id===id);setStop(q);setPending(visit.answers[id]||null);setGallery(q.gallery);setTicket(false);go('museum');};
  const clearResult=()=>{revision.current++;setRemark(null);setRemarkBusy(false);setFeedback('');};
  const commit=()=>{if(!pending)return;clearResult();setVisit(v=>({...v,answers:{...v.answers,[stop.id]:pending},finished:false}));setStop(null);setNotice('✦ Stamp collected.');};
  const discover=id=>{if(questions.some(q=>q.id===id)){openStop(id);return;}if(id==='abraham'){setChat(true);return;}if(!(id in discoveryLabels))return;setVisit(v=>({...v,discoveries:[...new Set([...v.discoveries,id])]}));setMemory(id);};
- const begin=()=>{music.start();clearResult();setVisit(newVisit());setSaved(null);go('welcome');};
+ const begin=()=>{music.start();requestMotionOnEntry();clearResult();setVisit(newVisit());setSaved(null);go('welcome');};
  async function ask(mode,message=''){
   if (window.askAbrahamDirect) return window.askAbrahamDirect({mode,message,visit});
   const browserKey=window.ABRAHAM_API_KEY?.trim();
@@ -62,7 +63,7 @@ export default function Home(){
   <header className="masthead"><button aria-label="Return to central hall" onClick={()=>{if(screen!=='entry'){setStop(null);setGallery('hall');go('museum');}}} className="wordmark">THE QUIET<br/><span>COLLECTION</span></button>{screen==='entry'&&<div className="header-actions"><button className="icon-button" onClick={()=>setSettings(true)} aria-label="Settings">☷</button></div>}</header>
   {screen!=='entry'&&<nav className="game-toolbar" aria-label="Museum tools">{(screen!=='welcome'||visit.name.trim())&&<button id="stamp-card-dock" onClick={()=>setTicket(true)} aria-label={`Stamp card, ${count} of 8 stamps`}><span aria-hidden="true"><MuseumTool kind="card"/></span><small>Card</small><b>{count}/8</b></button>}<button onClick={()=>setMapOpen(true)} aria-label="Museum map"><span aria-hidden="true"><MuseumTool kind="map"/></span><small>Map</small></button><button onClick={()=>setSettings(true)} aria-label="Settings"><span aria-hidden="true"><MuseumTool kind="settings"/></span><small>Settings</small></button></nav>}
   
-  {screen==='entry'&&<section className="entry"><div className="entry-art"/><div className="entry-content"><p className="eyebrow">A NATURAL HISTORY MUSEUM PERSONALITY QUIZ</p><h1 className="glitch" data-text="WHAT ARE YOU?">WHAT ARE YOU?</h1><div className="fine-rule">✦</div><p className="intro-prose">{copy['ENTRY-01']}</p><p className="whisper">{copy['ENTRY-02']}</p>{saved?<><button className="primary" onClick={()=>{music.start();setVisit(saved);setSaved(null);go(saved.finished?'result':'museum');}}>Continue your visit <Arrow/></button><button className="text-button" onClick={begin}>Start a new visit</button></>:<button className="primary" onClick={begin}>Enter the museum <Arrow/></button>}</div><span className="entry-footer">EST. SOME TIME AGO <span>PLEASE, COME IN.</span></span></section>}
+  {screen==='entry'&&<section className="entry"><div className="entry-art"/><div className="entry-content"><p className="eyebrow">A NATURAL HISTORY MUSEUM PERSONALITY QUIZ</p><h1 className="glitch" data-text="WHAT ARE YOU?">WHAT ARE YOU?</h1><div className="fine-rule">✦</div><p className="intro-prose">{copy['ENTRY-01']}</p><p className="whisper">{copy['ENTRY-02']}</p>{saved?<><button className="primary" onClick={()=>{music.start();requestMotionOnEntry();setVisit(saved);setSaved(null);go(saved.finished?'result':'museum');}}>Continue your visit <Arrow/></button><button className="text-button" onClick={begin}>Start a new visit</button></>:<button className="primary" onClick={begin}>Enter the museum <Arrow/></button>}</div><span className="entry-footer">EST. SOME TIME AGO <span>PLEASE, COME IN.</span></span></section>}
   {screen==='welcome'&&<Reception name={visit.name} onName={name=>update({name})} onEnter={()=>go('museum')} reduced={reduced} />}
   {screen==='museum'&&<>
    <section className={'gallery-stage '}><img className="scene-fallback" src="assets/hall.png" alt=""/>{<Museum view={stop?.id||gallery} talking={chat} reduced={reduced} onInteract={discover} discoveries={visit.discoveries} choice={stop&&pending?stop.choices.find(c=>c.id===pending)?.evidence:null} motionAvailable={motionAvailable} motionEnabled={motionEnabled} motionDenied={motionDenied}/>}<div className="location-chip">{stop?stop.title:gallery==='hall'?'Central hall':gallery}</div></section>

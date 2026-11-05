@@ -1,8 +1,11 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';
 import {questions,scoreVisit,newVisit,restoreVisit,fallbackRemark,fallbackChat,shuffledChoices} from '../lib/quiz.mjs';
 import {respond,contextFor,validBody} from '../lib/abraham.mjs';
+import {bonusHitTargets} from '../lib/bonus-interactions.mjs';
 const answers=(d)=>Object.fromEntries(questions.map(q=>[q.id,q.id+'-'+d]));
 test('all eight choices required; invalid IDs never count',()=>{assert.equal(scoreVisit({}).complete,false);assert.equal(scoreVisit({...answers('i'),q1:'invented'}).complete,false);});
+test('questions remain visibly tied to their museum artifacts',()=>{const terms=[/fossil/i,/skeleton/i,/trace-fossil|archive/i,/mineral drawer/i,/meteorite/i,/mineral samples/i,/habitat/i,/field kit/i];questions.forEach((q,i)=>assert.match(`${q.title} ${q.prompt}`,terms[i]));});
+test('clock and star drawer have foreground tap targets',()=>{assert.deepEqual(bonusHitTargets.map(x=>x.id),['clock','drawer']);for(const target of bonusHitTargets){assert.equal(target.position.length,3);assert.ok(target.size.every(n=>n>.3));}});
 test('opportunities balanced; every full pattern produces deterministic bounded results',()=>{
  for(const q of questions)for(const d of 'ICAR'){assert.equal(q.choices.reduce((s,c)=>s+(c.score[d]||0),0),3);}
  const counts={};for(let n=0;n<65536;n++){let x=n;const a={};for(const q of questions){a[q.id]=q.choices[x%4].id;x=Math.floor(x/4);}const r=scoreVisit(a);counts[r.code]=(counts[r.code]||0)+1;assert.equal(Object.values(r.scores).reduce((a,b)=>a+b),24);assert.equal(new Set(r.evidence.map(e=>e.questionId)).size,3);if(r.code!=='MX')assert.ok([...r.code].every(d=>r.support[d]>=2));}

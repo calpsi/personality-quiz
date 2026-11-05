@@ -64,11 +64,11 @@ loader = <<~JAVASCRIPT
 
     const style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = '#{RUNTIME_ROOT}p5-runtime.css?v=20261106-2';
+    style.href = '#{RUNTIME_ROOT}p5-runtime.css?v=20261106-3';
     document.head.appendChild(style);
 
     const script = document.createElement('script');
-    script.src = '#{RUNTIME_ROOT}p5-runtime.js?v=20261106-2';
+    script.src = '#{RUNTIME_ROOT}p5-runtime.js?v=20261106-3';
     script.onload = () => host.removeAttribute('aria-busy');
     script.onerror = () => {
       host.textContent = 'The museum could not open.';
