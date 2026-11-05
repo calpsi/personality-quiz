@@ -9,6 +9,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {createPatrol} from '../lib/abraham-walk.mjs';
 import {DRACOLoader} from 'three/addons/loaders/DRACOLoader.js';
+import {deviceLookQuaternion,requestDeviceLook,supportsDeviceLook} from '../lib/device-look.mjs';
 
 const views={hall:[[0,2.05,4.4],[0,1.65,-.7]],'Deep Time':[[-5.5,2.1,3.8],[-9,1.6,-1.4]],'Earth & Space':[[5.4,2.05,3.5],[9,1.5,-1.9]],'Living Systems':[[0,1.9,-5.8],[0,1.6,-10]],q1:[[-8.1,1.95,4.3],[-10.1,1.65,2.8]],q2:[[-7,2.1,.6],[-9,1.5,-1.8]],q3:[[-8.5,2,1],[-8.5,2.1,-4.65]],q4:[[8,1.9,4.6],[10,1.4,2.8]],q5:[[8,2,1.2],[10,1.7,-1.4]],q6:[[5.3,1.9,-.2],[6.1,1.55,-3.4]],q7:[[-1.9,1.9,-6.8],[-1.9,1.5,-9.8]],q8:[[2,1.9,-6.8],[2,1.2,-9.5]]};
 
@@ -17,7 +18,14 @@ export default function Museum({view='hall',resultCode=null,reduced=false,onInte
  const talkingRef=useRef(talking);talkingRef.current=talking;
  const thought=useRef(null),speech=useRef(speaking);speech.current=speaking;
  const host=useRef(null),control=useRef(null),callback=useRef(onInteract);callback.current=onInteract;
+ const [motionAvailable,setMotionAvailable]=useState(false),[motionEnabled,setMotionEnabled]=useState(false),[motionDenied,setMotionDenied]=useState(false);
  const [thoughtText,setThoughtText]=useState('Now, where did I put my pencil?');
+ useEffect(()=>{setMotionAvailable(supportsDeviceLook(window)&&window.matchMedia('(pointer: coarse)').matches);},[]);
+ useEffect(()=>{control.current?.setMotion?.(motionEnabled);},[motionEnabled]);
+ const toggleMotion=async()=>{
+  if(motionEnabled){setMotionEnabled(false);return;}
+  const allowed=await requestDeviceLook(window);setMotionDenied(!allowed);if(allowed)setMotionEnabled(true);
+ };
  useEffect(()=>{if(resultCode||reception)return;const lines=['I hope the stars stay in the drawer.','Was that label always over there?','One stamp, two stamps… oh, a pencil!','The clock seems quite pleased today.','I should dust that. When it comes down.'];let last=-1;const id=setInterval(()=>{let next=Math.floor(Math.random()*lines.length);if(next===last)next=(next+1)%lines.length;last=next;setThoughtText(lines[next]);},11000);return()=>clearInterval(id);},[resultCode,reception]);
  const [status,setStatus]=useState('Opening the museum…');
  useEffect(()=>{
@@ -80,9 +88,18 @@ export default function Museum({view='hall',resultCode=null,reduced=false,onInte
   if(!resultCode){orbit.minPolarAngle=.2;orbit.maxPolarAngle=Math.PI-.2;}
   canvas.tabIndex=0;canvas.setAttribute('aria-label','Museum navigation. Drag to orbit, right-drag or two fingers to pan, pinch or scroll to zoom. Arrow keys pan.');
 
+  const motion={active:false,current:null,baseSensor:null,baseCamera:null,rebase:false};
+  const readOrientation=e=>{
+   if(!motion.active)return;
+   const screenAngle=window.screen?.orientation?.angle??window.orientation??0;
+   const sensor=deviceLookQuaternion(THREE,e,screenAngle);if(!sensor)return;
+   motion.current=sensor;
+   if(!motion.baseSensor){motion.baseSensor=sensor.clone();motion.baseCamera=camera.quaternion.clone();}
+  };
+  window.addEventListener('deviceorientation',readOrientation,true);
   const raycaster=new THREE.Raycaster();let down=null;const pointers=new Set();let multi=false;
   let lookDrag=null;
-  const pointerDown=e=>{pointers.add(e.pointerId);if(pointers.size>1){multi=true;lookDrag=null;}else{multi=false;down={x:e.clientX,y:e.clientY};if(!resultCode&&!reception&&!talkingRef.current&&e.button===0)lookDrag={x:e.clientX,y:e.clientY};}canvas.focus({preventScroll:true});};
+  const pointerDown=e=>{pointers.add(e.pointerId);if(pointers.size>1){multi=true;lookDrag=null;}else{multi=false;down={x:e.clientX,y:e.clientY};if(!resultCode&&!reception&&!talkingRef.current&&!motion.active&&e.button===0)lookDrag={x:e.clientX,y:e.clientY};}canvas.focus({preventScroll:true});};
   const pointerMove=e=>{
    if(!lookDrag||multi||talkingRef.current)return;
    const dx=e.clientX-lookDrag.x,dy=e.clientY-lookDrag.y;lookDrag={x:e.clientX,y:e.clientY};
@@ -100,11 +117,13 @@ export default function Museum({view='hall',resultCode=null,reduced=false,onInte
   const pointerUp=e=>{pointers.delete(e.pointerId);if(down&&!multi&&Math.hypot(e.clientX-down.x,e.clientY-down.y)<6){const rect=canvas.getBoundingClientRect();raycaster.setFromCamera(new THREE.Vector2((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1),camera);const hit=raycaster.intersectObjects(scene.children,true).find(h=>h.object.visible&&h.object.userData.interaction_id);if(hit)callback.current(hit.object.userData.interaction_id);}down=null;};
   const cancel=e=>{pointers.delete(e.pointerId);down=null;};
   canvas.addEventListener('pointerdown',pointerDown);canvas.addEventListener('pointerup',pointerUp);canvas.addEventListener('pointercancel',cancel);
-  const setView=v=>{const vv=views[v]||views.hall;camera.position.set(...vv[0]);orbit.target.set(...vv[1]);orbit.update();lastCamera.copy(camera.position);};
+  const setView=v=>{const vv=views[v]||views.hall;camera.position.set(...vv[0]);orbit.target.set(...vv[1]);orbit.update();lastCamera.copy(camera.position);motion.baseSensor=null;motion.baseCamera=null;};
   const move=(x,z)=>{const forward=orbit.target.clone().sub(camera.position);forward.y=0;forward.normalize();const right=new THREE.Vector3().crossVectors(forward,camera.up).normalize();const offset=right.multiplyScalar(x).addScaledVector(forward,z);const destination=constrainMove(camera.position,camera.position.clone().add(offset));const actual=destination.clone().sub(camera.position);camera.position.copy(destination);orbit.target.add(actual);orbit.update();};
   const lastCamera=camera.position.clone();
-  const clock=new THREE.Clock();let time=0;let conversationCamera=null;control.current={setView,move,zoom(factor){camera.position.sub(orbit.target).multiplyScalar(factor).add(orbit.target);orbit.update();},events:discoveries};
+  const clock=new THREE.Clock();let time=0;let conversationCamera=null;control.current={setView,move,zoom(factor){camera.position.sub(orbit.target).multiplyScalar(factor).add(orbit.target);orbit.update();},setMotion(active){motion.active=active;motion.current=null;motion.baseSensor=null;motion.baseCamera=null;motion.rebase=false;},events:discoveries};
+  control.current.setMotion(motionEnabled);
   const tick=(dt)=>{if(!reduced){time+=dt;mixer?.update(dt);}if(!reception)patrol?.update(dt,reduced,talkingRef.current?camera.position:null);orbit.enabled=!reception&&!talkingRef.current;if(talkingRef.current&&hamster){
+    if(motion.active)motion.rebase=true;
     if(!conversationCamera)conversationCamera={position:camera.position.clone(),target:orbit.target.clone()};
     const blend=reduced?1:1-Math.exp(-dt*4);
     camera.position.y=THREE.MathUtils.lerp(camera.position.y,1.05,blend);
@@ -112,6 +131,14 @@ export default function Museum({view='hall',resultCode=null,reduced=false,onInte
     const framing=new THREE.Vector3(hamster.position.x,.25,hamster.position.z);
     orbit.target.lerp(framing,blend);
    }else if(conversationCamera){camera.position.copy(conversationCamera.position);orbit.target.copy(conversationCamera.target);conversationCamera=null;}
+   if(motion.active&&motion.current&&!talkingRef.current){
+    if(motion.rebase||!motion.baseSensor){motion.baseSensor=motion.current.clone();motion.baseCamera=camera.quaternion.clone();motion.rebase=false;}
+    const delta=motion.current.clone().multiply(motion.baseSensor.clone().invert());
+    const cameraOrientation=delta.multiply(motion.baseCamera);
+    const forward=new THREE.Vector3(0,0,-1).applyQuaternion(cameraOrientation).normalize();
+    const distance=Math.max(.8,orbit.target.distanceTo(camera.position));
+    orbit.target.copy(camera.position).addScaledVector(forward,distance);
+   }
    orbit.update();
    if(hamster){if(reception){hamster.traverse(o=>{const index=o.morphTargetDictionary?.Mouth_Open;if(index!==undefined)o.morphTargetInfluences[index]=speech.current&&!reduced&&Math.sin(time*15)>.1?1:0;});}else if(thought.current){const head=hamster.getObjectByName('head');const point=new THREE.Vector3();(head||hamster).getWorldPosition(point);point.y+=.8;const ahead=point.clone().sub(camera.position).dot(camera.getWorldDirection(new THREE.Vector3()))>0;point.project(camera);const visible=ahead&&Math.abs(point.x)<.85&&Math.abs(point.y)<.8&&point.z<1&&(time%11)<5;thought.current.style.display=visible?'block':'none';thought.current.style.left=(point.x*.5+.5)*el.clientWidth+'px';thought.current.style.top=(-point.y*.5+.5)*el.clientHeight+'px';}}
    if(resultCode&&model&&!reduced){model.rotation.y=Math.sin(time*.35)*.22;model.position.y=Math.sin(time*1.1)*.045;}
@@ -122,10 +149,10 @@ export default function Museum({view='hall',resultCode=null,reduced=false,onInte
    details?.update(time,reduced);
    renderer.render(scene,camera);
   };
-  return {tick,resize,reduced,exploring:!resultCode&&!reception,surface:renderer.domElement,dispose(){disposed=true;canvas.removeEventListener('pointermove',pointerMove);canvas.removeEventListener('pointerup',endLook);canvas.removeEventListener('pointercancel',endLook);orbit.dispose();canvas.removeEventListener('pointerdown',pointerDown);canvas.removeEventListener('pointerup',pointerUp);canvas.removeEventListener('pointercancel',cancel);scene.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of (Array.isArray(o.material)?o.material:[o.material])){for(const v of Object.values(m))if(v?.isTexture)v.dispose();m.dispose();}});mixer?.stopAllAction();draco.dispose();renderer.dispose();control.current=null;}};
+  return {tick,resize,reduced,exploring:!resultCode&&!reception,surface:renderer.domElement,dispose(){disposed=true;window.removeEventListener('deviceorientation',readOrientation,true);canvas.removeEventListener('pointermove',pointerMove);canvas.removeEventListener('pointerup',endLook);canvas.removeEventListener('pointercancel',endLook);orbit.dispose();canvas.removeEventListener('pointerdown',pointerDown);canvas.removeEventListener('pointerup',pointerUp);canvas.removeEventListener('pointercancel',cancel);scene.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of (Array.isArray(o.material)?o.material:[o.material])){for(const v of Object.values(m))if(v?.isTexture)v.dispose();m.dispose();}});mixer?.stopAllAction();draco.dispose();renderer.dispose();control.current=null;}};
   });
  },[resultCode,reduced,reception]);
  useEffect(()=>{if(!resultCode&&!reception)control.current?.setView(view);},[view,resultCode,reception]);
  useEffect(()=>{if(control.current)control.current.events=discoveries;},[discoveries]);
- return <div className={'museum-canvas '+(resultCode?'specimen-canvas':'')}><div className="webgl-host" ref={host} role="region" aria-label={resultCode?'Your specimen, gently floating above its plinth':'Interactive 3D natural history museum. Orbit, pan and zoom freely; gallery buttons are optional shortcuts.'}/>{!resultCode&&!reception&&<Joystick onMove={(x,z)=>control.current?.move(x,z)}/>}{!resultCode&&!reception&&<div ref={thought} className="hamster-thought" style={{display:'none'}}>{thoughtText}<i/><b/></div>}{choice&&<div className="exhibit-preview"><span>DISPLAY NOTE</span><p>{choice}</p></div>}{status&&<div className="load-state" role="status">{status}</div>}</div>;
+ return <div className={'museum-canvas '+(resultCode?'specimen-canvas':'')}><div className="webgl-host" ref={host} role="region" aria-label={resultCode?'Your specimen, gently floating above its plinth':'Interactive 3D natural history museum. Orbit, pan and zoom freely; gallery buttons are optional shortcuts.'}/>{!resultCode&&!reception&&<Joystick onMove={(x,z)=>control.current?.move(x,z)}/>}{motionAvailable&&!resultCode&&!reception&&<button className={'motion-look '+(motionEnabled?'active':'')} onClick={toggleMotion} aria-pressed={motionEnabled} aria-label={motionEnabled?'Turn off motion look':'Use phone motion to look around'}><span aria-hidden="true">◎</span><small>{motionEnabled?'TILT ON':'TILT'}</small></button>}{motionDenied&&<span className="motion-denied" role="status">Motion access is off</span>}{!resultCode&&!reception&&<div ref={thought} className="hamster-thought" style={{display:'none'}}>{thoughtText}<i/><b/></div>}{choice&&<div className="exhibit-preview"><span>DISPLAY NOTE</span><p>{choice}</p></div>}{status&&<div className="load-state" role="status">{status}</div>}</div>;
 }

@@ -25,3 +25,12 @@
 .screen-museum:has(.question-panel) .navigation-tools{display:none}
 .screen-museum .gallery-menu{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);margin:0;max-height:65svh;overflow:auto}
 .screen-museum .toast{width:auto;max-width:calc(100% - 120px);padding:8px 15px;bottom:20px;box-shadow:none}
+
+/* Phone-look control and a game-style answer action that stays in reach. */
+.motion-look{position:absolute;right:16px;top:24px;z-index:7;width:48px;height:48px;border:1px solid #dfc79b45;border-radius:50%;background:#24291ed9;color:#eee3c6;display:grid;place-items:center;padding:5px;box-shadow:0 3px 12px #0002;backdrop-filter:blur(10px)}
+.motion-look>span{font:24px/1 Georgia,serif;height:22px}.motion-look small{font:7px/1 Arial,sans-serif;letter-spacing:.08em}.motion-look.active{background:#d9c28d;color:#2f3929;border-color:#f2dfad;box-shadow:0 0 0 3px #d9c28d35,0 3px 12px #0003}
+.motion-denied{position:absolute;right:13px;top:79px;z-index:7;color:#eee3c6;background:#24291ed9;border-radius:12px;padding:5px 8px;font:8px Arial,sans-serif}
+.stamp-confirm-dock{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:35;width:min(340px,calc(100% - 44px));pointer-events:none}
+.stamp-confirm-dock .primary{pointer-events:auto;min-height:58px;border-radius:20px;background:#46513a;border:1px solid #d9c38f;box-shadow:0 8px 28px #151a1055,0 0 0 4px #f3e7c51f;padding:14px 20px}
+.screen-museum:has(.stamp-confirm-dock) .question-panel{padding-bottom:104px}
+@media(min-width:700px){.motion-look{right:28px}.stamp-confirm-dock{width:320px}}
