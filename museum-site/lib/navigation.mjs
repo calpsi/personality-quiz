@@ -5,7 +5,7 @@ export function walkable(x,z){
  if(Math.abs(Math.abs(x)-4)<.45&&Math.abs(z)>1.05)return false;
  if(Math.abs(z+5)<.45&&Math.abs(x)>1.05)return false;
  if(Math.abs(z-5)<.45&&Math.abs(x)>1.05)return false;
- if(Math.abs(x)<1.65&&z>-2.35&&z<1.35)return false;
+ if(Math.abs(x)<1.25&&z>-1.8&&z<.9)return false;
  // Keep the visitor's eye point outside the display furniture. This also
  // stops pinch-zoom from sliding the camera through a specimen or placard.
  if(x < -8.35 && z > -4.35 && z < 4.35)return false;
