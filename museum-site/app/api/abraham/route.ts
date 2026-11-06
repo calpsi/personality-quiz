@@ -1,5 +1,6 @@
 import {respond,validBody} from '@/lib/abraham.mjs';
 import {getChatGPTUser} from '@/app/chatgpt-auth';
+import {isSameSiteRequest,publicVisitorId} from '@/lib/request-identity.mjs';
 export const dynamic='force-dynamic';
 const windows=new Map<string,{count:number,reset:number}>();
 const previewOrigin='https://preview.p5js.org';
@@ -26,13 +27,10 @@ export async function POST(request:Request){
     for(const [name,value] of Object.entries(headers))response.headers.set(name,value);
     return response;
   }
-  const origin=request.headers.get('origin');
-  if(origin && origin!==new URL(request.url).origin)return Response.json({error:'This conversation belongs to the museum.'},{status:403});
-  // Private Sites provides the authenticated visitor identity. No anonymous paid endpoint.
+  if(!isSameSiteRequest(request))return Response.json({error:'This conversation belongs to the museum.'},{status:403});
   const user=await getChatGPTUser();
   const isLocal=['localhost','127.0.0.1'].includes(new URL(request.url).hostname);
-  if(!user&&!isLocal)return Response.json({error:'Please sign in to talk to Abraham.'},{status:401});
-  return conversation(request,user?.userId||'local');
+  return conversation(request,user?.userId||(isLocal?'local':publicVisitorId(request.headers)));
 }
 async function conversation(request:Request,id:string,keyOverride?:string){
   const now=Date.now();

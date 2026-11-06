@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as THREE from 'three';
 import {deviceLookQuaternion,requestDeviceLook,supportsDeviceLook} from '../lib/device-look.mjs';
+import {neutralLookDirection,recenteredLookTarget} from '../lib/camera-recenter.mjs';
 
 test('device look rejects incomplete sensor readings',()=>{
   assert.equal(deviceLookQuaternion(THREE,{alpha:null,beta:10,gamma:2}),null);
@@ -20,4 +21,14 @@ test('motion permission works for Android-style and iOS-style APIs',async()=>{
   assert.equal(await requestDeviceLook({DeviceOrientationEvent:function(){}}),true);
   assert.equal(await requestDeviceLook({DeviceOrientationEvent:{requestPermission:async()=> 'granted'}}),true);
   assert.equal(await requestDeviceLook({DeviceOrientationEvent:{requestPermission:async()=> 'denied'}}),false);
+});
+
+test('recenter restores the gallery heading without moving the visitor',()=>{
+  const position=[4,2,4],currentTarget=[7,3,8];
+  const forward=neutralLookDirection([0,2,4],[0,1,-1]);
+  const target=recenteredLookTarget(position,currentTarget,forward);
+  assert.deepEqual(position,[4,2,4]);
+  assert.ok(Math.abs(Math.hypot(...target.map((value,index)=>value-position[index]))-Math.hypot(3,1,4))<1e-10);
+  const actual=neutralLookDirection(position,target);
+  actual.forEach((value,index)=>assert.ok(Math.abs(value-forward[index])<1e-10));
 });

@@ -11,15 +11,38 @@ export function contextFor(body){
 export function validBody(body){
   return body&&['chat','result_remark'].includes(body.mode)&&body.visit&&typeof body.visit==='object'&&(!body.message||typeof body.message==='string'&&body.message.length<=600)&&!(body.mode==='chat'&&!body.message?.trim());
 }
-/** @param {any} body @param {{key?:string,model?:string,fetcher?:typeof fetch}} options */
-export async function respond(body,{key=undefined,model='gpt-6-luna',fetcher=fetch}={}){
+const wait=milliseconds=>new Promise(resolve=>setTimeout(resolve,milliseconds));
+async function failure(response){
+  let code='';
+  try{code=(await response.clone().json())?.error?.code||'';}catch{}
+  if(response.status===401||response.status===403)return {reason:'authentication',retry:false};
+  if(response.status===429&&/(?:quota|limit_exceeded|credit_balance)/.test(code))return {reason:'quota',retry:false};
+  if(response.status===429)return {reason:'rate_limited',retry:true};
+  return {reason:'unavailable',retry:response.status===408||response.status===409||response.status>=500};
+}
+function retryDelay(response,attempt){
+  const header=response?.headers?.get('retry-after');
+  const seconds=Number(header);
+  const requested=Number.isFinite(seconds)?seconds*1000:350*(attempt+1);
+  return Math.max(250,Math.min(1500,requested));
+}
+/** @param {any} body @param {{key?:string,model?:string,fetcher?:typeof fetch,sleeper?:(milliseconds:number)=>Promise<void>}} options */
+export async function respond(body,{key=undefined,model='gpt-6-luna',fetcher=fetch,sleeper=wait}={}){
   const context=contextFor(body);const safeVisit=restoreVisit({...body.visit,version:1});const fallback=body.mode==='result_remark'?fallbackRemark(safeVisit):fallbackChat(body.message);
   if(!key)return {text:fallback,source:'authored',reason:'not_configured'};
-  try{
-    const response=await fetcher('https://api.openai.com/v1/responses',{method:'POST',headers:{Authorization:`Bearer ${key}`,'Content-Type':'application/json'},signal:AbortSignal.timeout(18000),body:JSON.stringify({model,instructions,input:JSON.stringify(context),store:false,reasoning:{effort:'none'},max_output_tokens:300})});
-    if(!response.ok)return {text:fallback,source:'authored',reason:'unavailable'};
-    const data=await response.json();const text=(data.output||[]).filter(x=>x.type==='message').flatMap(x=>x.content||[]).filter(x=>x.type==='output_text').map(x=>x.text).join('').trim();
-    if(data.status==='incomplete'||!text||text.length>1400)return {text:fallback,source:'authored',reason:'unavailable'};
-    return {text,source:'ai'};
-  }catch{return {text:fallback,source:'authored',reason:'unavailable'};}
+  let lastReason='unavailable';
+  for(let attempt=0;attempt<2;attempt++){
+    try{
+      const response=await fetcher('https://api.openai.com/v1/responses',{method:'POST',headers:{Authorization:`Bearer ${key}`,'Content-Type':'application/json'},signal:AbortSignal.timeout(9000),body:JSON.stringify({model,instructions,input:JSON.stringify(context),store:false,reasoning:{effort:'none'},max_output_tokens:300})});
+      if(!response.ok){
+        const problem=await failure(response);lastReason=problem.reason;
+        if(attempt===0&&problem.retry){await sleeper(retryDelay(response,attempt));continue;}
+        return {text:fallback,source:'authored',reason:lastReason};
+      }
+      const data=await response.json();const text=(data.output||[]).filter(x=>x.type==='message').flatMap(x=>x.content||[]).filter(x=>x.type==='output_text').map(x=>x.text).join('').trim();
+      if(data.status==='incomplete'||!text||text.length>1400)return {text:fallback,source:'authored',reason:'unavailable'};
+      return {text,source:'ai'};
+    }catch{if(attempt===0){await sleeper(350);continue;}}
+  }
+  return {text:fallback,source:'authored',reason:lastReason};
 }

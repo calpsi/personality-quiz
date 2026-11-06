@@ -11,7 +11,7 @@ This workspace also has a local npm installation under `.sites-runtime/bin` and 
 
 Run `python3 scripts/set-api-key.py` in Terminal. It asks for confirmation of the local `.env.local` destination, then accepts the key through hidden input. Restart the development server afterward. The key is never sent to the frontend or included in Git. Optional `OPENAI_MODEL` defaults to `gpt-6-luna`; use a model available to your API project. API billing is separate from a ChatGPT subscription.
 
-For the hosted Site, configure `OPENAI_API_KEY` as a secret runtime environment variable through Sites, then deploy the saved version again. A local `.env.local` does not configure production. No key has been installed or live paid request tested as part of this prototype.
+For Vercel, configure `OPENAI_API_KEY` in Project Settings → Environment Variables for Production, Preview, and Development, then redeploy. A local `.env.local` does not configure production. `OPENAI_MODEL` is optional and defaults to `gpt-6-luna`. The public route accepts same-origin museum visitors, rate-limits anonymous visitors without storing their raw IP address, retries temporary upstream failures once, and falls back to Abraham's authored dialogue if the live API is unavailable.
 
 Browser → same-origin `/api/abraham` → OpenAI Responses API → browser.
 The server recomputes the specimen from valid answer IDs. Optional conversation and exploration personalise speech only; they never affect scoring. Requests use `store:false`, bounded context, timeout, and an authored fallback. API route requires Sites identity outside localhost; the current Site is owner-private. The in-memory per-user limiter is best-effort per Worker instance; use durable rate limits/budgets before a broad public launch.
