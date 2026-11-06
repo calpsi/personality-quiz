@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as THREE from 'three';
 import {deviceLookQuaternion,requestDeviceLook,supportsDeviceLook} from '../lib/device-look.mjs';
-import {neutralLookDirection,recenteredLookTarget} from '../lib/camera-recenter.mjs';
+import {characterTapVolume,neutralLookDirection,rebaseMotionState,recenteredLookTarget} from '../lib/camera-recenter.mjs';
 
 test('device look rejects incomplete sensor readings',()=>{
   assert.equal(deviceLookQuaternion(THREE,{alpha:null,beta:10,gamma:2}),null);
@@ -31,4 +31,15 @@ test('recenter restores the gallery heading without moving the visitor',()=>{
   assert.ok(Math.abs(Math.hypot(...target.map((value,index)=>value-position[index]))-Math.hypot(3,1,4))<1e-10);
   const actual=neutralLookDirection(position,target);
   actual.forEach((value,index)=>assert.ok(Math.abs(value-forward[index])<1e-10));
+});
+
+test('manual look rebases gyro motion and Abraham gets a forgiving tap volume',()=>{
+  const sensor={id:'sensor',clone(){return {id:this.id};}},camera={id:'camera',clone(){return {id:this.id};}};
+  const motion={current:sensor,baseSensor:null,baseCamera:null,rebase:true};
+  rebaseMotionState(motion,camera);
+  assert.deepEqual(motion.baseSensor,{id:'sensor'});
+  assert.deepEqual(motion.baseCamera,{id:'camera'});
+  assert.equal(motion.rebase,false);
+  const volume=characterTapVolume([.4,2,.5],.6);
+  assert.ok(volume[0]>=.9&&volume[1]>=1.35&&volume[2]>=.9);
 });
